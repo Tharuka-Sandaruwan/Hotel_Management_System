@@ -417,8 +417,6 @@ public class mainInterface extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(availableRoomTbl);
 
-        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
         Reservation.setBackground(new java.awt.Color(0, 255, 204));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
