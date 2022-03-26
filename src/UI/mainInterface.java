@@ -1277,9 +1277,9 @@ public class mainInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        roomTypesPanel newpanel = new roomTypesPanel();
+        roomTypes newpanel = new roomTypes();
         roomTypeContainer.add(newpanel);
-        newpanel.indexSetter(3);
+        newpanel.indexSetter(2);
         newpanel.setSize(500, 410);
         newpanel.setVisible(true);
         
