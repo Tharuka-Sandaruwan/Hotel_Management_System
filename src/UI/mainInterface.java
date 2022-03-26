@@ -94,8 +94,6 @@ public class mainInterface extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         StaffAssign = new javax.swing.JPanel();
-        tableScroller1 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         custInfoAddScroller1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         custIDTxt1 = new javax.swing.JTextField();
@@ -714,22 +712,6 @@ public class mainInterface extends javax.swing.JFrame {
 
         StaffAssign.setBackground(new java.awt.Color(102, 255, 102));
 
-        tableScroller1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        tableScroller1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tableScroller1.setViewportView(jTable2);
-
         custInfoAddScroller1.setBackground(new java.awt.Color(204, 204, 204));
         custInfoAddScroller1.setBorder(null);
         custInfoAddScroller1.setForeground(new java.awt.Color(204, 204, 204));
@@ -805,7 +787,7 @@ public class mainInterface extends javax.swing.JFrame {
                                     .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(245, 245, 245)))
-                        .addContainerGap(121, Short.MAX_VALUE))
+                        .addContainerGap(516, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -846,18 +828,13 @@ public class mainInterface extends javax.swing.JFrame {
         StaffAssign.setLayout(StaffAssignLayout);
         StaffAssignLayout.setHorizontalGroup(
             StaffAssignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StaffAssignLayout.createSequentialGroup()
-                .addComponent(custInfoAddScroller1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScroller1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(custInfoAddScroller1, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
         );
         StaffAssignLayout.setVerticalGroup(
             StaffAssignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StaffAssignLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(StaffAssignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(custInfoAddScroller1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(tableScroller1))
+                .addComponent(custInfoAddScroller1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1264,7 +1241,7 @@ public class mainInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_nicTxt1ActionPerformed
 
     private void BillingBtnPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingBtnPaneMouseClicked
-        tabbedPane.setSelectedIndex(2);
+        tabbedPane.setSelectedIndex(3);
     }//GEN-LAST:event_BillingBtnPaneMouseClicked
 
     private void custIDTxt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIDTxt2ActionPerformed
@@ -1276,7 +1253,7 @@ public class mainInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_nicTxt2ActionPerformed
 
     private void StaffAssignBtnPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StaffAssignBtnPane1MouseClicked
-        tabbedPane.setSelectedIndex(3);
+        tabbedPane.setSelectedIndex(2);
     }//GEN-LAST:event_StaffAssignBtnPane1MouseClicked
 
     /**
@@ -1389,7 +1366,6 @@ public class mainInterface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField lNameTxt;
     private javax.swing.JPanel menusPane;
@@ -1417,7 +1393,6 @@ public class mainInterface extends javax.swing.JFrame {
     private javax.swing.JTextField reskidsTxt;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JScrollPane tableScroller;
-    private javax.swing.JScrollPane tableScroller1;
     private javax.swing.JScrollPane tableScroller2;
     private javax.swing.JPanel titlePane;
     private javax.swing.JButton updateBtn;
