@@ -105,8 +105,9 @@ public class mainInterface extends javax.swing.JFrame {
         clearBtn1 = new javax.swing.JButton();
         deleteBtn1 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
         jButton1 = new javax.swing.JButton();
+        roomTypesFrm = new javax.swing.JScrollPane();
+        roomTypeContainer = new javax.swing.JPanel();
         BillingPane = new javax.swing.JPanel();
         tableScroller2 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -750,6 +751,32 @@ public class mainInterface extends javax.swing.JFrame {
         jLabel25.setText("rooms reserved");
 
         jButton1.setText("test");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        roomTypesFrm.setBackground(new java.awt.Color(255, 0, 51));
+        roomTypesFrm.setForeground(new java.awt.Color(51, 255, 51));
+
+        javax.swing.GroupLayout roomTypeContainerLayout = new javax.swing.GroupLayout(roomTypeContainer);
+        roomTypeContainer.setLayout(roomTypeContainerLayout);
+        roomTypeContainerLayout.setHorizontalGroup(
+            roomTypeContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 828, Short.MAX_VALUE)
+        );
+        roomTypeContainerLayout.setVerticalGroup(
+            roomTypeContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 484, Short.MAX_VALUE)
+        );
+
+        roomTypesFrm.setViewportView(roomTypeContainer);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -778,13 +805,13 @@ public class mainInterface extends javax.swing.JFrame {
                                 .addComponent(clearBtn1))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(121, 121, 121)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(121, 121, 121)
+                                .addComponent(jButton1)))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -799,9 +826,9 @@ public class mainInterface extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(43, 43, 43)
+                .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateBtn1)
                     .addComponent(addBtn1)
@@ -1244,6 +1271,22 @@ public class mainInterface extends javax.swing.JFrame {
         tabbedPane.setSelectedIndex(2);
     }//GEN-LAST:event_StaffAssignBtnPane1MouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    
+      
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        roomTypesPanel newpanel = new roomTypesPanel();
+        roomTypeContainer.add(newpanel);
+        newpanel.indexSetter(3);
+        newpanel.setSize(500, 410);
+        newpanel.setVisible(true);
+        
+        
+        System.out.println("created");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1349,7 +1392,6 @@ public class mainInterface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
@@ -1378,6 +1420,8 @@ public class mainInterface extends javax.swing.JFrame {
     private javax.swing.JTextField reservationIdTxt;
     private javax.swing.JPanel reservationPane;
     private javax.swing.JTextField reskidsTxt;
+    private javax.swing.JPanel roomTypeContainer;
+    private javax.swing.JScrollPane roomTypesFrm;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JScrollPane tableScroller;
     private javax.swing.JScrollPane tableScroller2;
