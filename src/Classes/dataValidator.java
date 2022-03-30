@@ -15,6 +15,21 @@ public class dataValidator {
             return false;
 
         }
+      
     }
+    
+    public static boolean PhoneNumberValidator(String phoneNum){
+    if (phoneNum.length() >= 10 && phoneNum.matches("[0-9]+")){
+        return true;
+    }else{
+    
+        return false;
+
+    }
+    
+    }
+    
+    
+    
 
 }
