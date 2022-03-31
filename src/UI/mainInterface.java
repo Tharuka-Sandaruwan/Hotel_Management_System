@@ -229,6 +229,14 @@ public void clearFlds(List<JTextField> textFields){
                 nicTxtActionPerformed(evt);
             }
         });
+        nicTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nicTxtKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nicTxtKeyReleased(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Customer Name");
@@ -260,6 +268,14 @@ public void clearFlds(List<JTextField> textFields){
                 phoneNo1TxtActionPerformed(evt);
             }
         });
+        phoneNo1Txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                phoneNo1TxtKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                phoneNo1TxtKeyReleased(evt);
+            }
+        });
 
         email.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         email.setText("Email");
@@ -267,6 +283,14 @@ public void clearFlds(List<JTextField> textFields){
         emailTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTxtActionPerformed(evt);
+            }
+        });
+        emailTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emailTxtKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                emailTxtKeyReleased(evt);
             }
         });
 
@@ -279,6 +303,14 @@ public void clearFlds(List<JTextField> textFields){
         phoneNo2Txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneNo2TxtActionPerformed(evt);
+            }
+        });
+        phoneNo2Txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                phoneNo2TxtKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                phoneNo2TxtKeyReleased(evt);
             }
         });
 
@@ -1448,6 +1480,51 @@ public void clearFlds(List<JTextField> textFields){
         
         // ADD A WAY TO SET THE DEFAULT COUNTRY TO SRI LANKA
     }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void nicTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nicTxtKeyPressed
+        dataValidator.NICvalidator(nicTxt);
+    }//GEN-LAST:event_nicTxtKeyPressed
+
+    private void nicTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nicTxtKeyReleased
+        dataValidator.NICvalidator(nicTxt);
+    }//GEN-LAST:event_nicTxtKeyReleased
+
+    private void phoneNo1TxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNo1TxtKeyPressed
+      dataValidator.PhoneNumberValidator(phoneNo1Txt);
+
+    }//GEN-LAST:event_phoneNo1TxtKeyPressed
+
+    private void phoneNo1TxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNo1TxtKeyReleased
+      dataValidator.PhoneNumberValidator(phoneNo1Txt);
+
+    }//GEN-LAST:event_phoneNo1TxtKeyReleased
+
+    private void phoneNo2TxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNo2TxtKeyPressed
+        if (phoneNo2Txt.getText().matches("")) {
+                 phoneNo2Txt.setBorder(Bordergood());
+
+        }else{
+           dataValidator.PhoneNumberValidator(phoneNo2Txt);
+
+        }
+    }//GEN-LAST:event_phoneNo2TxtKeyPressed
+
+    private void phoneNo2TxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNo2TxtKeyReleased
+        if (phoneNo2Txt.getText().matches("")) {
+              phoneNo2Txt.setBorder(Bordergood());
+        }else{
+           dataValidator.PhoneNumberValidator(phoneNo2Txt);
+
+        }
+    }//GEN-LAST:event_phoneNo2TxtKeyReleased
+
+    private void emailTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTxtKeyPressed
+        dataValidator.eMailValidator(emailTxt);
+    }//GEN-LAST:event_emailTxtKeyPressed
+
+    private void emailTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTxtKeyReleased
+                dataValidator.eMailValidator(emailTxt);
+    }//GEN-LAST:event_emailTxtKeyReleased
 
     /**
      * @param args the command line arguments
