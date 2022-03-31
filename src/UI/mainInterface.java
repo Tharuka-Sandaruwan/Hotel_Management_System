@@ -1,18 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package UI;
 
-/**
- *
- * @author Tharuka Sandaruwan
- */
+import Classes.dataValidator;
+import java.awt.Color;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
+
+
+
 public class mainInterface extends javax.swing.JFrame {
 
-    /**
-     * Creates new form mainInterface
-     */
+    // use to set the border to red usue a hidden sample border to get and set attributes
+public Border BorderError(){
+    Border border;
+    return border = new LineBorder(Color.RED, 4, true);
+}
+
+public Border Bordergood(){
+    
+   return sampleTxtField.getBorder();
+           
+}
+
+
+    
     public mainInterface() {
         initComponents();
         setResizable(false);
@@ -58,6 +70,7 @@ public class mainInterface extends javax.swing.JFrame {
         addBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
+        sampleTxtField = new javax.swing.JTextField();
         reservationPane = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         availableRoomTbl = new javax.swing.JTable();
@@ -266,10 +279,17 @@ public class mainInterface extends javax.swing.JFrame {
         updateBtn.setText("Update");
 
         addBtn.setText("Add");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
 
         clearBtn.setText("Clear");
 
         deleteBtn.setText("Delete");
+
+        sampleTxtField.setText("jTextField3");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -287,7 +307,17 @@ public class mainInterface extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(42, 42, 42)
-                                .addComponent(custIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(custIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(sampleTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(addBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(updateBtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(deleteBtn)
+                                .addGap(30, 30, 30)
+                                .addComponent(clearBtn))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,15 +333,7 @@ public class mainInterface extends javax.swing.JFrame {
                                         .addComponent(fNamTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(lNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(addBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(updateBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteBtn)
-                                .addGap(30, 30, 30)
-                                .addComponent(clearBtn))))
+                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(phoneNo2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,7 +352,7 @@ public class mainInterface extends javax.swing.JFrame {
                                 .addComponent(phoneNo1Txt, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(countryList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,7 +360,8 @@ public class mainInterface extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(custIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(custIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sampleTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -1365,6 +1388,26 @@ public class mainInterface extends javax.swing.JFrame {
         
     }//GEN-LAST:event_updateBtn2ActionPerformed
 
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        // TODO add your handling code here: 
+        if (dataValidator.NICvalidator(nicTxt.getText())){
+            nicTxt.setBorder(Bordergood());
+              
+        } else{
+        nicTxt.setBorder(BorderError());
+            
+        }
+        
+        
+        
+      
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_addBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1505,6 +1548,7 @@ public class mainInterface extends javax.swing.JFrame {
     private javax.swing.JTextField reskidsTxt;
     private javax.swing.JPanel roomTypeContainer;
     private javax.swing.JScrollPane roomTypesFrm;
+    public javax.swing.JTextField sampleTxtField;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JScrollPane tableScroller;
     private javax.swing.JPanel titlePane;
