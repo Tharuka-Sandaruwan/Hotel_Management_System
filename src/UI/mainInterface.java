@@ -1438,38 +1438,45 @@ public void clearFlds(List<JTextField> textFields){
     }//GEN-LAST:event_updateBtn2ActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        // TODO add your handling code here: 
-        if (dataValidator.NICvalidator(nicTxt)){
+       
+        if (phoneNo2Txt.getText().length() == 0) {
+            if (dataValidator.NICvalidator(nicTxt) && dataValidator.PhoneNumberValidator(phoneNo1Txt)
+                && dataValidator.eMailValidator(emailTxt) ){
+        
+            System.out.println("all are valid");
+            
+            // THE CODE NEEDED WHEN VALID.AND THE SAME GOES TO THE BELOW
             
             
-            if (dataValidator.PhoneNumberValidator(phoneNo1Txt)) {
-                
-                
-                if(!phoneNo2Txt.getText().matches("") && dataValidator.PhoneNumberValidator(phoneNo2Txt)) {
-                    
-                    
-                    if (dataValidator.eMailValidator(emailTxt)) {
-                        
-                    }
-                                       
-                    
-                }
-               
-                
-                
-            }
+        }
+        else {
+            System.out.println("invalid");
+        }
             
+        }
+        else{
             
-              
-        } 
+        if (dataValidator.NICvalidator(nicTxt) && dataValidator.PhoneNumberValidator(phoneNo1Txt)
+                && dataValidator.PhoneNumberValidator(phoneNo2Txt) && 
+                dataValidator.eMailValidator(emailTxt) ){
+        
+            System.out.println("all are valid");
+            
+             // THE CODE NEEDED WHEN VALID.AND THE SAME GOES FROM THE UP
+
+        }
+        else {
+            System.out.println("invalid");
+        }
+        
+        }
         
         
         
-      
-        
-        
-        
-        
+            
+          
+          
+    
         
     }//GEN-LAST:event_addBtnActionPerformed
 
