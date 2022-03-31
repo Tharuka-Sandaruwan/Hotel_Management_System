@@ -1,10 +1,12 @@
 
 package UI;
 
+import Classes.Country;
 import Classes.dataValidator;
 import java.awt.Color;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -17,7 +19,7 @@ public class mainInterface extends javax.swing.JFrame {
     // use to set the border to red usue a hidden sample border to get and set attributes
 public static Border BorderError(){
     Border border;
-    return border = new LineBorder(Color.RED, 4, true);
+    return border = new LineBorder(Color.RED,2, true);
 }
 
 public static Border Bordergood(){
@@ -35,7 +37,23 @@ public void clearFlds(List<JTextField> textFields){
     }
 }
 
-
+private Country[] createCountryList() {
+    String[] countryCodes = Locale.getISOCountries();
+    Country[] listCountry = new Country[countryCodes.length];
+ 
+    for (int i = 0; i < countryCodes.length; i++) {
+        Locale locale = new Locale("", countryCodes[i]);
+        String code = locale.getCountry();
+        String name = locale.getDisplayCountry();
+ 
+        listCountry[i] = new Country(code, name);
+    }
+ 
+    Arrays.sort(listCountry);
+ 
+    return listCountry;
+}
+Country[] listCountry = createCountryList();
     
     public mainInterface() {
         initComponents();
@@ -77,7 +95,8 @@ public void clearFlds(List<JTextField> textFields){
         phoneNo2Txt = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         addressTxt = new javax.swing.JTextArea();
-        countryList = new javax.swing.JComboBox<>();
+        countryList = new javax.swing.JComboBox<>(listCountry);
+        countryList.setSelectedItem(listCountry[201]);
         updateBtn = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
@@ -317,8 +336,6 @@ public void clearFlds(List<JTextField> textFields){
         addressTxt.setColumns(20);
         addressTxt.setRows(5);
         jScrollPane1.setViewportView(addressTxt);
-
-        countryList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         updateBtn.setText("Update");
 
@@ -1584,7 +1601,7 @@ public void clearFlds(List<JTextField> textFields){
     private javax.swing.JTable availableRoomTbl;
     private javax.swing.JButton clearBtn;
     private javax.swing.JButton clearBtn1;
-    private javax.swing.JComboBox<String> countryList;
+    private javax.swing.JComboBox<Country> countryList;
     private javax.swing.JTextField custIDTxt;
     private javax.swing.JTextField custIDTxt1;
     private javax.swing.JTextField custIDTxt2;
