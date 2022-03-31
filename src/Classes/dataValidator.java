@@ -28,8 +28,23 @@ public class dataValidator {
 
     public static boolean PhoneNumberValidator(JTextField textFields) {
         
-        String phoneNum = textFields.getText();
-        if (phoneNum.length() >= 10 && phoneNum.matches("[0-9]+")) {
+      String phoneNum = textFields.getText();
+
+        
+        String phoneNumPatterns 
+      = "^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$" 
+      + "|^(\\+\\d{1,3}( )?)?(\\d{3}[ ]?){2}\\d{3}$" 
+      + "|^(\\+\\d{1,3}( )?)?(\\d{3}[ ]?)(\\d{2}[ ]?){2}\\d{2}$";
+
+
+        Pattern pattern = Pattern.compile(phoneNumPatterns);
+    
+        Matcher matcher = pattern.matcher(phoneNum);
+  
+            
+        
+        if (phoneNum.length() >= 10 &&  matcher.matches()) 
+        {
             textFields.setBorder(mainInterface.Bordergood());
             return true;
         } else {
