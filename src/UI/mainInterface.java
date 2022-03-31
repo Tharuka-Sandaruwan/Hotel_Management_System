@@ -3,6 +3,9 @@ package UI;
 
 import Classes.dataValidator;
 import java.awt.Color;
+import java.util.Arrays;
+import java.util.List;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
@@ -21,6 +24,15 @@ public Border Bordergood(){
     
    return sampleTxtField.getBorder();
            
+}
+
+
+// use for clearing the text fields
+public void clearFlds(List<JTextField> textFields){
+    for (JTextField jflds: textFields){
+        jflds.setText("");
+        jflds.setBorder(Bordergood());
+    }
 }
 
 
@@ -286,6 +298,11 @@ public Border Bordergood(){
         });
 
         clearBtn.setText("Clear");
+        clearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBtnActionPerformed(evt);
+            }
+        });
 
         deleteBtn.setText("Delete");
 
@@ -1438,6 +1455,14 @@ public Border Bordergood(){
         
         
     }//GEN-LAST:event_addBtnActionPerformed
+
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        clearFlds(Arrays.asList(nicTxt,fNamTxt,lNameTxt,phoneNo1Txt,phoneNo2Txt,emailTxt));
+        addressTxt.setText("");
+        addressTxt.setBorder(Bordergood());
+        
+        // ADD A WAY TO SET THE DEFAULT COUNTRY TO SRI LANKA
+    }//GEN-LAST:event_clearBtnActionPerformed
 
     /**
      * @param args the command line arguments
