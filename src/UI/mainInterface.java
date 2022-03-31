@@ -1392,6 +1392,37 @@ public Border Bordergood(){
         // TODO add your handling code here: 
         if (dataValidator.NICvalidator(nicTxt.getText())){
             nicTxt.setBorder(Bordergood());
+            
+            if (dataValidator.PhoneNumberValidator(phoneNo1Txt.getText())) {
+                phoneNo1Txt.setBorder(Bordergood());
+                
+                if (!phoneNo2Txt.getText().matches("") && dataValidator.PhoneNumberValidator(phoneNo2Txt.getText())) {
+                    phoneNo1Txt.setBorder(Bordergood());
+                    
+                    if (dataValidator.eMailValidator(emailTxt.getText())) {
+                        emailTxt.setBorder(Bordergood());
+                    }
+                    else{
+                         emailTxt.setBorder(BorderError());
+
+                    
+                    }
+                    
+                    
+                }
+                else{
+                phoneNo1Txt.setBorder(BorderError());
+                
+                
+                }
+                
+                
+            }
+            else{
+           phoneNo1Txt.setBorder(BorderError());
+
+            }
+            
               
         } else{
         nicTxt.setBorder(BorderError());
