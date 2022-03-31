@@ -15,12 +15,12 @@ import javax.swing.border.LineBorder;
 public class mainInterface extends javax.swing.JFrame {
 
     // use to set the border to red usue a hidden sample border to get and set attributes
-public Border BorderError(){
+public static Border BorderError(){
     Border border;
     return border = new LineBorder(Color.RED, 4, true);
 }
 
-public Border Bordergood(){
+public static Border Bordergood(){
     
    return sampleTxtField.getBorder();
            
@@ -1407,44 +1407,29 @@ public void clearFlds(List<JTextField> textFields){
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here: 
-        if (dataValidator.NICvalidator(nicTxt.getText())){
-            nicTxt.setBorder(Bordergood());
+        if (dataValidator.NICvalidator(nicTxt)){
             
-            if (dataValidator.PhoneNumberValidator(phoneNo1Txt.getText())) {
-                phoneNo1Txt.setBorder(Bordergood());
+            
+            if (dataValidator.PhoneNumberValidator(phoneNo1Txt)) {
                 
-                if (!phoneNo2Txt.getText().matches("") && dataValidator.PhoneNumberValidator(phoneNo2Txt.getText())) {
-                    phoneNo1Txt.setBorder(Bordergood());
+                
+                if(!phoneNo2Txt.getText().matches("") && dataValidator.PhoneNumberValidator(phoneNo2Txt)) {
                     
-                    if (dataValidator.eMailValidator(emailTxt.getText())) {
-                        emailTxt.setBorder(Bordergood());
+                    
+                    if (dataValidator.eMailValidator(emailTxt)) {
+                        
                     }
-                    else{
-                         emailTxt.setBorder(BorderError());
-
-                    
-                    }
-                    
+                                       
                     
                 }
-                else{
-                phoneNo1Txt.setBorder(BorderError());
-                
-                
-                }
+               
                 
                 
             }
-            else{
-           phoneNo1Txt.setBorder(BorderError());
-
-            }
+            
             
               
-        } else{
-        nicTxt.setBorder(BorderError());
-            
-        }
+        } 
         
         
         
@@ -1604,7 +1589,7 @@ public void clearFlds(List<JTextField> textFields){
     private javax.swing.JTextField reskidsTxt;
     private javax.swing.JPanel roomTypeContainer;
     private javax.swing.JScrollPane roomTypesFrm;
-    public javax.swing.JTextField sampleTxtField;
+    public static javax.swing.JTextField sampleTxtField;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JScrollPane tableScroller;
     private javax.swing.JPanel titlePane;
