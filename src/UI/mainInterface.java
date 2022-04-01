@@ -1466,7 +1466,7 @@ Country[] listCountry = createCountryList();
             
             databaseConnections newConnection = new databaseConnections();
             
-           newConnection.databaseConnectionMessage("INSERT INTO customer VALUES('"+000+"',"
+           newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+000+"',"
                    + "'"+fNamTxt.getText()+"'," + "'"+nicTxt.getText()+"','"+lNameTxt.getText()+"',"
                    + ""+ "'"+addressTxt.getText()+"','"+countryList.getSelectedItem().toString()+"',"
                    + ""+ "'"+emailTxt.getText()+"')","Data Entered Successfully!", "Success!");
