@@ -63,7 +63,7 @@ public class databaseConnections {
 
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.INFORMATION_MESSAGE); //Display dialogue box
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
 
           
         } 
@@ -90,7 +90,7 @@ public class databaseConnections {
 
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.INFORMATION_MESSAGE); //Display dialogue box
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
 
           
         } 

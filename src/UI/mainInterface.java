@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import Classes.databaseConnections;
-
+import Classes.customerIDGenerate;
 
 
 public class mainInterface extends javax.swing.JFrame {
@@ -1465,11 +1465,12 @@ Country[] listCountry = createCountryList();
             // THE CODE NEEDED WHEN VALID.AND THE SAME GOES TO THE BELOW
             
             databaseConnections newConnection = new databaseConnections();
-            
-           newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+000+"',"
+            customerIDGenerate ccustID = new customerIDGenerate();
+            //changed several times below line but not tested
+           newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+ccustID.newCustID()+"',"
                    + "'"+fNamTxt.getText()+"'," + "'"+nicTxt.getText()+"','"+lNameTxt.getText()+"',"
                    + ""+ "'"+addressTxt.getText()+"','"+countryList.getSelectedItem().toString()+"',"
-                   + ""+ "'"+emailTxt.getText()+"')","Data Entered Successfully!", "Success!");
+                   + ""+ "'"+emailTxt.getText()+"');","Data Entered Successfully!", "Success!");
             
             
         }
