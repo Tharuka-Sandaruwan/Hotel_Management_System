@@ -12,6 +12,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import Classes.databaseConnections;
 import Classes.customerIDGenerate;
+import javax.swing.JOptionPane;
 
 
 public class mainInterface extends javax.swing.JFrame {
@@ -1460,14 +1461,21 @@ Country[] listCountry = createCountryList();
             if (dataValidator.NICvalidator(nicTxt) && dataValidator.PhoneNumberValidator(phoneNo1Txt)
                 && dataValidator.eMailValidator(emailTxt) ){
         
-            System.out.println("all are valid");
+            
             
             // THE CODE NEEDED WHEN VALID.AND THE SAME GOES TO THE BELOW
+            /*todo
+            data adding to telephone table
+            create code for telephone box 2 data add
+                        
+            
+            */
+            
             
             databaseConnections newConnection = new databaseConnections();
-            customerIDGenerate ccustID = new customerIDGenerate();
+            customerIDGenerate custID = new customerIDGenerate();
             //changed several times below line but not tested
-           newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+ccustID.newCustID()+"',"
+           newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+custID.newCustID()+"',"
                    + "'"+fNamTxt.getText()+"'," + "'"+nicTxt.getText()+"','"+lNameTxt.getText()+"',"
                    + ""+ "'"+addressTxt.getText()+"','"+countryList.getSelectedItem().toString()+"',"
                    + ""+ "'"+emailTxt.getText()+"');","Data Entered Successfully!", "Success!");
@@ -1475,7 +1483,9 @@ Country[] listCountry = createCountryList();
             
         }
         else {
-            System.out.println("invalid");
+            
+           JOptionPane.showMessageDialog(null, "Please Fill all the data correctly !","Invalid Data",JOptionPane.INFORMATION_MESSAGE); 
+
         }
             
         }
