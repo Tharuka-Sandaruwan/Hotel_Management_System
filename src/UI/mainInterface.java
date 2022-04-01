@@ -1471,14 +1471,18 @@ Country[] listCountry = createCountryList();
             
             */
             
-            
             databaseConnections newConnection = new databaseConnections();
             customerIDGenerate custID = new customerIDGenerate();
+                        String customerID = custID.newCustID();
+
             //changed several times below line but not tested
-           newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+custID.newCustID()+"',"
+           newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+customerID+"',"
                    + "'"+fNamTxt.getText()+"'," + "'"+nicTxt.getText()+"','"+lNameTxt.getText()+"',"
                    + ""+ "'"+addressTxt.getText()+"','"+countryList.getSelectedItem().toString()+"',"
                    + ""+ "'"+emailTxt.getText()+"');","Data Entered Successfully!", "Success!");
+           
+           newConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+customerID+"',"
+                   + "'"+phoneNo1Txt.getText()+"');");
             
             
         }
@@ -1495,13 +1499,30 @@ Country[] listCountry = createCountryList();
                 && dataValidator.PhoneNumberValidator(phoneNo2Txt) && 
                 dataValidator.eMailValidator(emailTxt) ){
         
-            System.out.println("all are valid");
+            
             
              // THE CODE NEEDED WHEN VALID.AND THE SAME GOES FROM THE UP
+             
+             databaseConnections newConnection = new databaseConnections();
+            customerIDGenerate custID = new customerIDGenerate();
+                        String customerID = custID.newCustID();
+
+            //changed several times below line but not tested
+           newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+customerID+"',"
+                   + "'"+fNamTxt.getText()+"'," + "'"+nicTxt.getText()+"','"+lNameTxt.getText()+"',"
+                   + ""+ "'"+addressTxt.getText()+"','"+countryList.getSelectedItem().toString()+"',"
+                   + ""+ "'"+emailTxt.getText()+"');","Data Entered Successfully!", "Success!");
+           
+           newConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+customerID+"',"
+                   + "'"+phoneNo1Txt.getText()+"');");
+           newConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+customerID+"',"
+                   + "'"+phoneNo2Txt.getText()+"');");
+             
 
         }
         else {
-            System.out.println("invalid");
+                 JOptionPane.showMessageDialog(null, "Please Fill all the data correctly !","Invalid Data",JOptionPane.INFORMATION_MESSAGE); 
+
         }
         
         }
