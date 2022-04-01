@@ -1,18 +1,18 @@
 
 package Classes;
+
+
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+import static Classes.DBCredentials.connectString;
+import static Classes.DBCredentials.password;
+import static Classes.DBCredentials.username;
+
 public class databaseConnections {
-     //below are default database credentials
-    //change below if you need to use a different database.
-    private static final String username = "root";
-    private static final String password = "t00rbada!";
-    private static final String connectString = "jdbc:mysql://localhost:3306/hotelmanagementsystem";
+
     
-    
-    
-    // make a con checker method to insert to main method
+    //con checking
     public boolean DBconnectionVerify(){
        Connection con = null;
                 try {
@@ -30,7 +30,7 @@ public class databaseConnections {
     }
     
   
-    
+        // method to connect to database with message output
     public void databaseConnectionMessage(String query,String successMessage,String messageBoxTitle) {
             Connection con = null;
         try {
@@ -70,7 +70,7 @@ public class databaseConnections {
     
     }
     
-    
+    // method to connect to database without any message output
     public void databaseConnectionNoMessage(String query) {
             Connection con = null;
         try {
