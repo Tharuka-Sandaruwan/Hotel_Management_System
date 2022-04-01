@@ -10,7 +10,7 @@ import java.util.Locale;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-
+import Classes.databaseConnections;
 
 
 
@@ -1463,6 +1463,13 @@ Country[] listCountry = createCountryList();
             System.out.println("all are valid");
             
             // THE CODE NEEDED WHEN VALID.AND THE SAME GOES TO THE BELOW
+            
+            databaseConnections newConnection = new databaseConnections();
+            
+           newConnection.databaseConnection("INSERT INTO customer VALUES('"+000+"',"
+                   + "'"+fNamTxt.getText()+"'," + "'"+nicTxt.getText()+"','"+lNameTxt.getText()+"',"
+                   + ""+ "'"+addressTxt.getText()+"','"+countryList.getSelectedItem().toString()+"',"
+                   + ""+ "'"+emailTxt.getText()+"')","Data Entered Successfully!", "Success!");
             
             
         }
