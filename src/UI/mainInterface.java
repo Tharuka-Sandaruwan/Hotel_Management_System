@@ -250,6 +250,7 @@ Country[] listCountry = createCountryList();
                 return canEdit [columnIndex];
             }
         });
+        cusTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         cusTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         cusTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         cusTable.getTableHeader().setReorderingAllowed(false);
@@ -557,7 +558,7 @@ Country[] listCountry = createCountryList();
                 .addGroup(CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(custInfoAddScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(CustomerPaneLayout.createSequentialGroup()
-                        .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1700,6 +1701,7 @@ Country[] listCountry = createCountryList();
         
         globalVars.previousPhoneNum1 = custTblPNO1;
         globalVars.previousPhoneNum2 = custTblPNO2;
+        
         globalVars.selectedNIC =custTblNIC;
         
         custIDTxt.setText(custTblID);
@@ -1769,10 +1771,20 @@ Country[] listCountry = createCountryList();
              + "Country = '"+countryList.getSelectedItem().toString()+"', Email = '"+emailTxt.getText()+"' "
              + "WHERE Customer_ID = '"+custIDTxt.getText()+"';","Data Updated Successfully!", "Update Success!");
            
-           updateConnection.databaseConnectionNoMessage("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo1Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"';");
+                if (globalVars.previousPhoneNum1.matches("")) {
+                               updateConnection.databaseConnectionNoMessage("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo1Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum1+"';");
+
+                }
+                else{
+                 updateConnection.databaseConnectionNoMessage("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo1Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum1+"';");
+                 updateConnection.databaseConnectionNoMessage("DELETE FROM hotelmanagementsystem.Customer_Contact_Number  WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum2+"';");
+
+                
+                }
+           
                  
             
-            customerTableRefresh(cusTable.getModel());
+                customerTableRefresh(cusTable.getModel());
             clearCustomerPane();
         }
         else {
@@ -1805,11 +1817,26 @@ Country[] listCountry = createCountryList();
              + "Country = '"+countryList.getSelectedItem().toString()+"', Email = '"+emailTxt.getText()+"' "
              + "WHERE Customer_ID = '"+custIDTxt.getText()+"';","Data Updated Successfully!", "Update Success!");
            
+           
            updateConnection.databaseConnectionNoMessage("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo1Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum1+"';");
            
-           updateConnection.databaseConnectionNoMessage("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo2Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum2+"';");
+            System.out.println("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo1Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum1+"';");
+            
+           
+            
+            if (globalVars.previousPhoneNum2.matches("")) {
+                updateConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+custIDTxt.getText()+"',"
+                   + "'"+phoneNo2Txt.getText()+"');");
+            }else{
+              updateConnection.databaseConnectionNoMessage("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo2Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum2+"';");
+
+            }
+            
+           System.out.println("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo2Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum2+"';"); 
+           
             System.out.println(globalVars.previousPhoneNum1+"  "+globalVars.previousPhoneNum2);
              
+            
            customerTableRefresh(cusTable.getModel());
            clearCustomerPane();
         }

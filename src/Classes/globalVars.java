@@ -11,5 +11,5 @@ public class globalVars {
     public static String previousPhoneNum2 ;
   
     public static String lastlyAddedNIC = "NIC"; // stores nic as string because the matches method gives error when it is null
-    public static String selectedNIC;
+    public static String selectedNIC = "Selected NIC"; // dumb value to avoid getting crashed
 }
