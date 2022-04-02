@@ -35,6 +35,14 @@ public static Border Bordergood(){
 }
 
 
+public void clearCustomerPane(){
+clearFlds(Arrays.asList(custIDTxt,nicTxt,fNamTxt,lNameTxt,phoneNo1Txt,phoneNo2Txt,emailTxt));
+        addressTxt.setText("");
+        addressTxt.setBorder(Bordergood());
+
+}
+
+
 // use for clearing the text fields
 public void clearFlds(List<JTextField> textFields){
     for (JTextField jflds: textFields){
@@ -388,6 +396,11 @@ Country[] listCountry = createCountryList();
         jScrollPane1.setViewportView(addressTxt);
 
         updateBtn.setText("Update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
 
         addBtn.setText("Add");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1515,6 +1528,16 @@ Country[] listCountry = createCountryList();
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
        
+        if (nicTxt.getText().matches(globalVars.lastlyAddedNIC)  ||  nicTxt.getText().matches(globalVars.selectedNIC) ) {
+            
+        JOptionPane.showMessageDialog(null, "You cant add the customer with Same NIC twice!","NIC Duplicate",JOptionPane.ERROR_MESSAGE); 
+        }
+        
+        else{
+               
+
+                
+                 
         if (phoneNo2Txt.getText().length() == 0) {
             if (dataValidator.NICvalidator(nicTxt) && dataValidator.PhoneNumberValidator(phoneNo1Txt)
                 && dataValidator.eMailValidator(emailTxt) ){
@@ -1537,8 +1560,11 @@ Country[] listCountry = createCountryList();
            newConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+customerID+"',"
                    + "'"+phoneNo1Txt.getText()+"');");
             
-            customerTableRefresh(cusTable.getModel());
+           globalVars.lastlyAddedNIC = nicTxt.getText(); // stores lastly added nic,so when the user accidently press add twice the second time will be stopped.
            
+           
+            customerTableRefresh(cusTable.getModel());
+           clearCustomerPane();
         }
         else {
             
@@ -1573,9 +1599,14 @@ Country[] listCountry = createCountryList();
                    + "'"+phoneNo1Txt.getText()+"');");
            newConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+customerID+"',"
                    + "'"+phoneNo2Txt.getText()+"');");
-             
-           customerTableRefresh(cusTable.getModel());
+           
+           
+           
+           
+                        globalVars.lastlyAddedNIC = nicTxt.getText(); 
 
+           customerTableRefresh(cusTable.getModel());
+           clearCustomerPane();
         }
         else {
                  JOptionPane.showMessageDialog(null, "Please Fill all the data correctly !","Invalid Data",JOptionPane.INFORMATION_MESSAGE); 
@@ -1584,6 +1615,7 @@ Country[] listCountry = createCountryList();
         
         }
         
+        }
         
         
             
@@ -1594,9 +1626,8 @@ Country[] listCountry = createCountryList();
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
-        clearFlds(Arrays.asList(custIDTxt,nicTxt,fNamTxt,lNameTxt,phoneNo1Txt,phoneNo2Txt,emailTxt));
-        addressTxt.setText("");
-        addressTxt.setBorder(Bordergood());
+
+        clearCustomerPane();
         
         // ADD A WAY TO SET THE DEFAULT COUNTRY TO SRI LANKA
     }//GEN-LAST:event_clearBtnActionPerformed
@@ -1667,6 +1698,10 @@ Country[] listCountry = createCountryList();
         //set values in the text fields
         globalVars.selectedCustID = custTblID; // assign customer id to global variable
         
+        globalVars.previousPhoneNum1 = custTblPNO1;
+        globalVars.previousPhoneNum2 = custTblPNO2;
+        globalVars.selectedNIC =custTblNIC;
+        
         custIDTxt.setText(custTblID);
         fNamTxt.setText(custTblFname);
         lNameTxt.setText(custTblLName);
@@ -1688,7 +1723,8 @@ Country[] listCountry = createCountryList();
             databaseConnections deletingConnection = new databaseConnections();
             deletingConnection.databaseConnectionMessage("delete from hotelmanagementsystem.customer where Customer_ID ='" +custIDTxt.getText()+ "';", "The customer Record deleted Successfully!", "Customer Removed");
             customerTableRefresh(cusTable.getModel());
- 
+            
+            clearCustomerPane();
 
         }else{
             if(cusTable.getRowCount()==0){
@@ -1705,6 +1741,96 @@ Country[] listCountry = createCountryList();
         
         
     }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+         
+        if(cusTable.getSelectedRowCount() == 1){
+        
+        //check whether phone2 is present 
+        if (phoneNo2Txt.getText().length() == 0) {
+            
+            //validate the data
+            if (dataValidator.NICvalidator(nicTxt) && dataValidator.PhoneNumberValidator(phoneNo1Txt)
+                && dataValidator.eMailValidator(emailTxt) ){
+        
+            
+            
+            // THE CODE NEEDED WHEN VALID.AND THE SAME GOES TO THE BELOW
+         
+            
+            databaseConnections updateConnection = new databaseConnections();
+            
+
+                
+                
+           updateConnection.databaseConnectionMessage(                   
+                "UPDATE hotelmanagementsystem.customer SET  First_Name ='" +fNamTxt.getText()+"',"
+            + " Last_Name = '"+lNameTxt.getText()+"', NIC = '"+nicTxt.getText()+"', Address ='"+addressTxt.getText()+"' , "
+             + "Country = '"+countryList.getSelectedItem().toString()+"', Email = '"+emailTxt.getText()+"' "
+             + "WHERE Customer_ID = '"+custIDTxt.getText()+"';","Data Updated Successfully!", "Update Success!");
+           
+           updateConnection.databaseConnectionNoMessage("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo1Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"';");
+                 
+            
+            customerTableRefresh(cusTable.getModel());
+            clearCustomerPane();
+        }
+        else {
+            
+           JOptionPane.showMessageDialog(null, "Please Fill all the data correctly !","Invalid Data",JOptionPane.INFORMATION_MESSAGE); 
+
+        }
+            
+        }
+        
+        
+        
+         //check whether phone2 is present 
+        else{
+            
+        if (dataValidator.NICvalidator(nicTxt) && dataValidator.PhoneNumberValidator(phoneNo1Txt)
+                && dataValidator.PhoneNumberValidator(phoneNo2Txt) && 
+                dataValidator.eMailValidator(emailTxt) ){
+        
+            
+            
+             // THE CODE NEEDED WHEN VALID.AND THE SAME GOES FROM THE UP
+             
+            databaseConnections updateConnection = new databaseConnections();
+        
+                
+           updateConnection.databaseConnectionMessage(                   
+                "UPDATE hotelmanagementsystem.customer SET  First_Name ='" +fNamTxt.getText()+"',"
+            + " Last_Name = '"+lNameTxt.getText()+"', NIC = '"+nicTxt.getText()+"', Address ='"+addressTxt.getText()+"' , "
+             + "Country = '"+countryList.getSelectedItem().toString()+"', Email = '"+emailTxt.getText()+"' "
+             + "WHERE Customer_ID = '"+custIDTxt.getText()+"';","Data Updated Successfully!", "Update Success!");
+           
+           updateConnection.databaseConnectionNoMessage("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo1Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum1+"';");
+           
+           updateConnection.databaseConnectionNoMessage("UPDATE hotelmanagementsystem.Customer_Contact_Number SET Contact_number ='"+phoneNo2Txt.getText()+"' WHERE Customer_ID = '"+custIDTxt.getText()+"' AND Contact_number ='"+globalVars.previousPhoneNum2+"';");
+            System.out.println(globalVars.previousPhoneNum1+"  "+globalVars.previousPhoneNum2);
+             
+           customerTableRefresh(cusTable.getModel());
+           clearCustomerPane();
+        }
+        else {
+                 JOptionPane.showMessageDialog(null, "Please Fill all the data correctly !","Invalid Data",JOptionPane.INFORMATION_MESSAGE); 
+
+        }
+        
+        }
+        
+        
+        } else{
+            if(cusTable.getRowCount()==0){
+                JOptionPane.showMessageDialog(null, "Table is Empty..","Empty Table",JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "Please Select a single row to Delete","No Row Selected",JOptionPane.INFORMATION_MESSAGE);
+
+            }
+        }
+        
+    }//GEN-LAST:event_updateBtnActionPerformed
 
     /**
      * @param args the command line arguments
