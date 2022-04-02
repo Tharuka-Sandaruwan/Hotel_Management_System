@@ -13,7 +13,7 @@ import javax.swing.border.LineBorder;
 import Classes.databaseConnections;
 import Classes.customerIDGenerate;
 import javax.swing.JOptionPane;
-
+import Classes.globalVars;
 
 import static Classes.tableDataLoading.customerTableRefresh;
 import javax.swing.table.DefaultTableModel;
@@ -1656,6 +1656,7 @@ Country[] listCountry = createCountryList();
 
         
         //set values in the text fields
+        globalVars.selectedCustID = custTblID;
         custIDTxt.setText(custTblID);
         fNamTxt.setText(custTblFname);
         lNameTxt.setText(custTblLName);
