@@ -15,6 +15,8 @@ import Classes.customerIDGenerate;
 import javax.swing.JOptionPane;
 
 
+import static Classes.tableDataLoading.customerTableRefresh;
+
 
 public class mainInterface extends javax.swing.JFrame {
     
@@ -1346,6 +1348,7 @@ Country[] listCountry = createCountryList();
 
     private void CustomerBtnPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerBtnPaneMouseClicked
        tabbedPane.setSelectedIndex(0);
+       customerTableRefresh(cusTable.getModel());
     }//GEN-LAST:event_CustomerBtnPaneMouseClicked
 
     private void CustomerBtnPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerBtnPane1MouseClicked
@@ -1515,7 +1518,7 @@ Country[] listCountry = createCountryList();
            newConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+customerID+"',"
                    + "'"+phoneNo1Txt.getText()+"');");
             
-            Classes.tableDataLoading.customerTableRefresh(cusTable.getModel());
+            customerTableRefresh(cusTable.getModel());
            
         }
         else {
@@ -1550,6 +1553,7 @@ Country[] listCountry = createCountryList();
            newConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+customerID+"',"
                    + "'"+phoneNo2Txt.getText()+"');");
              
+           customerTableRefresh(cusTable.getModel());
 
         }
         else {
