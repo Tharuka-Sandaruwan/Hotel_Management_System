@@ -242,6 +242,8 @@ Country[] listCountry = createCountryList();
                 return canEdit [columnIndex];
             }
         });
+        cusTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        cusTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         cusTable.getTableHeader().setReorderingAllowed(false);
         cusTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -402,6 +404,11 @@ Country[] listCountry = createCountryList();
         });
 
         deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
 
         sampleTxtField.setText("jTextField3");
 
@@ -1551,6 +1558,8 @@ Country[] listCountry = createCountryList();
              // THE CODE NEEDED WHEN VALID.AND THE SAME GOES FROM THE UP
              
              databaseConnections newConnection = new databaseConnections();
+             
+             //get the new customer id
             customerIDGenerate custID = new customerIDGenerate();
                         String customerID = custID.newCustID();
 
@@ -1585,7 +1594,7 @@ Country[] listCountry = createCountryList();
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
-        clearFlds(Arrays.asList(nicTxt,fNamTxt,lNameTxt,phoneNo1Txt,phoneNo2Txt,emailTxt));
+        clearFlds(Arrays.asList(custIDTxt,nicTxt,fNamTxt,lNameTxt,phoneNo1Txt,phoneNo2Txt,emailTxt));
         addressTxt.setText("");
         addressTxt.setBorder(Bordergood());
         
@@ -1656,7 +1665,8 @@ Country[] listCountry = createCountryList();
 
         
         //set values in the text fields
-        globalVars.selectedCustID = custTblID;
+        globalVars.selectedCustID = custTblID; // assign customer id to global variable
+        
         custIDTxt.setText(custTblID);
         fNamTxt.setText(custTblFname);
         lNameTxt.setText(custTblLName);
@@ -1668,6 +1678,33 @@ Country[] listCountry = createCountryList();
         countryList.setSelectedIndex(Country.getcountryIndex(custTblCntry)); // the country is not setting in the combo box
      
     }//GEN-LAST:event_cusTableMouseClicked
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        
+        //code for deletion
+        if(cusTable.getSelectedRowCount() == 1){
+            
+        
+            databaseConnections deletingConnection = new databaseConnections();
+            deletingConnection.databaseConnectionMessage("delete from hotelmanagementsystem.customer where Customer_ID ='" +custIDTxt.getText()+ "';", "The customer Record deleted Successfully!", "Customer Removed");
+            customerTableRefresh(cusTable.getModel());
+ 
+
+        }else{
+            if(cusTable.getRowCount()==0){
+                JOptionPane.showMessageDialog(null, "Table is Empty..","Empty Table",JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "Please Select a single row to Delete","No Row Selected",JOptionPane.INFORMATION_MESSAGE);
+
+            }
+        }
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_deleteBtnActionPerformed
 
     /**
      * @param args the command line arguments
