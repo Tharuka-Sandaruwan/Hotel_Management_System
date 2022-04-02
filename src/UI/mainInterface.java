@@ -15,7 +15,9 @@ import Classes.customerIDGenerate;
 import javax.swing.JOptionPane;
 
 
+
 public class mainInterface extends javax.swing.JFrame {
+    
 
     // use to set the border to red usue a hidden sample border to get and set attributes
 public static Border BorderError(){
@@ -76,7 +78,7 @@ Country[] listCountry = createCountryList();
         tabbedPane = new javax.swing.JTabbedPane();
         CustomerPane = new javax.swing.JPanel();
         tableScroller = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        cusTable = new javax.swing.JTable();
         custInfoAddScroller = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         custIDTxt = new javax.swing.JTextField();
@@ -210,18 +212,33 @@ Country[] listCountry = createCountryList();
         tableScroller.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         tableScroller.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        cusTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Customer ID", "Full Name", "NIC No", "Address", "Country", "E-mail", "Contact No 1", "Contact No 2"
             }
-        ));
-        tableScroller.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableScroller.setViewportView(cusTable);
 
         custInfoAddScroller.setBackground(new java.awt.Color(204, 204, 204));
         custInfoAddScroller.setBorder(null);
@@ -1464,27 +1481,23 @@ Country[] listCountry = createCountryList();
             
             
             // THE CODE NEEDED WHEN VALID.AND THE SAME GOES TO THE BELOW
-            /*todo
-            data adding to telephone table
-            create code for telephone box 2 data add
-                        
-            
-            */
+         
             
             databaseConnections newConnection = new databaseConnections();
             customerIDGenerate custID = new customerIDGenerate();
                         String customerID = custID.newCustID();
 
-            //changed several times below line but not tested
+            
            newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+customerID+"',"
-                   + "'"+fNamTxt.getText()+"'," + "'"+nicTxt.getText()+"','"+lNameTxt.getText()+"',"
+                   + "'"+fNamTxt.getText()+"'," + "'"+lNameTxt.getText()+"','"+nicTxt.getText()+"',"
                    + ""+ "'"+addressTxt.getText()+"','"+countryList.getSelectedItem().toString()+"',"
                    + ""+ "'"+emailTxt.getText()+"');","Data Entered Successfully!", "Success!");
            
            newConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+customerID+"',"
                    + "'"+phoneNo1Txt.getText()+"');");
             
-            
+            Classes.tableDataLoading.tableRefresh(cusTable.getModel());
+           
         }
         else {
             
@@ -1507,9 +1520,9 @@ Country[] listCountry = createCountryList();
             customerIDGenerate custID = new customerIDGenerate();
                         String customerID = custID.newCustID();
 
-            //changed several times below line but not tested
+            
            newConnection.databaseConnectionMessage("INSERT INTO hotelmanagementsystem.customer VALUES('"+customerID+"',"
-                   + "'"+fNamTxt.getText()+"'," + "'"+nicTxt.getText()+"','"+lNameTxt.getText()+"',"
+                   + "'"+fNamTxt.getText()+"'," + "'"+lNameTxt.getText()+"','"+nicTxt.getText()+"',"
                    + ""+ "'"+addressTxt.getText()+"','"+countryList.getSelectedItem().toString()+"',"
                    + ""+ "'"+emailTxt.getText()+"');","Data Entered Successfully!", "Success!");
            
@@ -1641,6 +1654,7 @@ Country[] listCountry = createCountryList();
     private javax.swing.JButton clearBtn;
     private javax.swing.JButton clearBtn1;
     private javax.swing.JComboBox<Country> countryList;
+    private javax.swing.JTable cusTable;
     private javax.swing.JTextField custIDTxt;
     private javax.swing.JTextField custIDTxt1;
     private javax.swing.JTextField custIDTxt2;
@@ -1698,7 +1712,6 @@ Country[] listCountry = createCountryList();
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
