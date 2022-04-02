@@ -62,6 +62,7 @@ Country[] listCountry = createCountryList();
         initComponents();
         setResizable(false);
         setSize(1024, 768);
+         Classes.tableDataLoading.customerTableRefresh(cusTable.getModel());
     }
 
     /**
@@ -209,25 +210,19 @@ Country[] listCountry = createCountryList();
 
         CustomerPane.setBackground(new java.awt.Color(102, 255, 102));
 
-        tableScroller.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        tableScroller.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
         cusTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Customer ID", "Full Name", "NIC No", "Address", "Country", "E-mail", "Contact No 1", "Contact No 2"
+                "Customer ID", "First Name", "Last Name", "NIC No", "Address", "Country", "E-mail", "Contact No 1", "Contact No 2"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -238,7 +233,28 @@ Country[] listCountry = createCountryList();
                 return canEdit [columnIndex];
             }
         });
+        cusTable.getTableHeader().setReorderingAllowed(false);
         tableScroller.setViewportView(cusTable);
+        if (cusTable.getColumnModel().getColumnCount() > 0) {
+            cusTable.getColumnModel().getColumn(0).setMinWidth(100);
+            cusTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+            cusTable.getColumnModel().getColumn(1).setMinWidth(100);
+            cusTable.getColumnModel().getColumn(1).setPreferredWidth(100);
+            cusTable.getColumnModel().getColumn(2).setMinWidth(100);
+            cusTable.getColumnModel().getColumn(2).setPreferredWidth(100);
+            cusTable.getColumnModel().getColumn(3).setMinWidth(100);
+            cusTable.getColumnModel().getColumn(3).setPreferredWidth(100);
+            cusTable.getColumnModel().getColumn(4).setMinWidth(100);
+            cusTable.getColumnModel().getColumn(4).setPreferredWidth(100);
+            cusTable.getColumnModel().getColumn(5).setMinWidth(100);
+            cusTable.getColumnModel().getColumn(5).setPreferredWidth(100);
+            cusTable.getColumnModel().getColumn(6).setMinWidth(100);
+            cusTable.getColumnModel().getColumn(6).setPreferredWidth(100);
+            cusTable.getColumnModel().getColumn(7).setMinWidth(100);
+            cusTable.getColumnModel().getColumn(7).setPreferredWidth(100);
+            cusTable.getColumnModel().getColumn(8).setMinWidth(100);
+            cusTable.getColumnModel().getColumn(8).setPreferredWidth(100);
+        }
 
         custInfoAddScroller.setBackground(new java.awt.Color(204, 204, 204));
         custInfoAddScroller.setBorder(null);
@@ -497,15 +513,18 @@ Country[] listCountry = createCountryList();
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerPaneLayout.createSequentialGroup()
                 .addComponent(custInfoAddScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         CustomerPaneLayout.setVerticalGroup(
             CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(custInfoAddScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(tableScroller))
+                    .addGroup(CustomerPaneLayout.createSequentialGroup()
+                        .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1496,7 +1515,7 @@ Country[] listCountry = createCountryList();
            newConnection.databaseConnectionNoMessage("INSERT INTO hotelmanagementsystem.Customer_Contact_Number VALUES('"+customerID+"',"
                    + "'"+phoneNo1Txt.getText()+"');");
             
-            Classes.tableDataLoading.tableRefresh(cusTable.getModel());
+            Classes.tableDataLoading.customerTableRefresh(cusTable.getModel());
            
         }
         else {
