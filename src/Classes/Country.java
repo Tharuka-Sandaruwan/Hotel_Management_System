@@ -4,6 +4,9 @@
  */
 package Classes;
 
+import java.util.Arrays;
+import java.util.Locale;
+
 /**
  *
  * @author Tharuka Sandaruwan
@@ -41,5 +44,34 @@ public class Country implements Comparable<Country> {
     @Override
     public int compareTo(Country anotherCountry) {
         return this.name.compareTo(anotherCountry.getName());
-    }      
+    }
+    
+    public static int getcountryIndex(String country){
+    String[] countryCodes = Locale.getISOCountries();
+    Country[] listCountry = new Country[countryCodes.length];
+ 
+    for (int i = 0; i < countryCodes.length; i++) {
+        Locale locale = new Locale("", countryCodes[i]);
+        String code = locale.getCountry();
+        String name = locale.getDisplayCountry();
+ 
+        listCountry[i] = new Country(code, name);
+    }
+ 
+        Arrays.sort(listCountry);
+     
+       
+
+        String[] mylist = new String[249] ;
+    
+        int i = 0;
+    
+        while (i < 249 ) {   // there are 249 countries         
+             mylist[i] = listCountry[i].getName();
+            i++;
+       }
+
+        return (Arrays.asList(mylist).indexOf(country));  
+ 
+    } 
 }

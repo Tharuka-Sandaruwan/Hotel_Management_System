@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 
 
 import static Classes.tableDataLoading.customerTableRefresh;
+import javax.swing.table.DefaultTableModel;
 
 
 public class mainInterface extends javax.swing.JFrame {
@@ -212,6 +213,12 @@ Country[] listCountry = createCountryList();
 
         CustomerPane.setBackground(new java.awt.Color(102, 255, 102));
 
+        tableScroller.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableScrollerMouseClicked(evt);
+            }
+        });
+
         cusTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -236,6 +243,11 @@ Country[] listCountry = createCountryList();
             }
         });
         cusTable.getTableHeader().setReorderingAllowed(false);
+        cusTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cusTableMouseClicked(evt);
+            }
+        });
         tableScroller.setViewportView(cusTable);
         if (cusTable.getColumnModel().getColumnCount() > 0) {
             cusTable.getColumnModel().getColumn(0).setMinWidth(100);
@@ -1624,6 +1636,37 @@ Country[] listCountry = createCountryList();
     private void emailTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTxtKeyReleased
                 dataValidator.eMailValidator(emailTxt);
     }//GEN-LAST:event_emailTxtKeyReleased
+
+    private void tableScrollerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableScrollerMouseClicked
+              
+    }//GEN-LAST:event_tableScrollerMouseClicked
+
+    private void cusTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cusTableMouseClicked
+        DefaultTableModel tblModel = (DefaultTableModel)cusTable.getModel();
+        
+        String custTblID = tblModel.getValueAt(cusTable.getSelectedRow(),0).toString();
+        String custTblFname = tblModel.getValueAt(cusTable.getSelectedRow(),1).toString();
+        String custTblLName = tblModel.getValueAt(cusTable.getSelectedRow(),2).toString();
+        String custTblNIC = tblModel.getValueAt(cusTable.getSelectedRow(),3).toString();
+        String custTblAdr = tblModel.getValueAt(cusTable.getSelectedRow(),4).toString();
+        String custTblCntry = tblModel.getValueAt(cusTable.getSelectedRow(),5).toString();
+        String custTblMail = tblModel.getValueAt(cusTable.getSelectedRow(),6).toString();
+        String custTblPNO1 = tblModel.getValueAt(cusTable.getSelectedRow(),7).toString();
+        String custTblPNO2= tblModel.getValueAt(cusTable.getSelectedRow(),8).toString();
+
+        
+        //set values in the text fields
+        custIDTxt.setText(custTblID);
+        fNamTxt.setText(custTblFname);
+        lNameTxt.setText(custTblLName);
+        nicTxt.setText(custTblNIC);
+        addressTxt.setText(custTblAdr);
+        phoneNo1Txt.setText(custTblPNO1);
+        phoneNo2Txt.setText(custTblPNO2);
+        emailTxt.setText(custTblMail);
+        countryList.setSelectedIndex(Country.getcountryIndex(custTblCntry)); // the country is not setting in the combo box
+     
+    }//GEN-LAST:event_cusTableMouseClicked
 
     /**
      * @param args the command line arguments
