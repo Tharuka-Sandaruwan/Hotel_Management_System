@@ -119,7 +119,7 @@ Country[] listCountry = createCountryList();
         sampleTxtField = new javax.swing.JTextField();
         reservationPane = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        availableRoomTbl = new javax.swing.JTable();
+        resAvailableRoomTbl = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         Reservation = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -132,7 +132,7 @@ Country[] listCountry = createCountryList();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        resAdultCount = new javax.swing.JTextField();
+        resAdultTxt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         resPremiumtick = new javax.swing.JCheckBox();
         resExecutiveTick = new javax.swing.JCheckBox();
@@ -149,9 +149,14 @@ Country[] listCountry = createCountryList();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        resArrivalDate = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        resReservationTbl = new javax.swing.JTable();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
         StaffAssign = new javax.swing.JPanel();
         custInfoAddScroller1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
@@ -567,7 +572,7 @@ Country[] listCountry = createCountryList();
 
         reservationPane.setBackground(new java.awt.Color(255, 255, 102));
 
-        availableRoomTbl.setModel(new javax.swing.table.DefaultTableModel(
+        resAvailableRoomTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -578,7 +583,7 @@ Country[] listCountry = createCountryList();
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(availableRoomTbl);
+        jScrollPane2.setViewportView(resAvailableRoomTbl);
 
         Reservation.setBackground(new java.awt.Color(0, 255, 204));
 
@@ -626,9 +631,9 @@ Country[] listCountry = createCountryList();
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel14.setText("Adults");
 
-        resAdultCount.addActionListener(new java.awt.event.ActionListener() {
+        resAdultTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resAdultCountActionPerformed(evt);
+                resAdultTxtActionPerformed(evt);
             }
         });
 
@@ -706,7 +711,7 @@ Country[] listCountry = createCountryList();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        resArrivalDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout ReservationLayout = new javax.swing.GroupLayout(Reservation);
         Reservation.setLayout(ReservationLayout);
@@ -753,9 +758,9 @@ Country[] listCountry = createCountryList();
                                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(53, 53, 53)
                                         .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(resAdultCount, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(resAdultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(reskidsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(resArrivalDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(ReservationLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -802,7 +807,7 @@ Country[] listCountry = createCountryList();
                 .addGap(20, 20, 20)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resArrivalDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
@@ -814,7 +819,7 @@ Country[] listCountry = createCountryList();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resAdultCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resAdultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reskidsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -850,14 +855,44 @@ Country[] listCountry = createCountryList();
 
         jScrollPane3.setViewportView(Reservation);
 
+        resReservationTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(resReservationTbl);
+
+        jLabel32.setText("Reservations");
+
+        jLabel33.setText("Rooms");
+
         javax.swing.GroupLayout reservationPaneLayout = new javax.swing.GroupLayout(reservationPane);
         reservationPane.setLayout(reservationPaneLayout);
         reservationPaneLayout.setHorizontalGroup(
             reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
+            .addGroup(reservationPaneLayout.createSequentialGroup()
                 .addContainerGap(433, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
+                        .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(184, 184, 184))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
+                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(211, 211, 211))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))))
             .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(reservationPaneLayout.createSequentialGroup()
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -867,10 +902,18 @@ Country[] listCountry = createCountryList();
             reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
             .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("tab2", reservationPane);
@@ -1432,9 +1475,9 @@ Country[] listCountry = createCountryList();
         // TODO add your handling code here:
     }//GEN-LAST:event_resPremiumRoomTxtActionPerformed
 
-    private void resAdultCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resAdultCountActionPerformed
+    private void resAdultTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resAdultTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_resAdultCountActionPerformed
+    }//GEN-LAST:event_resAdultTxtActionPerformed
 
     private void resPremiumtickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resPremiumtickActionPerformed
         // TODO add your handling code here:
@@ -1907,7 +1950,6 @@ Country[] listCountry = createCountryList();
     private javax.swing.JButton addBtn1;
     private javax.swing.JButton addBtn2;
     private javax.swing.JTextArea addressTxt;
-    private javax.swing.JTable availableRoomTbl;
     private javax.swing.JButton clearBtn;
     private javax.swing.JButton clearBtn1;
     private javax.swing.JComboBox<Country> countryList;
@@ -1926,7 +1968,6 @@ Country[] listCountry = createCountryList();
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1952,6 +1993,8 @@ Country[] listCountry = createCountryList();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1967,8 +2010,10 @@ Country[] listCountry = createCountryList();
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
@@ -1982,7 +2027,9 @@ Country[] listCountry = createCountryList();
     private javax.swing.JLabel phoneNo2;
     private javax.swing.JTextField phoneNo2Txt;
     private javax.swing.JButton resAddRoomBtn;
-    private javax.swing.JTextField resAdultCount;
+    private javax.swing.JTextField resAdultTxt;
+    private javax.swing.JComboBox<String> resArrivalDate;
+    private javax.swing.JTable resAvailableRoomTbl;
     private javax.swing.JButton resClearBtn;
     private javax.swing.JTextField resCustIdTxt;
     private javax.swing.JTextField resCustNameTxt;
@@ -1990,6 +2037,7 @@ Country[] listCountry = createCountryList();
     private javax.swing.JCheckBox resExecutiveTick;
     private javax.swing.JTextField resPremiumRoomTxt;
     private javax.swing.JCheckBox resPremiumtick;
+    private javax.swing.JTable resReservationTbl;
     private javax.swing.JTextField resRoyalRoomTxt;
     private javax.swing.JCheckBox resRoyalTick;
     private javax.swing.JButton resSubmitBtn;
