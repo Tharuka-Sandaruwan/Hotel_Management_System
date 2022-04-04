@@ -76,5 +76,20 @@ public class dataValidator {
         }
 
     }
+    
+    
+    public static boolean numberOnlyValidator(JTextField textFields){
+    
+        if(textFields.getText().matches("[0-9]+"))
+        {
+            textFields.setBorder(mainInterface.Bordergood());
+            return true; 
+        }else {
+            textFields.setBorder(mainInterface.BorderError());
+            return false;
+        }
+    
+    
+    }
 
 }

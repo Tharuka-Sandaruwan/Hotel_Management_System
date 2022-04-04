@@ -709,10 +709,10 @@ Country[] listCountry = createCountryList();
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel19.setText("Arrival Date");
 
-        arrivalDate.setDateFormatString("dd-MM-yyyy");
+        arrivalDate.setDateFormatString("yyyy-MM-dd");
         arrivalDate.setMaxSelectableDate(new java.util.Date(253370748685000L));
 
-        departDate.setDateFormatString("dd-MM-yyyy");
+        departDate.setDateFormatString("yyyy-MM-dd");
 
         javax.swing.GroupLayout ReservationLayout = new javax.swing.GroupLayout(Reservation);
         Reservation.setLayout(ReservationLayout);
