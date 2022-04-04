@@ -376,7 +376,7 @@
                                       <Component id="clearBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="deleteBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                                  <EmptySpace pref="70" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1050,7 +1050,7 @@
                             </Property>
                           </Properties>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="CustomerIdComboGenerator.loadUserName(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);  "/>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);  "/>
                             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="&#xd;&#xa;"/>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                           </AuxValues>
@@ -1663,7 +1663,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="CustomerBtnPane" max="32767" attributes="0"/>
-                  <Component id="CustomerBtnPane1" max="32767" attributes="0"/>
+                  <Component id="reservationBtnPane" max="32767" attributes="0"/>
                   <Component id="BillingBtnPane" alignment="0" max="32767" attributes="0"/>
                   <Component id="StaffAssignBtnPane1" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -1674,7 +1674,7 @@
                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                       <Component id="CustomerBtnPane" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="CustomerBtnPane1" min="-2" max="-2" attributes="0"/>
+                      <Component id="reservationBtnPane" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="StaffAssignBtnPane1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
@@ -1724,12 +1724,12 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="CustomerBtnPane1">
+            <Container class="javax.swing.JPanel" name="reservationBtnPane">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CustomerBtnPane1MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="reservationBtnPaneMouseClicked"/>
               </Events>
 
               <Layout>

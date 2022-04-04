@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class CustomerIdComboGenerator {
 
-public static void loadUserName(JComboBox comboBox){
+public static void loadCustomerID(JComboBox comboBox){
     Connection con = null;
     try {
            con = DriverManager.getConnection(connectString, username, password);
@@ -21,7 +21,7 @@ public static void loadUserName(JComboBox comboBox){
             statement = con.createStatement();
             
             
-            ResultSet rs = statement.executeQuery("SELECT Customer_ID  FROM hotelmanagementsystem.customer;");
+            ResultSet rs = statement.executeQuery("SELECT Customer_ID  FROM hotelmanagementsystem.customer ORDER BY Customer_ID Asc;");
           
             
             while(rs.next()){

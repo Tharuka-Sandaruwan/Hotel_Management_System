@@ -23,6 +23,24 @@ import javax.swing.table.DefaultTableModel;
 
 public class mainInterface extends javax.swing.JFrame {
     
+    //used to refresh panes when switching from one tab to another
+    public void refreshCustomer(){
+    customerTableRefresh(cusTable.getModel());
+    
+    
+    
+    }
+    
+    public void refreshReservation(){
+     resIDSearchJcombo.removeAllItems();
+    CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo); 
+    
+    
+    }
+    
+    
+    
+    
 
     // use to set the border to red usue a hidden sample border to get and set attributes
 public static Border BorderError(){
@@ -70,7 +88,7 @@ private Country[] createCountryList() {
     return listCountry;
 }
 Country[] listCountry = createCountryList();
-    
+   
     public mainInterface() {
         initComponents();
         setResizable(false);
@@ -200,7 +218,7 @@ AutoCompletion.enable(countryList);
         menusPane = new javax.swing.JPanel();
         CustomerBtnPane = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        CustomerBtnPane1 = new javax.swing.JPanel();
+        reservationBtnPane = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         BillingBtnPane = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
@@ -545,7 +563,7 @@ AutoCompletion.enable(countryList);
                     .addComponent(addBtn)
                     .addComponent(clearBtn)
                     .addComponent(deleteBtn))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         custInfoAddScroller.setViewportView(jPanel2);
@@ -712,7 +730,7 @@ AutoCompletion.enable(countryList);
 
         departDate.setDateFormatString("yyyy-MM-dd");
 
-        CustomerIdComboGenerator.loadUserName(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);
+        CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);
 
         javax.swing.GroupLayout ReservationLayout = new javax.swing.GroupLayout(Reservation);
         Reservation.setLayout(ReservationLayout);
@@ -1301,28 +1319,28 @@ AutoCompletion.enable(countryList);
                 .addGap(22, 22, 22))
         );
 
-        CustomerBtnPane1.setToolTipText("");
-        CustomerBtnPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+        reservationBtnPane.setToolTipText("");
+        reservationBtnPane.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CustomerBtnPane1MouseClicked(evt);
+                reservationBtnPaneMouseClicked(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel2.setText("Reservations");
 
-        javax.swing.GroupLayout CustomerBtnPane1Layout = new javax.swing.GroupLayout(CustomerBtnPane1);
-        CustomerBtnPane1.setLayout(CustomerBtnPane1Layout);
-        CustomerBtnPane1Layout.setHorizontalGroup(
-            CustomerBtnPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CustomerBtnPane1Layout.createSequentialGroup()
+        javax.swing.GroupLayout reservationBtnPaneLayout = new javax.swing.GroupLayout(reservationBtnPane);
+        reservationBtnPane.setLayout(reservationBtnPaneLayout);
+        reservationBtnPaneLayout.setHorizontalGroup(
+            reservationBtnPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reservationBtnPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        CustomerBtnPane1Layout.setVerticalGroup(
-            CustomerBtnPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CustomerBtnPane1Layout.createSequentialGroup()
+        reservationBtnPaneLayout.setVerticalGroup(
+            reservationBtnPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reservationBtnPaneLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -1387,7 +1405,7 @@ AutoCompletion.enable(countryList);
         menusPaneLayout.setHorizontalGroup(
             menusPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(CustomerBtnPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(CustomerBtnPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(reservationBtnPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BillingBtnPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(StaffAssignBtnPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1397,7 +1415,7 @@ AutoCompletion.enable(countryList);
                 .addGap(81, 81, 81)
                 .addComponent(CustomerBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(CustomerBtnPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(reservationBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addComponent(StaffAssignBtnPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
@@ -1424,13 +1442,16 @@ AutoCompletion.enable(countryList);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CustomerBtnPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerBtnPaneMouseClicked
-       tabbedPane.setSelectedIndex(0);
-       customerTableRefresh(cusTable.getModel());
+        refreshCustomer();
+        tabbedPane.setSelectedIndex(0);
+       
     }//GEN-LAST:event_CustomerBtnPaneMouseClicked
 
-    private void CustomerBtnPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerBtnPane1MouseClicked
+    private void reservationBtnPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservationBtnPaneMouseClicked
+       refreshReservation();
         tabbedPane.setSelectedIndex(1);
-    }//GEN-LAST:event_CustomerBtnPane1MouseClicked
+        
+    }//GEN-LAST:event_reservationBtnPaneMouseClicked
 
     private void custIDTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIDTxtActionPerformed
         // TODO add your handling code here:
@@ -1938,7 +1959,6 @@ AutoCompletion.enable(countryList);
     private javax.swing.JPanel BillingBtnPane;
     private javax.swing.JPanel BillingPane;
     private javax.swing.JPanel CustomerBtnPane;
-    private javax.swing.JPanel CustomerBtnPane1;
     private javax.swing.JPanel CustomerPane;
     private javax.swing.JPanel Reservation;
     private javax.swing.JPanel StaffAssign;
@@ -2039,6 +2059,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JCheckBox resRoyalTick;
     private javax.swing.JButton resSubmitBtn;
     private javax.swing.JButton resUpdateBtn;
+    private javax.swing.JPanel reservationBtnPane;
     private javax.swing.JTextField reservationIdTxt;
     private javax.swing.JPanel reservationPane;
     private javax.swing.JTextField reskidsTxt;
