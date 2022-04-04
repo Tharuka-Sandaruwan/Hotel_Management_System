@@ -80,19 +80,34 @@ public class dataValidator {
     }
     
     
-    public static boolean numberOnlyValidator(JTextField textFields){
-    
-        if(textFields.getText().matches("[0-9]+"))
+     public static boolean oneValidator(JTextField KidOrAdult){
+        if(KidOrAdult.getText().matches("[0-9]+") || KidOrAdult.getText().matches(""))
         {
-            textFields.setBorder(mainInterface.Bordergood());
+            KidOrAdult.setBorder(mainInterface.Bordergood());
             return true; 
         }else {
-            textFields.setBorder(mainInterface.BorderError());
+            KidOrAdult.setBorder(mainInterface.BorderError());
             return false;
         }
-    
-    
+        
+        }
+     
+      
+    public static boolean adultKidsValidate(JTextField adults,JTextField kids){
+       
+        
+        
+        if (adults.getText().matches("") && kids.getText().matches("")) {
+           adults.setBorder(mainInterface.BorderError());
+            return false;
+        }else{
+            return (oneValidator(kids) && oneValidator(adults));
+
+        }
+       
     }
+    
+    
     
     public static boolean DateValidator(JDateChooser dateSelectorName){
     JTextFieldDateEditor textPart = (JTextFieldDateEditor) dateSelectorName.getDateEditor();
@@ -107,5 +122,9 @@ public class dataValidator {
     
     
     }
+    
+    
+    
+    
 
 }

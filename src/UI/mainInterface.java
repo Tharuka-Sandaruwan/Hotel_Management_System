@@ -1576,8 +1576,8 @@ AutoCompletion.enable(countryList);
 
     private void resSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSubmitBtnActionPerformed
     
-        if (dataValidator.DateValidator(arrivalDate) && dataValidator.DateValidator(departDate) && dataValidator.numberOnlyValidator(resAdultTxt) && dataValidator.numberOnlyValidator(reskidsTxt)) {
-            
+        if (dataValidator.DateValidator(arrivalDate) && dataValidator.DateValidator(departDate) && dataValidator.adultKidsValidate(resAdultTxt, reskidsTxt)) {
+            System.out.println("valid");
         }else{
         
             System.out.println("invalid");
@@ -1960,19 +1960,19 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_custIdOKActionPerformed
 
     private void resAdultTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resAdultTxtKeyPressed
-        dataValidator.numberOnlyValidator(resAdultTxt);
+        dataValidator.oneValidator(resAdultTxt);
     }//GEN-LAST:event_resAdultTxtKeyPressed
 
     private void resAdultTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resAdultTxtKeyReleased
-               dataValidator.numberOnlyValidator(resAdultTxt);
+               dataValidator.oneValidator(resAdultTxt);
     }//GEN-LAST:event_resAdultTxtKeyReleased
 
     private void reskidsTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reskidsTxtKeyPressed
-               dataValidator.numberOnlyValidator(reskidsTxt);
+               dataValidator.oneValidator(reskidsTxt);
     }//GEN-LAST:event_reskidsTxtKeyPressed
 
     private void reskidsTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reskidsTxtKeyReleased
-                      dataValidator.numberOnlyValidator(reskidsTxt);
+                      dataValidator.oneValidator(reskidsTxt);
     }//GEN-LAST:event_reskidsTxtKeyReleased
 
     
