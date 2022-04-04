@@ -9,8 +9,58 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 
-public class customerIDGenerate {
+public class IDGenerators {
+    
+    
+    
+    
     ///
+    public String newResID(){
+              Connection con = null;
+            String newID = null;
+            
+        try {
+  
+            String lastID = null;
+            con = DriverManager.getConnection(connectString, username, password);
+            
+            Statement statement;
+            statement = con.createStatement();
+            
+            
+            ResultSet rs = statement.executeQuery("SELECT Reservation_ID FROM hotelmanagementsystem.reservation ORDER BY Reservation_ID DESC LIMIT 1;");
+  
+            while (rs.next()) {
+                lastID = rs.getString(1);
+            }
+             
+           con.close();
+           
+            if (lastID == null) {
+                newID = "R1";
+            }
+            else{
+            Integer lastCustNo = Integer.parseInt(lastID.substring(1));
+            lastCustNo++;
+            return "R"+lastCustNo;
+            
+            }
+           
+          
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); 
+
+          
+        } 
+         return newID;
+    
+    
+    
+    
+    }
+    
+    
      public String newCustID() {
             Connection con = null;
             String newID = null;

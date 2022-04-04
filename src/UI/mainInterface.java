@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import Classes.databaseConnections;
-import Classes.customerIDGenerate;
+import Classes.IDGenerators;
 import javax.swing.JOptionPane;
 import Classes.globalVars;
 
@@ -222,7 +222,7 @@ Country[] listCountry = createCountryList();
             .addGap(0, 90, Short.MAX_VALUE)
         );
 
-        jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 90));
+        jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1030, 90));
 
         CustomerPane.setBackground(new java.awt.Color(102, 255, 102));
 
@@ -1593,7 +1593,7 @@ Country[] listCountry = createCountryList();
          
             
             databaseConnections newConnection = new databaseConnections();
-            customerIDGenerate custID = new customerIDGenerate();
+            IDGenerators custID = new IDGenerators();
                         String customerID = custID.newCustID();
 
             
@@ -1631,7 +1631,7 @@ Country[] listCountry = createCountryList();
              databaseConnections newConnection = new databaseConnections();
              
              //get the new customer id
-            customerIDGenerate custID = new customerIDGenerate();
+            IDGenerators custID = new IDGenerators();
                         String customerID = custID.newCustID();
 
             

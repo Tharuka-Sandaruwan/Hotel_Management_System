@@ -11,6 +11,7 @@ public class testClass {
         
         System.out.println(Country.getcountryIndex("Sri Lanka"));
  
-        
+        IDGenerators news = new IDGenerators();
+        System.out.println(news.newResID());
             }
 }
