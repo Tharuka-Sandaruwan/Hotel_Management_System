@@ -14,6 +14,7 @@ import Classes.databaseConnections;
 import Classes.IDGenerators;
 import javax.swing.JOptionPane;
 import Classes.globalVars;
+import Classes.AutoCompletion;
 
 import static Classes.tableDataLoading.customerTableRefresh;
 import javax.swing.table.DefaultTableModel;
@@ -112,6 +113,7 @@ Country[] listCountry = createCountryList();
         addressTxt = new javax.swing.JTextArea();
         countryList = new javax.swing.JComboBox<>(listCountry);
         countryList.setSelectedItem(listCountry[201]);
+AutoCompletion.enable(countryList);
         updateBtn = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
@@ -125,7 +127,6 @@ Country[] listCountry = createCountryList();
         jLabel6 = new javax.swing.JLabel();
         reservationIdTxt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        resCustIdTxt = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         resCustNameTxt = new javax.swing.JTextField();
         resPremiumRoomTxt = new javax.swing.JTextField();
@@ -151,6 +152,7 @@ Country[] listCountry = createCountryList();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         arrivalDate = new com.toedter.calendar.JDateChooser();
+        resIDSearchJcombo = new javax.swing.JComboBox<>();
         departDate = new com.toedter.calendar.JDateChooser();
         jScrollPane6 = new javax.swing.JScrollPane();
         resReservationTbl = new javax.swing.JTable();
@@ -600,12 +602,6 @@ Country[] listCountry = createCountryList();
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setText("Customer ID");
 
-        resCustIdTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resCustIdTxtActionPerformed(evt);
-            }
-        });
-
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setText("Customer Name");
 
@@ -712,6 +708,8 @@ Country[] listCountry = createCountryList();
         arrivalDate.setDateFormatString("yyyy-MM-dd");
         arrivalDate.setMaxSelectableDate(new java.util.Date(253370748685000L));
 
+        resIDSearchJcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         departDate.setDateFormatString("yyyy-MM-dd");
 
         javax.swing.GroupLayout ReservationLayout = new javax.swing.GroupLayout(Reservation);
@@ -756,8 +754,8 @@ Country[] listCountry = createCountryList();
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(53, 53, 53)
                                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(resAdultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(reskidsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(reskidsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resAdultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(ReservationLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -769,8 +767,8 @@ Country[] listCountry = createCountryList();
                                     .addComponent(reservationIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(ReservationLayout.createSequentialGroup()
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(resCustIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(resIDSearchJcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(ReservationLayout.createSequentialGroup()
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -800,7 +798,7 @@ Country[] listCountry = createCountryList();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(resCustIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resIDSearchJcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -815,7 +813,7 @@ Country[] listCountry = createCountryList();
                     .addComponent(departDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -881,9 +879,9 @@ Country[] listCountry = createCountryList();
                 .addContainerGap(433, Short.MAX_VALUE)
                 .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
-                        .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1464,10 +1462,6 @@ Country[] listCountry = createCountryList();
         // TODO add your handling code here:
     }//GEN-LAST:event_reservationIdTxtActionPerformed
 
-    private void resCustIdTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resCustIdTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_resCustIdTxtActionPerformed
-
     private void resCustNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resCustNameTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resCustNameTxtActionPerformed
@@ -2032,10 +2026,10 @@ Country[] listCountry = createCountryList();
     private javax.swing.JTextField resAdultTxt;
     private javax.swing.JTable resAvailableRoomTbl;
     private javax.swing.JButton resClearBtn;
-    private javax.swing.JTextField resCustIdTxt;
     private javax.swing.JTextField resCustNameTxt;
     private javax.swing.JTextField resExecutiveRoomTxt;
     private javax.swing.JCheckBox resExecutiveTick;
+    private javax.swing.JComboBox<String> resIDSearchJcombo;
     private javax.swing.JTextField resPremiumRoomTxt;
     private javax.swing.JCheckBox resPremiumtick;
     private javax.swing.JTable resReservationTbl;

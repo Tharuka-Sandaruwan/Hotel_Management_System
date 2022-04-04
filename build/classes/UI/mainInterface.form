@@ -523,7 +523,7 @@
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;&gt;(listCountry)"/>
-                            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="countryList.setSelectedItem(listCountry[201]);&#xd; "/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="countryList.setSelectedItem(listCountry[201]);&#xd;AutoCompletion.enable(countryList);&#xd;"/>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Country&gt;"/>
                           </AuxValues>
                         </Component>
@@ -594,9 +594,9 @@
                           <EmptySpace pref="433" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane6" alignment="1" min="-2" pref="441" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jScrollPane2" alignment="1" min="-2" pref="441" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane6" alignment="1" min="-2" pref="441" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -722,8 +722,8 @@
                                                   </Group>
                                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="reskidsTxt" min="-2" pref="128" max="-2" attributes="0"/>
                                                       <Component id="resAdultTxt" min="-2" pref="128" max="-2" attributes="0"/>
-                                                      <Component id="reskidsTxt" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -740,8 +740,8 @@
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabel9" min="-2" pref="142" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="resCustIdTxt" min="-2" pref="166" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="resIDSearchJcombo" min="-2" pref="151" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabel11" min="-2" pref="142" max="-2" attributes="0"/>
@@ -784,7 +784,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="resCustIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="resIDSearchJcombo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -803,7 +803,7 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                                  <EmptySpace pref="8" max="32767" attributes="0"/>
+                                  <EmptySpace pref="43" max="32767" attributes="0"/>
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -875,11 +875,6 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Customer ID"/>
                           </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="resCustIdTxt">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resCustIdTxtActionPerformed"/>
-                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel11">
                           <Properties>
@@ -1047,6 +1042,21 @@
                               <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,-26,112,121,120,-54,-56,120"/>
                             </Property>
                           </Properties>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="resIDSearchJcombo">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="4">
+                                <StringItem index="0" value="Item 1"/>
+                                <StringItem index="1" value="Item 2"/>
+                                <StringItem index="2" value="Item 3"/>
+                                <StringItem index="3" value="Item 4"/>
+                              </StringArray>
+                            </Property>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
                         </Component>
                         <Component class="com.toedter.calendar.JDateChooser" name="departDate">
                           <Properties>
