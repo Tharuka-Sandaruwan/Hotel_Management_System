@@ -1,6 +1,7 @@
 
 package UI;
 
+import Classes.CustomerIdComboGenerator;
 import Classes.Country;
 import Classes.dataValidator;
 import java.awt.Color;
@@ -152,6 +153,7 @@ AutoCompletion.enable(countryList);
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         arrivalDate = new com.toedter.calendar.JDateChooser();
+
         resIDSearchJcombo = new javax.swing.JComboBox<>();
         departDate = new com.toedter.calendar.JDateChooser();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -708,9 +710,9 @@ AutoCompletion.enable(countryList);
         arrivalDate.setDateFormatString("yyyy-MM-dd");
         arrivalDate.setMaxSelectableDate(new java.util.Date(253370748685000L));
 
-        resIDSearchJcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         departDate.setDateFormatString("yyyy-MM-dd");
+
+        CustomerIdComboGenerator.loadUserName(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);
 
         javax.swing.GroupLayout ReservationLayout = new javax.swing.GroupLayout(Reservation);
         Reservation.setLayout(ReservationLayout);
