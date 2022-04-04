@@ -930,6 +930,8 @@
                         <Component class="javax.swing.JTextField" name="resAdultTxt">
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resAdultTxtActionPerformed"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="resAdultTxtKeyPressed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="resAdultTxtKeyReleased"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel15">
@@ -977,6 +979,8 @@
                         <Component class="javax.swing.JTextField" name="reskidsTxt">
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reskidsTxtActionPerformed"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="reskidsTxtKeyPressed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="reskidsTxtKeyReleased"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="resRoyalRoomTxt">
@@ -1048,6 +1052,9 @@
                               <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,-26,112,121,120,-54,-56,120"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="JTextFieldDateEditor editor = (JTextFieldDateEditor) arrivalDate.getDateEditor();&#xd;&#xa;editor.setEditable(false);&#xd;&#xa;"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="resIDSearchJcombo">
                           <Properties>
@@ -1073,6 +1080,9 @@
                           <Properties>
                             <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="JTextFieldDateEditor editor2 = (JTextFieldDateEditor) departDate.getDateEditor();&#xd;&#xa;editor2.setEditable(false);"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1086,11 +1096,43 @@
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                            <Column editable="false" title="Title 1" type="java.lang.Object"/>
+                            <Column editable="false" title="Title 2" type="java.lang.Object"/>
+                            <Column editable="false" title="Title 3" type="java.lang.Object"/>
+                            <Column editable="false" title="Title 4" type="java.lang.Object"/>
                           </Table>
+                        </Property>
+                        <Property name="autoResizeMode" type="int" value="0"/>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
+                        </Property>
+                        <Property name="selectionMode" type="int" value="0"/>
+                        <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+                          <JTableSelectionModel selectionMode="0"/>
+                        </Property>
+                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                          <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
                     </Component>

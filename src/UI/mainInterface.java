@@ -17,6 +17,9 @@ import Classes.globalVars;
 import Classes.AutoCompletion;
 
 import static Classes.tableDataLoading.customerTableRefresh;
+import com.toedter.calendar.JTextFieldDateEditor;
+import java.time.Instant;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 public class mainInterface extends javax.swing.JFrame {
@@ -642,6 +645,14 @@ AutoCompletion.enable(countryList);
                 resAdultTxtActionPerformed(evt);
             }
         });
+        resAdultTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                resAdultTxtKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                resAdultTxtKeyReleased(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel15.setText("Type");
@@ -666,6 +677,14 @@ AutoCompletion.enable(countryList);
         reskidsTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reskidsTxtActionPerformed(evt);
+            }
+        });
+        reskidsTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                reskidsTxtKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                reskidsTxtKeyReleased(evt);
             }
         });
 
@@ -717,6 +736,8 @@ AutoCompletion.enable(countryList);
 
         arrivalDate.setDateFormatString("yyyy-MM-dd");
         arrivalDate.setMaxSelectableDate(new java.util.Date(253370748685000L));
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) arrivalDate.getDateEditor();
+        editor.setEditable(false);
 
         custIdOK.setText("OK");
         custIdOK.addActionListener(new java.awt.event.ActionListener() {
@@ -726,6 +747,8 @@ AutoCompletion.enable(countryList);
         });
 
         departDate.setDateFormatString("yyyy-MM-dd");
+        JTextFieldDateEditor editor2 = (JTextFieldDateEditor) departDate.getDateEditor();
+        editor2.setEditable(false);
 
         CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);
 
@@ -886,7 +909,19 @@ AutoCompletion.enable(countryList);
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        resReservationTbl.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        resReservationTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        resReservationTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        resReservationTbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(resReservationTbl);
 
         jLabel32.setText("Reservations");
@@ -1886,9 +1921,29 @@ AutoCompletion.enable(countryList);
 
     private void custIdOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIdOKActionPerformed
                 CustomerIdComboGenerator.loadCustomerName(resCustNameTxt, resIDSearchJcombo.getSelectedItem().toString());
+                
+
 
     }//GEN-LAST:event_custIdOKActionPerformed
 
+    private void resAdultTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resAdultTxtKeyPressed
+        dataValidator.numberOnlyValidator(resAdultTxt);
+    }//GEN-LAST:event_resAdultTxtKeyPressed
+
+    private void resAdultTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_resAdultTxtKeyReleased
+               dataValidator.numberOnlyValidator(resAdultTxt);
+    }//GEN-LAST:event_resAdultTxtKeyReleased
+
+    private void reskidsTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reskidsTxtKeyPressed
+               dataValidator.numberOnlyValidator(reskidsTxt);
+    }//GEN-LAST:event_reskidsTxtKeyPressed
+
+    private void reskidsTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reskidsTxtKeyReleased
+                      dataValidator.numberOnlyValidator(reskidsTxt);
+    }//GEN-LAST:event_reskidsTxtKeyReleased
+
+    
+    
     /**
      * @param args the command line arguments
      */
