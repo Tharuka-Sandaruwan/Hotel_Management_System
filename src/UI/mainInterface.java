@@ -162,6 +162,7 @@ AutoCompletion.enable(countryList);
         arrivalDate = new com.toedter.calendar.JDateChooser();
 
         resIDSearchJcombo = new javax.swing.JComboBox<>();
+        custIdOK = new javax.swing.JButton();
         departDate = new com.toedter.calendar.JDateChooser();
         jScrollPane6 = new javax.swing.JScrollPane();
         resReservationTbl = new javax.swing.JTable();
@@ -717,6 +718,13 @@ AutoCompletion.enable(countryList);
         arrivalDate.setDateFormatString("yyyy-MM-dd");
         arrivalDate.setMaxSelectableDate(new java.util.Date(253370748685000L));
 
+        custIdOK.setText("OK");
+        custIdOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custIdOKActionPerformed(evt);
+            }
+        });
+
         departDate.setDateFormatString("yyyy-MM-dd");
 
         CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);
@@ -755,7 +763,6 @@ AutoCompletion.enable(countryList);
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(resAddRoomBtn))
                                     .addComponent(resPremiumRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ReservationLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -764,7 +771,10 @@ AutoCompletion.enable(countryList);
                                 .addGap(53, 53, 53)
                                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(reskidsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(resAdultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(resAdultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(ReservationLayout.createSequentialGroup()
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31))))
                     .addGroup(ReservationLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -781,7 +791,9 @@ AutoCompletion.enable(countryList);
                                 .addGroup(ReservationLayout.createSequentialGroup()
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(resCustNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(resCustNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(19, 19, 19)
+                        .addComponent(custIdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ReservationLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -795,7 +807,7 @@ AutoCompletion.enable(countryList);
                         .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(arrivalDate, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                             .addComponent(departDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         ReservationLayout.setVerticalGroup(
             ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -807,7 +819,8 @@ AutoCompletion.enable(countryList);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(resIDSearchJcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resIDSearchJcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(custIdOK))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -1871,6 +1884,11 @@ AutoCompletion.enable(countryList);
 
     }//GEN-LAST:event_updateBtnActionPerformed
 
+    private void custIdOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIdOKActionPerformed
+                CustomerIdComboGenerator.loadCustomerName(resCustNameTxt, resIDSearchJcombo.getSelectedItem().toString());
+
+    }//GEN-LAST:event_custIdOKActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1926,6 +1944,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextField custIDTxt;
     private javax.swing.JTextField custIDTxt1;
     private javax.swing.JTextField custIDTxt2;
+    private javax.swing.JButton custIdOK;
     private javax.swing.JScrollPane custInfoAddScroller;
     private javax.swing.JScrollPane custInfoAddScroller1;
     private javax.swing.JScrollPane custInfoAddScroller2;

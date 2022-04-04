@@ -713,7 +713,6 @@
                                                       <Component id="resPremiumRoomTxt" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="jLabel13" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -725,6 +724,10 @@
                                                       <Component id="reskidsTxt" min="-2" pref="128" max="-2" attributes="0"/>
                                                       <Component id="resAdultTxt" min="-2" pref="128" max="-2" attributes="0"/>
                                                   </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel13" min="-2" pref="65" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -750,6 +753,8 @@
                                                   </Group>
                                               </Group>
                                           </Group>
+                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                          <Component id="custIdOK" min="-2" pref="53" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
@@ -769,7 +774,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="99" max="32767" attributes="0"/>
+                                  <EmptySpace pref="73" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -785,6 +790,7 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="resIDSearchJcombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="custIdOK" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1054,6 +1060,14 @@
                             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="&#xd;&#xa;"/>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                           </AuxValues>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="custIdOK">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="OK"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custIdOKActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="com.toedter.calendar.JDateChooser" name="departDate">
                           <Properties>
