@@ -23,6 +23,8 @@ import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 public class mainInterface extends javax.swing.JFrame {
+    
+    
 
     //used to refresh panes when switching from one tab to another
     public void refreshCustomer() {
@@ -86,8 +88,14 @@ public class mainInterface extends javax.swing.JFrame {
         setResizable(false);
         setSize(1024, 768);
         Classes.tableDataLoading.customerTableRefresh(cusTable.getModel());
+        
+        
+        
+        
+       
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -163,10 +171,14 @@ AutoCompletion.enable(countryList);
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         arrivalDate = new com.toedter.calendar.JDateChooser();
+        JTextFieldDateEditor arrivalDateTxt = (JTextFieldDateEditor) arrivalDate.getDateEditor();
+        arrivalDateTxt.setEditable(false);
 
         resIDSearchJcombo = new javax.swing.JComboBox<>();
         custIdOK = new javax.swing.JButton();
         departDate = new com.toedter.calendar.JDateChooser();
+        JTextFieldDateEditor departDateTxt = (JTextFieldDateEditor) departDate.getDateEditor();
+        departDateTxt.setEditable(false);
         jScrollPane6 = new javax.swing.JScrollPane();
         resReservationTbl = new javax.swing.JTable();
         jLabel32 = new javax.swing.JLabel();
@@ -597,7 +609,17 @@ AutoCompletion.enable(countryList);
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        resAvailableRoomTbl.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        resAvailableRoomTbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(resAvailableRoomTbl);
 
         Reservation.setBackground(new java.awt.Color(0, 255, 204));
@@ -736,8 +758,6 @@ AutoCompletion.enable(countryList);
 
         arrivalDate.setDateFormatString("yyyy-MM-dd");
         arrivalDate.setMaxSelectableDate(new java.util.Date(253370748685000L));
-        JTextFieldDateEditor editor = (JTextFieldDateEditor) arrivalDate.getDateEditor();
-        editor.setEditable(false);
 
         custIdOK.setText("OK");
         custIdOK.addActionListener(new java.awt.event.ActionListener() {
@@ -747,8 +767,6 @@ AutoCompletion.enable(countryList);
         });
 
         departDate.setDateFormatString("yyyy-MM-dd");
-        JTextFieldDateEditor editor2 = (JTextFieldDateEditor) departDate.getDateEditor();
-        editor2.setEditable(false);
 
         CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);
 
@@ -1478,6 +1496,8 @@ AutoCompletion.enable(countryList);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void CustomerBtnPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerBtnPaneMouseClicked
         refreshCustomer();
         tabbedPane.setSelectedIndex(0);
@@ -1555,7 +1575,20 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_resUpdateBtnActionPerformed
 
     private void resSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSubmitBtnActionPerformed
-        // TODO add your handling code here:
+    
+        if (dataValidator.DateValidator(arrivalDate) && dataValidator.DateValidator(departDate) && dataValidator.numberOnlyValidator(resAdultTxt) && dataValidator.numberOnlyValidator(reskidsTxt)) {
+            
+        }else{
+        
+            System.out.println("invalid");
+        
+        }
+      
+        
+  
+        
+        
+       
     }//GEN-LAST:event_resSubmitBtnActionPerformed
 
     private void resClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resClearBtnActionPerformed

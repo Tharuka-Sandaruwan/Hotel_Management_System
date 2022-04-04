@@ -1,6 +1,8 @@
 package Classes;
 
 import UI.mainInterface;
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.util.regex.*;
 import javax.swing.JTextField;
 
@@ -87,6 +89,20 @@ public class dataValidator {
         }else {
             textFields.setBorder(mainInterface.BorderError());
             return false;
+        }
+    
+    
+    }
+    
+    public static boolean DateValidator(JDateChooser dateSelectorName){
+    JTextFieldDateEditor textPart = (JTextFieldDateEditor) dateSelectorName.getDateEditor();
+    
+        if (textPart.getDate() == null) {
+            textPart.setBorder(mainInterface.BorderError());
+            return false;
+        }else{
+            textPart.setBorder(mainInterface.Bordergood());
+            return true;
         }
     
     
