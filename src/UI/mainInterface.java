@@ -17,6 +17,7 @@ import Classes.globalVars;
 import Classes.AutoCompletion;
 
 import static Classes.tableDataLoading.customerTableRefresh;
+import static Classes.tableDataLoading.roomTypeTblRefresh;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.time.Instant;
 import java.util.Date;
@@ -615,26 +616,38 @@ AutoCompletion.enable(countryList);
 
         resAvailableRoomTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Room Number", "Price Per night (Rs.)", "No of Guests"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        resAvailableRoomTbl.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        resAvailableRoomTbl.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         resAvailableRoomTbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(resAvailableRoomTbl);
+        if (resAvailableRoomTbl.getColumnModel().getColumnCount() > 0) {
+            resAvailableRoomTbl.getColumnModel().getColumn(0).setPreferredWidth(50);
+            resAvailableRoomTbl.getColumnModel().getColumn(1).setPreferredWidth(100);
+            resAvailableRoomTbl.getColumnModel().getColumn(2).setPreferredWidth(75);
+        }
 
         Reservation.setBackground(new java.awt.Color(0, 255, 204));
 
@@ -703,8 +716,18 @@ AutoCompletion.enable(countryList);
         });
 
         resExecutiveTick.setText("Executive");
+        resExecutiveTick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resExecutiveTickActionPerformed(evt);
+            }
+        });
 
         resRoyalTick.setText("Royal");
+        resRoyalTick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resRoyalTickActionPerformed(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel16.setText("Rooms");
@@ -767,10 +790,10 @@ AutoCompletion.enable(countryList);
         });
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel18.setText("Departure Date");
+        jLabel18.setText("Check Out Date");
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel19.setText("Arrival Date");
+        jLabel19.setText("Check IN Date");
 
         arrivalDate.setDateFormatString("yyyy-MM-dd");
         arrivalDate.setMaxSelectableDate(new java.util.Date(253370748685000L));
@@ -839,21 +862,20 @@ AutoCompletion.enable(countryList);
                                     .addComponent(resPackageSelector, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(ReservationLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(ReservationLayout.createSequentialGroup()
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(reservationIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ReservationLayout.createSequentialGroup()
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(resIDSearchJcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ReservationLayout.createSequentialGroup()
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(resCustNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ReservationLayout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(reservationIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ReservationLayout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(resIDSearchJcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ReservationLayout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(resCustNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(19, 19, 19)
                         .addComponent(custIdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ReservationLayout.createSequentialGroup()
@@ -979,11 +1001,10 @@ AutoCompletion.enable(countryList);
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
                         .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
-                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(44, 44, 44))))
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(reservationPaneLayout.createSequentialGroup()
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1579,7 +1600,13 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_resAdultTxtActionPerformed
 
     private void resPremiumtickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resPremiumtickActionPerformed
-        // TODO add your handling code here:
+        if (resPremiumtick.isSelected()) {
+                    //resAvailableRoomTbl.removeAll();
+                   roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.premium_rooms_nocalc;");
+        }else{
+        DefaultTableModel dtm = (DefaultTableModel) resAvailableRoomTbl.getModel();
+           dtm.setRowCount(0);
+        }
     }//GEN-LAST:event_resPremiumtickActionPerformed
 
     private void reskidsTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reskidsTxtActionPerformed
@@ -2004,6 +2031,27 @@ AutoCompletion.enable(countryList);
     private void reskidsTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reskidsTxtKeyReleased
                       dataValidator.oneValidator(reskidsTxt);
     }//GEN-LAST:event_reskidsTxtKeyReleased
+
+    private void resExecutiveTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resExecutiveTickActionPerformed
+       if (resExecutiveTick.isSelected()) {
+                    
+                   roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.executive_rooms_nocalc;");
+        }else{
+           // used to clear table
+           DefaultTableModel dtm = (DefaultTableModel) resAvailableRoomTbl.getModel();
+           dtm.setRowCount(0);
+       }
+    }//GEN-LAST:event_resExecutiveTickActionPerformed
+
+    private void resRoyalTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resRoyalTickActionPerformed
+         if (resRoyalTick.isSelected()) {
+                    //resAvailableRoomTbl.removeAll();
+                   roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.royal_rooms_nocalc;");
+        }else{
+        DefaultTableModel dtm = (DefaultTableModel) resAvailableRoomTbl.getModel();
+           dtm.setRowCount(0);
+        }
+    }//GEN-LAST:event_resRoyalTickActionPerformed
 
     
     
