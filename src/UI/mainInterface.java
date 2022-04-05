@@ -56,6 +56,18 @@ public class mainInterface extends javax.swing.JFrame {
         addressTxt.setBorder(Bordergood());
 
     }
+    public void clearReservationPane(){
+        clearFlds(Arrays.asList(reservationIdTxt,resCustNameTxt,resAdultTxt,reskidsTxt,resPremiumRoomTxt,resRoyalRoomTxt,resExecutiveRoomTxt));
+        arrivalDate.setDate(null);
+        departDate.setDate(null);
+
+        //use arrivalDate.setDate(new Date()); to set to today
+        
+      
+         
+        
+
+    }
 
 // use for clearing the text fields
     public void clearFlds(List<JTextField> textFields) {
@@ -813,9 +825,7 @@ AutoCompletion.enable(countryList);
                                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(reskidsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(resAdultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(ReservationLayout.createSequentialGroup()
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31))))
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(ReservationLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1598,7 +1608,7 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_resSubmitBtnActionPerformed
 
     private void resClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resClearBtnActionPerformed
-        // TODO add your handling code here:
+       clearReservationPane();
     }//GEN-LAST:event_resClearBtnActionPerformed
 
     private void resAddRoomBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resAddRoomBtnActionPerformed
