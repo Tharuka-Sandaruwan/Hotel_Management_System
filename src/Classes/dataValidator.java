@@ -83,7 +83,7 @@ public class dataValidator {
     
     //method to validate only one from kids or adults
     public static boolean oneValidator(JTextField KidOrAdult){
-        if(KidOrAdult.getText().matches("[0-9]+") || KidOrAdult.getText().matches(""))
+        if((KidOrAdult.getText().matches("[0-9]+") && Integer.parseInt(KidOrAdult.getText()) < 255) || KidOrAdult.getText().matches(""))
         {
             KidOrAdult.setBorder(mainInterface.Bordergood());
             return true; 
