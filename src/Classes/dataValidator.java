@@ -126,27 +126,17 @@ public class dataValidator {
     }
     
     
-    
-    public static boolean isTicked(JCheckBox tickBox1,JCheckBox tickBox2,JCheckBox tickBox3){
-        if (tickBox1.isSelected() || tickBox2.isSelected() || tickBox3.isSelected()) {
-          tickBox1.setForeground(Color.red);
-          tickBox2.setForeground(Color.red);
-          tickBox3.setForeground(Color.red);
-            return true;
-        }else{
-          tickBox1.setBorder(mainInterface.BorderError());
-          tickBox1.setBorder(mainInterface.BorderError());
-          tickBox1.setBorder(mainInterface.BorderError());
-            return false;
-        }
- 
-    }
-    
-    
+    //IMPLEMENT FUNCTIONALITY TO CHECK IF TICKED,TEXTBOX IS NOT EMPTY
     //used to check whether the user selected the rooms from the table to the relevent category he/she ticked
     public static boolean isRoomAssigned(JCheckBox premiumTik,JTextField premiumTxt,JCheckBox royalTik,JTextField royalTxt,JCheckBox executTik,JTextField executTxt){
     // ^(?!\s*$).+
+        
+        
         if (premiumTik.isSelected() && premiumTxt.getText().matches("^(?!\\s*$).+")) {
+            
+            if (true) {
+                
+            }
             premiumTxt.setBorder(mainInterface.Bordergood());
             premiumTik.setForeground(Color.BLACK);
             royalTxt.setBorder(mainInterface.Bordergood());

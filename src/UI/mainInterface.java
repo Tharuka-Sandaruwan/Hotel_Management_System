@@ -1577,16 +1577,15 @@ AutoCompletion.enable(countryList);
     private void resSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSubmitBtnActionPerformed
     
         if (dataValidator.DateValidator(arrivalDate) && dataValidator.DateValidator(departDate) &&
-         dataValidator.adultKidsValidate(resAdultTxt, reskidsTxt) /* && 
-                
-                dataValidator.isTicked(resExecutiveTick, resPremiumtick, resRoyalTick) */      
-        && dataValidator.isRoomAssigned(resPremiumtick, resPremiumRoomTxt,resRoyalTick,resRoyalRoomTxt,resExecutiveTick,resExecutiveRoomTxt) 
-                         
+         dataValidator.adultKidsValidate(resAdultTxt, reskidsTxt) 
+        && dataValidator.isRoomAssigned(resPremiumtick, resPremiumRoomTxt,resRoyalTick,resRoyalRoomTxt,resExecutiveTick,resExecutiveRoomTxt)                 
         ) {
-            System.out.println("valid");
-        }else{
+            System.out.println("all data valid");
+            
+        }
+        else{
         
-            System.out.println(resPremiumtick.isSelected());
+            System.out.println("invalid");
            
 
         }
