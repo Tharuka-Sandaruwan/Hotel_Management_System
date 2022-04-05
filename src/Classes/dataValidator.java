@@ -3,7 +3,9 @@ package Classes;
 import UI.mainInterface;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JTextFieldDateEditor;
+import java.awt.Color;
 import java.util.regex.*;
+import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
 //used to validate data when entering
@@ -79,8 +81,8 @@ public class dataValidator {
 
     }
     
-    
-     public static boolean oneValidator(JTextField KidOrAdult){
+    //method to validate only one from kids or adults
+    public static boolean oneValidator(JTextField KidOrAdult){
         if(KidOrAdult.getText().matches("[0-9]+") || KidOrAdult.getText().matches(""))
         {
             KidOrAdult.setBorder(mainInterface.Bordergood());
@@ -91,8 +93,8 @@ public class dataValidator {
         }
         
         }
-     
-      
+    
+    //method which checks both kids or adults valid.USE THIS WHEN NEED TO VALIDATE BOTH AT THE SAME TIME
     public static boolean adultKidsValidate(JTextField adults,JTextField kids){
        
         
@@ -121,6 +123,64 @@ public class dataValidator {
         }
     
     
+    }
+    
+    
+    
+    public static boolean isTicked(JCheckBox tickBox1,JCheckBox tickBox2,JCheckBox tickBox3){
+        if (tickBox1.isSelected() || tickBox2.isSelected() || tickBox3.isSelected()) {
+          tickBox1.setForeground(Color.red);
+          tickBox2.setForeground(Color.red);
+          tickBox3.setForeground(Color.red);
+            return true;
+        }else{
+          tickBox1.setBorder(mainInterface.BorderError());
+          tickBox1.setBorder(mainInterface.BorderError());
+          tickBox1.setBorder(mainInterface.BorderError());
+            return false;
+        }
+ 
+    }
+    
+    
+    //used to check whether the user selected the rooms from the table to the relevent category he/she ticked
+    public static boolean isRoomAssigned(JCheckBox premiumTik,JTextField premiumTxt,JCheckBox royalTik,JTextField royalTxt,JCheckBox executTik,JTextField executTxt){
+    // ^(?!\s*$).+
+        if (premiumTik.isSelected() && premiumTxt.getText().matches("^(?!\\s*$).+")) {
+            premiumTxt.setBorder(mainInterface.Bordergood());
+            premiumTik.setForeground(Color.BLACK);
+            royalTxt.setBorder(mainInterface.Bordergood());
+            royalTik.setForeground(Color.BLACK);
+            executTxt.setBorder(mainInterface.Bordergood());
+            executTik.setForeground(Color.BLACK);
+            return true;
+        }else if (royalTik.isSelected() && royalTxt.getText().matches("^(?!\\s*$).+")) {
+            premiumTxt.setBorder(mainInterface.Bordergood());
+            premiumTik.setForeground(Color.BLACK);
+            royalTxt.setBorder(mainInterface.Bordergood());
+            royalTik.setForeground(Color.BLACK);
+            executTxt.setBorder(mainInterface.Bordergood());
+            executTik.setForeground(Color.BLACK);
+            return true;
+        }else if (executTik.isSelected() && executTxt.getText().matches("^(?!\\s*$).+")) {
+            premiumTxt.setBorder(mainInterface.Bordergood());
+            premiumTik.setForeground(Color.BLACK);
+            royalTxt.setBorder(mainInterface.Bordergood());
+            royalTik.setForeground(Color.BLACK);
+            executTxt.setBorder(mainInterface.Bordergood());
+            executTik.setForeground(Color.BLACK);
+            return true;
+        }
+        else{
+            executTxt.setBorder(mainInterface.BorderError());
+            executTik.setForeground(Color.red);
+            royalTxt.setBorder(mainInterface.BorderError());
+            royalTik.setForeground(Color.red);
+            premiumTxt.setBorder(mainInterface.BorderError());
+            premiumTik.setForeground(Color.red);
+            return false;
+        }
+        
     }
     
     
