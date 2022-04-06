@@ -1653,7 +1653,22 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_resClearBtnActionPerformed
 
     private void resAddRoomBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resAddRoomBtnActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel reserveModel = (DefaultTableModel) resAvailableRoomTbl.getModel();
+
+        String romType = reserveModel.getValueAt(resAvailableRoomTbl.getSelectedRow(), 0).toString();
+        
+        if (romType.matches("^P.*$")) {
+            System.out.println("premium");
+            resPremiumRoomTxt.setText(resPremiumRoomTxt.getText()+ romType+",");
+        }
+        else if (romType.matches("^E.*$")) {
+            System.out.println("no mat");
+            resExecutiveRoomTxt.setText(resExecutiveRoomTxt.getText()+romType+",");
+        }else{
+            resRoyalRoomTxt.setText(resRoyalRoomTxt.getText()+romType+",");
+        }
+     
+      
     }//GEN-LAST:event_resAddRoomBtnActionPerformed
 
     private void custIDTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIDTxt1ActionPerformed
