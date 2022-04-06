@@ -767,25 +767,27 @@
                                                       <Component id="resRoyalTick" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="resRoyalRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="royalRemoveBtn" min="-2" pref="34" max="-2" attributes="0"/>
-                                                      </Group>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="resPremiumRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="premiumRemoveBtn" min="-2" pref="34" max="-2" attributes="0"/>
+                                                          <Component id="premiumRemoveBtn" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="resExecutiveRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="executRemoveBtn" min="-2" pref="34" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                                          <Component id="resAddRoomBtn" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="resRoyalRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="royalRemoveBtn" max="32767" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="resExecutiveRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="executRemoveBtn" min="-2" pref="43" max="-2" attributes="0"/>
+                                                          </Group>
                                                       </Group>
                                                   </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="resAddRoomBtn" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
