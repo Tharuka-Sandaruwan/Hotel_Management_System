@@ -129,7 +129,52 @@ public class tableDataLoading {
         }
     
     }
+    
      
+     public static void reservationTableRefresh(TableModel resTableModel){
+            Connection con = null;
+        try {
+            
+            
+            
+            
+            con = DriverManager.getConnection(DBCredentials.connectString, DBCredentials.username, DBCredentials.password);
+            
+            System.out.println("connected!");
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+            
+                       
+
+            ResultSet rs = statement.executeQuery("SELECT * FROM hotelmanagementsystem.reservation_pane_reservations;");
+            
+            DefaultTableModel tblModel= (DefaultTableModel)resTableModel;
+            tblModel.setRowCount(0);
+            
+            
+            
+            while (rs.next()) {
+                
+                
+                String tblData[] = {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)};
+                              
+                tblModel.addRow(tblData);
+                
+            }
+            
+            
+            
+            con.close();
+
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e); //Display dialogue box
+            
+        }
+    
+    }
      
      public static void roomTypeTblRefresh(TableModel tableNameModel,String tableName){
             Connection con = null;

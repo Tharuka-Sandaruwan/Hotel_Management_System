@@ -17,6 +17,7 @@ import Classes.globalVars;
 import Classes.AutoCompletion;
 
 import static Classes.tableDataLoading.customerTableRefresh;
+import static Classes.tableDataLoading.reservationTableRefresh;
 import static Classes.tableDataLoading.roomTypeTblRefresh;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.time.Instant;
@@ -39,6 +40,7 @@ public class mainInterface extends javax.swing.JFrame {
     public void refreshReservation() {
         resIDSearchJcombo.removeAllItems();
         CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo);
+        reservationTableRefresh(resReservationTbl.getModel());
 
     }
 
@@ -139,6 +141,7 @@ public class mainInterface extends javax.swing.JFrame {
         setResizable(false);
         setSize(1024, 768);
         Classes.tableDataLoading.customerTableRefresh(cusTable.getModel());
+        
         
         
         
@@ -938,15 +941,14 @@ AutoCompletion.enable(countryList);
                                         .addComponent(resPremiumRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(premiumRemoveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(ReservationLayout.createSequentialGroup()
-                                            .addComponent(resRoyalRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(royalRemoveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ReservationLayout.createSequentialGroup()
-                                            .addComponent(resExecutiveRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(executRemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReservationLayout.createSequentialGroup()
+                                        .addComponent(resRoyalRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(royalRemoveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(ReservationLayout.createSequentialGroup()
+                                        .addComponent(resExecutiveRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(executRemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(resAddRoomBtn))))
                     .addGroup(ReservationLayout.createSequentialGroup()
@@ -1045,17 +1047,17 @@ AutoCompletion.enable(countryList);
 
         resReservationTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Reservation ID", "Customer Name", "Premium Rooms Count", "Executive Rooms Count", "Royal Rooms Count", "Check In Date", "Check Out Date", "Adult Guest Count", "Child Guest Count", "Package Type"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1067,6 +1069,18 @@ AutoCompletion.enable(countryList);
         resReservationTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         resReservationTbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(resReservationTbl);
+        if (resReservationTbl.getColumnModel().getColumnCount() > 0) {
+            resReservationTbl.getColumnModel().getColumn(0).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(1).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(2).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(3).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(4).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(5).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(6).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(7).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(8).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(9).setPreferredWidth(100);
+        }
 
         jLabel32.setText("Reservations");
 
