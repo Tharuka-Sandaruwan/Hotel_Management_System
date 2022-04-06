@@ -1770,7 +1770,87 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_resExecutiveRoomTxtActionPerformed
 
     private void resUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resUpdateBtnActionPerformed
-        // TODO add your handling code here:
+      
+        if (dataValidator.DateValidator(arrivalDate) && dataValidator.DateValidator(departDate) &&
+         dataValidator.adultKidsValidate(resAdultTxt, reskidsTxt) 
+        && dataValidator.isRoomAssigned(resPremiumtick, resPremiumRoomTxt,resRoyalTick,resRoyalRoomTxt,resExecutiveTick,resExecutiveRoomTxt)                 
+        ) {
+            System.out.println("all data valid");
+            
+            String packageId ;
+            if (resPackageSelector.getSelectedItem().toString().matches("Full board")) {
+                packageId = "FB";
+            }else{
+                packageId = "HB";
+            }
+            
+            
+            databaseConnections resNew = new databaseConnections();
+            
+            String reservationId = reservationIdTxt.getText().toString();
+            
+            String arrivalDate = ((JTextField)this.arrivalDate.getDateEditor().getUiComponent()).getText();
+            String departDate = ((JTextField)this.departDate.getDateEditor().getUiComponent()).getText();
+            int kids,adults;
+            
+            ArrayList<String>  allRoomsSelected = new ArrayList<String>();
+            allRoomsSelected.addAll(globalVars.premiumSelected);
+            allRoomsSelected.addAll(globalVars.royalSelected);
+            allRoomsSelected.addAll(globalVars.exeSelected);
+            
+            //Integer.parseInt(resAdultTxt.getText())
+            
+            if (resAdultTxt.getText().matches("[0-9]+")) {
+                adults = Integer.parseInt(resAdultTxt.getText());
+            } else{
+                adults = 0;
+            }
+            
+            
+            if (reskidsTxt.getText().matches("[0-9]+")) {
+                kids = Integer.parseInt(reskidsTxt.getText());
+            } else{
+                kids = 0;
+            }
+            
+            
+            
+            //BELOW QUERIES NEED TO BE EDITED IN ORDER TO UPDATE!!!
+           
+            resNew.databaseConnectionMessage("INSERT INTO `hotelmanagementsystem`.`reservation` "
+                    + "VALUES ('"+reservationId+"','"+arrivalDate+"','"+departDate+"', "+adults+", "+kids+", '"+resIDSearchJcombo.getSelectedItem().toString()+"', '"+packageId+"')", 
+                    "Reservation added Successfully !", "Reserved Successfully");
+            
+            // looping through the all room numbers to add them all to reservation room table
+            for(String roomName : allRoomsSelected){
+                resNew.databaseConnectionNoMessage("INSERT INTO `hotelmanagementsystem`.`reservationroom` VALUES ('"+reservationId+"','"+roomName+"') ;");
+               
+            }
+            
+            
+            
+            clearReservationPane();
+            
+        
+
+           
+               
+        }
+        else{
+        
+        JOptionPane.showMessageDialog(null, "Please fill all the data Correctly!", "Update Error!", JOptionPane.ERROR_MESSAGE);
+
+           
+
+        }
+      
+        
+  
+        
+        
+      
+        
+        
     }//GEN-LAST:event_resUpdateBtnActionPerformed
 
     private void resSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSubmitBtnActionPerformed
@@ -1834,12 +1914,15 @@ AutoCompletion.enable(countryList);
             clearReservationPane();
             
 
-           
+            
+
                
         }
         else{
         
-            System.out.println("invalid");
+            JOptionPane.showMessageDialog(null, "Please Fill all the Data Correctly!", "Reservation Unsuccessfull", JOptionPane.ERROR_MESSAGE);
+
+        
            
 
         }
@@ -2336,8 +2419,13 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_totalGuestsActionPerformed
 
     private void resReservationTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resReservationTblMouseClicked
-        DefaultTableModel tblModel = (DefaultTableModel) resReservationTbl.getModel();
         
+        globalVars.exeSelected.clear();
+        globalVars.premiumSelected.clear();
+        globalVars.royalSelected.clear();
+        
+        DefaultTableModel tblModel = (DefaultTableModel) resReservationTbl.getModel();
+       
         String ResID = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 0).toString();
         String custNameRes = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 1).toString();
         String arrivalDate = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 5).toString();
@@ -2386,14 +2474,18 @@ AutoCompletion.enable(countryList);
          for (String roomNo : DBobj.getRooms(ResID)){
          if(roomNo.matches("^P.*$")){
              resPremiumRoomTxt.setText(resPremiumRoomTxt.getText().toString()+roomNo+",");
+             globalVars.premiumSelected.add(roomNo);
+             
          }
          if(roomNo.matches("^R.*$")){
              resRoyalRoomTxt.setText(resRoyalRoomTxt.getText().toString()+roomNo+",");
+             globalVars.royalSelected.add(roomNo);
          }
          if(roomNo.matches("^E.*$")){
              resExecutiveRoomTxt.setText(resExecutiveRoomTxt.getText().toString()+roomNo+",");
+             globalVars.exeSelected.add(roomNo);
          }
-             
+ 
          }
          
        
