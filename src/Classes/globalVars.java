@@ -21,6 +21,10 @@ public class globalVars {
     public static ArrayList<String>  premiumSelected = new ArrayList<String>();
     public static ArrayList<String>  royalSelected = new ArrayList<String>();
     public static ArrayList<String>  exeSelected = new ArrayList<String>();
+    
+
+    
+    
    
 
 }

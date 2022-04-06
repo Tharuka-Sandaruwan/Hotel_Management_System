@@ -77,9 +77,10 @@ public class mainInterface extends javax.swing.JFrame {
         
         roomTypes.clearSelection();
         
-        //ADD RELOAD THE RESERVATION TABLE FROM DATABASE
-
         
+        reservationTableRefresh(resReservationTbl.getModel());
+        
+        refreshReservation();
 
         //use arrivalDate.setDate(new Date()); to set to today
         
@@ -1730,8 +1731,61 @@ AutoCompletion.enable(countryList);
         ) {
             System.out.println("all data valid");
             
-                //WHEN SUBMITTED PLEASE SET THE VALUES OF THE SLELCTEDROOM NO IN GLOBAL VARIABLES TO EMPTY
-                //ADD THE SAME CODE TO UPDATE AND CLEAR
+            String packageId ;
+            if (resPackageSelector.getSelectedItem().toString().matches("Full board")) {
+                packageId = "FB";
+            }else{
+                packageId = "HB";
+            }
+            
+            
+            databaseConnections resNew = new databaseConnections();
+            IDGenerators resId = new IDGenerators();
+            String reservationId = resId.newResID();
+            
+            String arrivalDate = ((JTextField)this.arrivalDate.getDateEditor().getUiComponent()).getText();
+            String departDate = ((JTextField)this.departDate.getDateEditor().getUiComponent()).getText();
+            int kids,adults;
+            
+            ArrayList<String>  allRoomsSelected = new ArrayList<String>();
+            allRoomsSelected.addAll(globalVars.premiumSelected);
+            allRoomsSelected.addAll(globalVars.royalSelected);
+            allRoomsSelected.addAll(globalVars.exeSelected);
+            
+            //Integer.parseInt(resAdultTxt.getText())
+            
+            if (resAdultTxt.getText().matches("[0-9]+")) {
+                adults = Integer.parseInt(resAdultTxt.getText());
+            } else{
+                adults = 0;
+            }
+            
+            
+            if (reskidsTxt.getText().matches("[0-9]+")) {
+                kids = Integer.parseInt(reskidsTxt.getText());
+            } else{
+                kids = 0;
+            }
+            
+            
+           
+            resNew.databaseConnectionMessage("INSERT INTO `hotelmanagementsystem`.`reservation` "
+                    + "VALUES ('"+reservationId+"','"+arrivalDate+"','"+departDate+"', "+adults+", "+kids+", '"+resIDSearchJcombo.getSelectedItem().toString()+"', '"+packageId+"')", 
+                    "Reservation added Successfully !", "Reserved Successfully");
+            
+            // looping through the all room numbers to add them all to reservation room table
+            for(String roomName : allRoomsSelected){
+                resNew.databaseConnectionNoMessage("INSERT INTO `hotelmanagementsystem`.`reservationroom` VALUES ('"+reservationId+"','"+roomName+"') ;");
+               
+            }
+            
+            
+            
+            clearReservationPane();
+            
+
+           
+               
         }
         else{
         
