@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="roomTypes">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -942,6 +946,9 @@
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="resPremiumRoomTxt">
+                          <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
+                          </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resPremiumRoomTxtActionPerformed"/>
                           </Events>
@@ -987,6 +994,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="resPremiumtick">
                           <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="roomTypes"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Premium"/>
                           </Properties>
                           <Events>
@@ -995,6 +1005,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="resExecutiveTick">
                           <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="roomTypes"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Executive"/>
                           </Properties>
                           <Events>
@@ -1003,6 +1016,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="resRoyalTick">
                           <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="roomTypes"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Royal"/>
                           </Properties>
                           <Events>
@@ -1033,6 +1049,9 @@
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="resRoyalRoomTxt">
+                          <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
+                          </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resRoyalRoomTxtActionPerformed"/>
                           </Events>
@@ -1046,6 +1065,9 @@
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="resExecutiveRoomTxt">
+                          <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
+                          </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resExecutiveRoomTxtActionPerformed"/>
                           </Events>

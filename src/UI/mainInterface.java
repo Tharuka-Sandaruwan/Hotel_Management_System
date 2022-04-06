@@ -20,7 +20,10 @@ import static Classes.tableDataLoading.customerTableRefresh;
 import static Classes.tableDataLoading.roomTypeTblRefresh;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.ButtonGroup;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class mainInterface extends javax.swing.JFrame {
@@ -61,6 +64,20 @@ public class mainInterface extends javax.swing.JFrame {
         clearFlds(Arrays.asList(reservationIdTxt,resCustNameTxt,resAdultTxt,reskidsTxt,resPremiumRoomTxt,resRoyalRoomTxt,resExecutiveRoomTxt));
         arrivalDate.setDate(null);
         departDate.setDate(null);
+        
+        // cleans the global variables as it may cause errors if not cleared
+        globalVars.exeSelected.clear();
+        globalVars.premiumSelected.clear();
+        globalVars.royalSelected.clear();
+        
+        DefaultTableModel rooms = (DefaultTableModel) resAvailableRoomTbl.getModel();
+        rooms.setRowCount(0);
+        
+        roomTypes.clearSelection();
+        
+        //ADD RELOAD THE RESERVATION TABLE FROM DATABASE
+
+        
 
         //use arrivalDate.setDate(new Date()); to set to today
         
@@ -69,6 +86,26 @@ public class mainInterface extends javax.swing.JFrame {
         
 
     }
+    
+    // used to remove the temporarily selected room types from the table
+    public void remTempSelected(ArrayList<String> releventArrLst){
+                   DefaultTableModel removeRowTep = (DefaultTableModel) resAvailableRoomTbl.getModel();
+           
+               if(!releventArrLst.isEmpty()){
+             for (String roomNo : releventArrLst) {
+                 
+           	for (int i = 0; i < resAvailableRoomTbl.getRowCount(); i++) {
+                    
+                if (resAvailableRoomTbl.getValueAt(i, 0).toString().matches(roomNo)) {
+                    removeRowTep.removeRow(i);
+                    
+                }
+              }
+             }
+                  }
+    
+    }
+    
 
 // use for clearing the text fields
     public void clearFlds(List<JTextField> textFields) {
@@ -96,6 +133,7 @@ public class mainInterface extends javax.swing.JFrame {
     }
     Country[] listCountry = createCountryList();
 
+   
     public mainInterface() {
         initComponents();
         setResizable(false);
@@ -118,6 +156,7 @@ public class mainInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        roomTypes = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         titlePane = new javax.swing.JPanel();
         tabbedPane = new javax.swing.JTabbedPane();
@@ -671,6 +710,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
+        resPremiumRoomTxt.setEditable(false);
         resPremiumRoomTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resPremiumRoomTxtActionPerformed(evt);
@@ -703,6 +743,7 @@ AutoCompletion.enable(countryList);
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel15.setText("Type");
 
+        roomTypes.add(resPremiumtick);
         resPremiumtick.setText("Premium");
         resPremiumtick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -710,6 +751,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
+        roomTypes.add(resExecutiveTick);
         resExecutiveTick.setText("Executive");
         resExecutiveTick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -717,6 +759,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
+        roomTypes.add(resRoyalTick);
         resRoyalTick.setText("Royal");
         resRoyalTick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -744,6 +787,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
+        resRoyalRoomTxt.setEditable(false);
         resRoyalRoomTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resRoyalRoomTxtActionPerformed(evt);
@@ -757,6 +801,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
+        resExecutiveRoomTxt.setEditable(false);
         resExecutiveRoomTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resExecutiveRoomTxtActionPerformed(evt);
@@ -1598,6 +1643,8 @@ AutoCompletion.enable(countryList);
         if (resPremiumtick.isSelected()) {
                     //resAvailableRoomTbl.removeAll();
                    roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.premium_room_calc;");
+                   remTempSelected(globalVars.premiumSelected);
+                   
         }else{
         DefaultTableModel dtm = (DefaultTableModel) resAvailableRoomTbl.getModel();
            dtm.setRowCount(0);
@@ -1628,6 +1675,8 @@ AutoCompletion.enable(countryList);
         ) {
             System.out.println("all data valid");
             
+                //WHEN SUBMITTED PLEASE SET THE VALUES OF THE SLELCTEDROOM NO IN GLOBAL VARIABLES TO EMPTY
+                //ADD THE SAME CODE TO UPDATE AND CLEAR
         }
         else{
         
@@ -1657,13 +1706,32 @@ AutoCompletion.enable(countryList);
         if (romType.matches("^P.*$")) {
             System.out.println("premium");
             resPremiumRoomTxt.setText(resPremiumRoomTxt.getText()+ romType+",");
-            // NEED TO ADD TABLE REFRESH AS THE ADDED ROOMS MUST BE REMOVED FROM THE TABLE
+            
+           globalVars.premiumSelected.add(romType); //adds the selected item to the array
+           
+          roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.premium_room_calc;");
+           remTempSelected(globalVars.premiumSelected);
+           
+            
+           
+           
+           
+            
+           
         }
         else if (romType.matches("^E.*$")) {
-            System.out.println("no mat");
-            resExecutiveRoomTxt.setText(resExecutiveRoomTxt.getText()+romType+",");
+             resExecutiveRoomTxt.setText(resExecutiveRoomTxt.getText()+romType+",");
+            globalVars.exeSelected.add(romType); //adds the selected item to the array
+           
+          roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.executive_room_calc;");
+           remTempSelected(globalVars.exeSelected);
+            
         }else{
             resRoyalRoomTxt.setText(resRoyalRoomTxt.getText()+romType+",");
+            globalVars.royalSelected.add(romType); //adds the selected item to the array
+           
+          roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.royal_room_calc;");
+           remTempSelected(globalVars.royalSelected);
         }
         }else{
           JOptionPane.showMessageDialog(null, "A room is not selected !", "Room not selected", JOptionPane.INFORMATION_MESSAGE);
@@ -2056,6 +2124,7 @@ AutoCompletion.enable(countryList);
        if (resExecutiveTick.isSelected()) {
                     
                    roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.executive_room_calc;");
+                   remTempSelected(globalVars.exeSelected);
         }else{
            // used to clear table
            DefaultTableModel dtm = (DefaultTableModel) resAvailableRoomTbl.getModel();
@@ -2067,6 +2136,7 @@ AutoCompletion.enable(countryList);
          if (resRoyalTick.isSelected()) {
                     //resAvailableRoomTbl.removeAll();
                    roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.royal_room_calc;");
+                   remTempSelected(globalVars.royalSelected);
         }else{
         DefaultTableModel dtm = (DefaultTableModel) resAvailableRoomTbl.getModel();
            dtm.setRowCount(0);
@@ -2222,6 +2292,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JPanel reservationPane;
     private javax.swing.JTextField reskidsTxt;
     private javax.swing.JPanel roomTypeContainer;
+    private javax.swing.ButtonGroup roomTypes;
     private javax.swing.JScrollPane roomTypesFrm;
     public static javax.swing.JTextField sampleTxtField;
     private javax.swing.JTabbedPane tabbedPane;
