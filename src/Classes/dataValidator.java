@@ -86,7 +86,7 @@ public class dataValidator {
         if((KidOrAdult.getText().matches("[0-9]+") && Integer.parseInt(KidOrAdult.getText()) < 255) || KidOrAdult.getText().matches(""))
         {
             KidOrAdult.setBorder(mainInterface.Bordergood());
-            return true; 
+            return true;
         }else {
             KidOrAdult.setBorder(mainInterface.BorderError());
             return false;
