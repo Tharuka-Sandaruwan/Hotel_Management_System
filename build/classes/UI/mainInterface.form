@@ -708,6 +708,21 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jSeparator2" alignment="0" min="-2" pref="335" max="-2" attributes="0"/>
+                                              <Component id="jSeparator1" alignment="0" min="-2" pref="335" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel18" min="-2" pref="152" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="arrivalDate" pref="131" max="32767" attributes="0"/>
+                                                      <Component id="departDate" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -726,23 +741,6 @@
                                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                                   <Component id="resUpdateBtn" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="resPremiumtick" max="32767" attributes="0"/>
-                                                      <Component id="resExecutiveTick" min="-2" pref="82" max="-2" attributes="0"/>
-                                                      <Component id="resRoyalTick" alignment="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="resRoyalRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="resExecutiveRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="resAddRoomBtn" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="resPremiumRoomTxt" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
                                               <Component id="jLabel13" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -760,6 +758,33 @@
                                                       <Component id="reskidsTxt" pref="128" max="32767" attributes="0"/>
                                                       <Component id="resAdultTxt" pref="128" max="32767" attributes="0"/>
                                                       <Component id="resPackageSelector" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="resPremiumtick" max="32767" attributes="0"/>
+                                                      <Component id="resExecutiveTick" min="-2" pref="82" max="-2" attributes="0"/>
+                                                      <Component id="resRoyalTick" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="resRoyalRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="royalRemoveBtn" min="-2" pref="34" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="resPremiumRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="premiumRemoveBtn" min="-2" pref="34" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="resExecutiveRoomTxt" min="-2" pref="128" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="executRemoveBtn" min="-2" pref="34" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                                          <Component id="resAddRoomBtn" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -787,23 +812,8 @@
                                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                           <Component id="custIdOK" min="-2" pref="53" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jSeparator2" alignment="0" min="-2" pref="335" max="-2" attributes="0"/>
-                                              <Component id="jSeparator1" alignment="0" min="-2" pref="335" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel18" min="-2" pref="152" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="arrivalDate" pref="131" max="32767" attributes="0"/>
-                                                      <Component id="departDate" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
                                   </Group>
-                                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                                  <EmptySpace pref="79" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -868,17 +878,20 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="resPremiumtick" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="resPremiumRoomTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="premiumRemoveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="resExecutiveTick" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="resExecutiveRoomTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="resAddRoomBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="executRemoveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="resRoyalTick" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="resRoyalRoomTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="royalRemoveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -901,6 +914,9 @@
                               </StringArray>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resPackageSelectorActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                           </AuxValues>
@@ -1162,6 +1178,30 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Kids"/>
                           </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="royalRemoveBtn">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="X"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="royalRemoveBtnActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="premiumRemoveBtn">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="X"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="premiumRemoveBtnActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="executRemoveBtn">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="X"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="executRemoveBtnActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>

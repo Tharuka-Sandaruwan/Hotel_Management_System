@@ -233,6 +233,9 @@ AutoCompletion.enable(countryList);
         JTextFieldDateEditor departDateTxt = (JTextFieldDateEditor) departDate.getDateEditor();
         departDateTxt.setEditable(false);
         jLabel34 = new javax.swing.JLabel();
+        royalRemoveBtn = new javax.swing.JButton();
+        premiumRemoveBtn = new javax.swing.JButton();
+        executRemoveBtn = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         resReservationTbl = new javax.swing.JTable();
         jLabel32 = new javax.swing.JLabel();
@@ -686,6 +689,11 @@ AutoCompletion.enable(countryList);
         Reservation.setBackground(new java.awt.Color(0, 255, 204));
 
         resPackageSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full board", "Half board" }));
+        resPackageSelector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resPackageSelectorActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Reservation ID");
@@ -850,6 +858,27 @@ AutoCompletion.enable(countryList);
         jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel34.setText("Kids");
 
+        royalRemoveBtn.setText("X");
+        royalRemoveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                royalRemoveBtnActionPerformed(evt);
+            }
+        });
+
+        premiumRemoveBtn.setText("X");
+        premiumRemoveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                premiumRemoveBtnActionPerformed(evt);
+            }
+        });
+
+        executRemoveBtn.setText("X");
+        executRemoveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                executRemoveBtnActionPerformed(evt);
+            }
+        });
+
         CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);
 
         javax.swing.GroupLayout ReservationLayout = new javax.swing.GroupLayout(Reservation);
@@ -858,6 +887,17 @@ AutoCompletion.enable(countryList);
             ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ReservationLayout.createSequentialGroup()
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ReservationLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ReservationLayout.createSequentialGroup()
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(arrivalDate, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                    .addComponent(departDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(ReservationLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -873,19 +913,6 @@ AutoCompletion.enable(countryList);
                                 .addComponent(resClearBtn)
                                 .addGap(36, 36, 36)
                                 .addComponent(resUpdateBtn))
-                            .addGroup(ReservationLayout.createSequentialGroup()
-                                .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(resPremiumtick, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(resExecutiveTick, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(resRoyalTick, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(resRoyalRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(ReservationLayout.createSequentialGroup()
-                                        .addComponent(resExecutiveRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(resAddRoomBtn))
-                                    .addComponent(resPremiumRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ReservationLayout.createSequentialGroup()
                                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -899,7 +926,28 @@ AutoCompletion.enable(countryList);
                                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(reskidsTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                                     .addComponent(resAdultTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                    .addComponent(resPackageSelector, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(resPackageSelector, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(ReservationLayout.createSequentialGroup()
+                                .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(resPremiumtick, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(resExecutiveTick, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resRoyalTick, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ReservationLayout.createSequentialGroup()
+                                        .addComponent(resRoyalRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(royalRemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(ReservationLayout.createSequentialGroup()
+                                        .addComponent(resPremiumRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(premiumRemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(ReservationLayout.createSequentialGroup()
+                                        .addComponent(resExecutiveRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(executRemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(15, 15, 15)
+                                        .addComponent(resAddRoomBtn))))))
                     .addGroup(ReservationLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -917,19 +965,8 @@ AutoCompletion.enable(countryList);
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(resCustNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(19, 19, 19)
-                        .addComponent(custIdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ReservationLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ReservationLayout.createSequentialGroup()
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(arrivalDate, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                    .addComponent(departDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addComponent(custIdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         ReservationLayout.setVerticalGroup(
             ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -982,16 +1019,19 @@ AutoCompletion.enable(countryList);
                 .addGap(18, 18, 18)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resPremiumtick)
-                    .addComponent(resPremiumRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resPremiumRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(premiumRemoveBtn))
                 .addGap(18, 18, 18)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resExecutiveTick)
                     .addComponent(resExecutiveRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resAddRoomBtn))
+                    .addComponent(resAddRoomBtn)
+                    .addComponent(executRemoveBtn))
                 .addGap(18, 18, 18)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resRoyalTick)
-                    .addComponent(resRoyalRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resRoyalRoomTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(royalRemoveBtn))
                 .addGap(34, 34, 34)
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resSubmitBtn)
@@ -2143,6 +2183,31 @@ AutoCompletion.enable(countryList);
         }
     }//GEN-LAST:event_resRoyalTickActionPerformed
 
+    private void resPackageSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resPackageSelectorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resPackageSelectorActionPerformed
+
+    private void royalRemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_royalRemoveBtnActionPerformed
+       resRoyalRoomTxt.setText("");
+       globalVars.royalSelected.clear();
+       roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.royal_room_calc;");
+       
+    }//GEN-LAST:event_royalRemoveBtnActionPerformed
+
+    private void premiumRemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_premiumRemoveBtnActionPerformed
+        resPremiumRoomTxt.setText("");
+        globalVars.premiumSelected.clear();
+        roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.premium_room_calc;");
+
+    }//GEN-LAST:event_premiumRemoveBtnActionPerformed
+
+    private void executRemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executRemoveBtnActionPerformed
+        resExecutiveRoomTxt.setText("");
+        globalVars.exeSelected.clear();
+        roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.executive_room_calc;");
+        
+    }//GEN-LAST:event_executRemoveBtnActionPerformed
+
     
     
     /**
@@ -2209,6 +2274,7 @@ AutoCompletion.enable(countryList);
     private com.toedter.calendar.JDateChooser departDate;
     private javax.swing.JLabel email;
     private javax.swing.JTextField emailTxt;
+    private javax.swing.JButton executRemoveBtn;
     private javax.swing.JTextField fNamTxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox5;
@@ -2271,6 +2337,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextField phoneNo1Txt;
     private javax.swing.JLabel phoneNo2;
     private javax.swing.JTextField phoneNo2Txt;
+    private javax.swing.JButton premiumRemoveBtn;
     private javax.swing.JButton resAddRoomBtn;
     private javax.swing.JTextField resAdultTxt;
     private javax.swing.JTable resAvailableRoomTbl;
@@ -2294,6 +2361,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JPanel roomTypeContainer;
     private javax.swing.ButtonGroup roomTypes;
     private javax.swing.JScrollPane roomTypesFrm;
+    private javax.swing.JButton royalRemoveBtn;
     public static javax.swing.JTextField sampleTxtField;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JScrollPane tableScroller;
