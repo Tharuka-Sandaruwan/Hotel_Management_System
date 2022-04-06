@@ -625,22 +625,17 @@ AutoCompletion.enable(countryList);
                 "Room Number", "Price Per night (Rs.)", "No of Guests"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         resAvailableRoomTbl.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        resAvailableRoomTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        resAvailableRoomTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         resAvailableRoomTbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(resAvailableRoomTbl);
         if (resAvailableRoomTbl.getColumnModel().getColumnCount() > 0) {
@@ -1602,7 +1597,7 @@ AutoCompletion.enable(countryList);
     private void resPremiumtickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resPremiumtickActionPerformed
         if (resPremiumtick.isSelected()) {
                     //resAvailableRoomTbl.removeAll();
-                   roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.premium_rooms_nocalc;");
+                   roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.premium_room_calc;");
         }else{
         DefaultTableModel dtm = (DefaultTableModel) resAvailableRoomTbl.getModel();
            dtm.setRowCount(0);
@@ -1653,6 +1648,8 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_resClearBtnActionPerformed
 
     private void resAddRoomBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resAddRoomBtnActionPerformed
+        if (resAvailableRoomTbl.getSelectedRowCount() == 1) {
+            
         DefaultTableModel reserveModel = (DefaultTableModel) resAvailableRoomTbl.getModel();
 
         String romType = reserveModel.getValueAt(resAvailableRoomTbl.getSelectedRow(), 0).toString();
@@ -1660,6 +1657,7 @@ AutoCompletion.enable(countryList);
         if (romType.matches("^P.*$")) {
             System.out.println("premium");
             resPremiumRoomTxt.setText(resPremiumRoomTxt.getText()+ romType+",");
+            // NEED TO ADD TABLE REFRESH AS THE ADDED ROOMS MUST BE REMOVED FROM THE TABLE
         }
         else if (romType.matches("^E.*$")) {
             System.out.println("no mat");
@@ -1667,6 +1665,13 @@ AutoCompletion.enable(countryList);
         }else{
             resRoyalRoomTxt.setText(resRoyalRoomTxt.getText()+romType+",");
         }
+        }else{
+          JOptionPane.showMessageDialog(null, "A room is not selected !", "Room not selected", JOptionPane.INFORMATION_MESSAGE);
+
+        
+        }
+        
+     
      
       
     }//GEN-LAST:event_resAddRoomBtnActionPerformed
@@ -2050,7 +2055,7 @@ AutoCompletion.enable(countryList);
     private void resExecutiveTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resExecutiveTickActionPerformed
        if (resExecutiveTick.isSelected()) {
                     
-                   roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.executive_rooms_nocalc;");
+                   roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.executive_room_calc;");
         }else{
            // used to clear table
            DefaultTableModel dtm = (DefaultTableModel) resAvailableRoomTbl.getModel();
@@ -2061,7 +2066,7 @@ AutoCompletion.enable(countryList);
     private void resRoyalTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resRoyalTickActionPerformed
          if (resRoyalTick.isSelected()) {
                     //resAvailableRoomTbl.removeAll();
-                   roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.royal_rooms_nocalc;");
+                   roomTypeTblRefresh(resAvailableRoomTbl.getModel(),"hotelmanagementsystem.royal_room_calc;");
         }else{
         DefaultTableModel dtm = (DefaultTableModel) resAvailableRoomTbl.getModel();
            dtm.setRowCount(0);
