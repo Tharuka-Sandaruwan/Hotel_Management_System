@@ -97,6 +97,40 @@ public class databaseConnections {
     
     }
     
+    public static String getCustID(String fullName){
+    Connection con = null;
+    String custID = null;
+        try {
+            
+            //starts the database connection
+            con = DriverManager.getConnection(connectString, username, password);
+            
+            System.out.println("connected!");
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+
+            
+            ResultSet rs = statement.executeQuery("SELECT Customer_ID FROM hotelmanagementsystem.customer WHERE CONCAT(First_Name,' ',Last_Name) = '"+fullName+"';");
+            while (rs.next()) {
+                custID =rs.getString(1);
+            }
+             con.close();
+
+            
+             
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
+
+          
+        }
+        
+    
+     return custID;
+    
+    
+    }
     
     
     

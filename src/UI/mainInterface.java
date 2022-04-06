@@ -509,6 +509,12 @@ AutoCompletion.enable(countryList);
         addressTxt.setRows(5);
         jScrollPane1.setViewportView(addressTxt);
 
+        countryList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countryListActionPerformed(evt);
+            }
+        });
+
         updateBtn.setText("Update");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1108,6 +1114,11 @@ AutoCompletion.enable(countryList);
         resReservationTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         resReservationTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         resReservationTbl.getTableHeader().setReorderingAllowed(false);
+        resReservationTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resReservationTblMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(resReservationTbl);
         if (resReservationTbl.getColumnModel().getColumnCount() > 0) {
             resReservationTbl.getColumnModel().getColumn(0).setPreferredWidth(100);
@@ -2116,7 +2127,7 @@ AutoCompletion.enable(countryList);
         phoneNo1Txt.setText(custTblPNO1);
         phoneNo2Txt.setText(custTblPNO2);
         emailTxt.setText(custTblMail);
-        countryList.setSelectedIndex(Country.getcountryIndex(custTblCntry)); // the country is not setting in the combo box
+        countryList.setSelectedIndex(Country.getcountryIndex(custTblCntry)); 
 
     }//GEN-LAST:event_cusTableMouseClicked
 
@@ -2323,6 +2334,59 @@ AutoCompletion.enable(countryList);
     private void totalGuestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalGuestsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalGuestsActionPerformed
+
+    private void resReservationTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resReservationTblMouseClicked
+        DefaultTableModel tblModel = (DefaultTableModel) resReservationTbl.getModel();
+        
+        String ResID = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 0).toString();
+        String custNameRes = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 1).toString();
+        String arrivalDate = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 5).toString();
+        String departDate = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 6).toString();
+        String adultCnt = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 7).toString();
+        String kicCount = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 8).toString();
+        String packageType = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 9).toString();
+     
+        reservationIdTxt.setText(ResID);
+        
+        // BELOW 3 LINES ARE USED TO SELECT THE CUSTOMER ID IN THE JCOMBOBOX WHEN UPDATING.BUT IT IS NOT COMPLETE !!!! ITS TEMPORARY WORKAROUND 
+        databaseConnections.getCustID(custNameRes);
+       resIDSearchJcombo.addItem(databaseConnections.getCustID(custNameRes));
+       resIDSearchJcombo.setSelectedIndex(resIDSearchJcombo.getItemCount()-1);
+       
+       
+        //countryList.setSelectedIndex(Country.getcountryIndex(custTblCntry)); 
+        
+        
+        resCustNameTxt.setText(custNameRes);
+        
+        //JTextFieldDateEditor arrivalDateTxt = (JTextFieldDateEditor) arrivalDate.getDateEditor();
+        //arrivalDateTxt.setEditable(false);
+         ((JTextField)this.arrivalDate.getDateEditor().getUiComponent()).setText(arrivalDate);
+         ((JTextField)this.departDate.getDateEditor().getUiComponent()).setText(departDate);
+         
+         resAdultTxt.setText(adultCnt);
+         reskidsTxt.setText(kicCount);
+         totalGuestCount();
+         
+         //resPackageSelector.getSelectedItem().toString().matches("Full board")
+         
+         if(packageType.matches("Full board")){
+             resPackageSelector.setSelectedIndex(0);
+         }
+         else{
+             resPackageSelector.setSelectedIndex(1);
+         }
+          
+         
+         
+
+        
+        
+    }//GEN-LAST:event_resReservationTblMouseClicked
+
+    private void countryListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_countryListActionPerformed
 
     
     

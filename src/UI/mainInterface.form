@@ -525,6 +525,9 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countryListActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;&gt;(listCountry)"/>
                             <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="countryList.setSelectedItem(listCountry[201]);&#xd;AutoCompletion.enable(countryList);&#xd;"/>
@@ -1316,6 +1319,9 @@
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="resReservationTblMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
