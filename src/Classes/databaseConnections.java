@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import static Classes.DBCredentials.connectString;
 import static Classes.DBCredentials.password;
 import static Classes.DBCredentials.username;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class databaseConnections {
 
@@ -97,7 +99,8 @@ public class databaseConnections {
     
     }
     
-    public static String getCustID(String fullName){
+    // used to get the customer id from the database customer table
+    public  String getCustID(String fullName){
     Connection con = null;
     String custID = null;
         try {
@@ -132,8 +135,42 @@ public class databaseConnections {
     
     }
     
+    // ArrayList<String>  allRoomsSelected = new ArrayList<String>();
+    //        allRoomsSelected.addAll(globalVars.premiumSelected);
     
     
+    //used to get all the reserved rooms as an arraylist from the reservationroom table
+    public  ArrayList<String> getRooms(String resID){
+      Connection con = null;
+    ArrayList<String>  roomList = new ArrayList<String>();
+        try {
+            
+            //starts the database connection
+            con = DriverManager.getConnection(connectString, username, password);
+            
+            System.out.println("connected!");
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+
+            
+            ResultSet rs = statement.executeQuery("SELECT Room_Number FROM hotelmanagementsystem.reservationroom WHERE Reservation_ID = '"+resID+"';");
+            while (rs.next()) {
+                roomList.addAll(Arrays.asList(rs.getString(1)));
+            }
+             con.close();
+
+            
+             
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
+
+          
+        }
+    
+        return roomList;
+    }
     
     
     

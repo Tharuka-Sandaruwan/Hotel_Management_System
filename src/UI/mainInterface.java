@@ -2347,10 +2347,11 @@ AutoCompletion.enable(countryList);
         String packageType = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 9).toString();
      
         reservationIdTxt.setText(ResID);
+        databaseConnections DBobj = new databaseConnections();
         
         // BELOW 3 LINES ARE USED TO SELECT THE CUSTOMER ID IN THE JCOMBOBOX WHEN UPDATING.BUT IT IS NOT COMPLETE !!!! ITS TEMPORARY WORKAROUND 
-        databaseConnections.getCustID(custNameRes);
-       resIDSearchJcombo.addItem(databaseConnections.getCustID(custNameRes));
+        DBobj.getCustID(custNameRes);
+       resIDSearchJcombo.addItem(DBobj.getCustID(custNameRes));
        resIDSearchJcombo.setSelectedIndex(resIDSearchJcombo.getItemCount()-1);
        
        
@@ -2377,8 +2378,25 @@ AutoCompletion.enable(countryList);
              resPackageSelector.setSelectedIndex(1);
          }
           
+         //DBobj.getRooms(ResID);
+         //if (romType.matches("^P.*$"))
          
+         clearFlds(Arrays.asList(resPremiumRoomTxt,resRoyalRoomTxt,resExecutiveRoomTxt));
+                 
+         for (String roomNo : DBobj.getRooms(ResID)){
+         if(roomNo.matches("^P.*$")){
+             resPremiumRoomTxt.setText(resPremiumRoomTxt.getText().toString()+roomNo+",");
+         }
+         if(roomNo.matches("^R.*$")){
+             resRoyalRoomTxt.setText(resRoyalRoomTxt.getText().toString()+roomNo+",");
+         }
+         if(roomNo.matches("^E.*$")){
+             resExecutiveRoomTxt.setText(resExecutiveRoomTxt.getText().toString()+roomNo+",");
+         }
+             
+         }
          
+       
 
         
         
