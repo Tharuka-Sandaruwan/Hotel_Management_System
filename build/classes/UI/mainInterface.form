@@ -800,6 +800,8 @@
                                                   <Component id="jLabel9" min="-2" pref="142" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="resIDSearchJcombo" min="-2" pref="151" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="custIdOK" min="-2" pref="58" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel11" min="-2" pref="142" max="-2" attributes="0"/>
@@ -807,8 +809,6 @@
                                                   <Component id="resCustNameTxt" min="-2" pref="166" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                          <Component id="custIdOK" min="-2" pref="53" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
@@ -1168,6 +1168,9 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resIDSearchJcomboActionPerformed"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);  "/>
                             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="&#xd;&#xa;"/>
@@ -1176,7 +1179,7 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="custIdOK">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="OK"/>
+                            <Property name="text" type="java.lang.String" value="Load"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custIdOKActionPerformed"/>
@@ -1656,11 +1659,13 @@
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="102" attributes="0">
                                                               <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                                                              <Component id="nicTxt2" min="-2" pref="179" max="-2" attributes="0"/>
+                                                              <Component id="bilCustName" min="-2" pref="179" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                                                               <Component id="bilCustId" min="-2" pref="122" max="-2" attributes="0"/>
+                                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
@@ -1726,11 +1731,12 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="bilCustId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="nicTxt2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bilCustName" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                   <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
@@ -1786,12 +1792,12 @@
                             <Property name="text" type="java.lang.String" value="Customer Name"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="nicTxt2">
+                        <Component class="javax.swing.JTextField" name="bilCustName">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nicTxt2ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bilCustNameActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="checkoutBtnBil">
@@ -1897,10 +1903,19 @@
                             </Property>
                           </Properties>
                           <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="CustomerIdComboGenerator.loadCustomerID(bilCustId);  AutoCompletion.enable(bilCustId); "/>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JTextField" name="totalChargeBil">
+                        </Component>
+                        <Component class="javax.swing.JButton" name="jButton2">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Load"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>

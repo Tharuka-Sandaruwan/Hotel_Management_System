@@ -292,7 +292,7 @@ AutoCompletion.enable(countryList);
         jPanel4 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        nicTxt2 = new javax.swing.JTextField();
+        bilCustName = new javax.swing.JTextField();
         checkoutBtnBil = new javax.swing.JButton();
         generateBillBtn = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
@@ -308,6 +308,7 @@ AutoCompletion.enable(countryList);
         jLabel30 = new javax.swing.JLabel();
         bilCustId = new javax.swing.JComboBox<>();
         totalChargeBil = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         menusPane = new javax.swing.JPanel();
         CustomerBtnPane = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -883,7 +884,13 @@ AutoCompletion.enable(countryList);
         arrivalDate.setDateFormatString("yyyy-MM-dd");
         arrivalDate.setMaxSelectableDate(new java.util.Date(253370748685000L));
 
-        custIdOK.setText("OK");
+        resIDSearchJcombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resIDSearchJcomboActionPerformed(evt);
+            }
+        });
+
+        custIdOK.setText("Load");
         custIdOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 custIdOKActionPerformed(evt);
@@ -1009,13 +1016,13 @@ AutoCompletion.enable(countryList);
                             .addGroup(ReservationLayout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(resIDSearchJcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(resIDSearchJcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(custIdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ReservationLayout.createSequentialGroup()
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(resCustNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(19, 19, 19)
-                        .addComponent(custIdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(resCustNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(ReservationLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1361,10 +1368,10 @@ AutoCompletion.enable(countryList);
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel23.setText("Customer Name");
 
-        nicTxt2.setEditable(false);
-        nicTxt2.addActionListener(new java.awt.event.ActionListener() {
+        bilCustName.setEditable(false);
+        bilCustName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nicTxt2ActionPerformed(evt);
+                bilCustNameActionPerformed(evt);
             }
         });
 
@@ -1429,6 +1436,15 @@ AutoCompletion.enable(countryList);
 
         jLabel30.setText("Total Amount is ");
 
+        jButton2.setText("Load");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        CustomerIdComboGenerator.loadCustomerID(bilCustId);  AutoCompletion.enable(bilCustId);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1447,10 +1463,12 @@ AutoCompletion.enable(countryList);
                                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel4Layout.createSequentialGroup()
                                             .addGap(82, 82, 82)
-                                            .addComponent(nicTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(bilCustName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel4Layout.createSequentialGroup()
                                             .addGap(94, 94, 94)
-                                            .addComponent(bilCustId, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(bilCustId, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(27, 27, 27)
+                                            .addComponent(jButton2))))))
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addGap(142, 142, 142)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1493,11 +1511,12 @@ AutoCompletion.enable(countryList);
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(bilCustId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bilCustId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(nicTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bilCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2019,9 +2038,9 @@ AutoCompletion.enable(countryList);
         tabbedPane.setSelectedIndex(3);
     }//GEN-LAST:event_BillingBtnPaneMouseClicked
 
-    private void nicTxt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nicTxt2ActionPerformed
+    private void bilCustNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bilCustNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nicTxt2ActionPerformed
+    }//GEN-LAST:event_bilCustNameActionPerformed
 
     private void StaffAssignBtnPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StaffAssignBtnPane1MouseClicked
         tabbedPane.setSelectedIndex(2);
@@ -2537,6 +2556,14 @@ AutoCompletion.enable(countryList);
         
     }//GEN-LAST:event_resDeleteBtnActionPerformed
 
+    private void resIDSearchJcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resIDSearchJcomboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resIDSearchJcomboActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       CustomerIdComboGenerator.loadCustomerName(bilCustName, bilCustId.getSelectedItem().toString());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     
     
     /**
@@ -2587,6 +2614,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextArea addressTxt;
     private com.toedter.calendar.JDateChooser arrivalDate;
     private javax.swing.JComboBox<String> bilCustId;
+    private javax.swing.JTextField bilCustName;
     private javax.swing.JButton checkoutBtnBil;
     private javax.swing.JButton clearBtn;
     private javax.swing.JButton clearBtn1;
@@ -2609,6 +2637,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextField fNamTxt;
     private javax.swing.JButton generateBillBtn;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2660,7 +2689,6 @@ AutoCompletion.enable(countryList);
     private javax.swing.JPanel menusPane;
     private javax.swing.JTextField nicTxt;
     private javax.swing.JTextField nicTxt1;
-    private javax.swing.JTextField nicTxt2;
     private javax.swing.JTable packageChargesBil;
     private javax.swing.JTextField phoneNo1Txt;
     private javax.swing.JLabel phoneNo2;
