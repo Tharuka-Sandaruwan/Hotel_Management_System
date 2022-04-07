@@ -179,7 +179,14 @@ public class dataValidator {
         {
             numberField.setBorder(mainInterface.Bordergood());
             return true;
-        }else {
+    
+        }
+    else if(numberField.getText().matches(""))
+        {
+            numberField.setBorder(mainInterface.Bordergood());
+            return true;
+        }
+    else {
             numberField.setBorder(mainInterface.BorderError());
             return false;
         }

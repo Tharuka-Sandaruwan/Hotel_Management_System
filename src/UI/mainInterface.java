@@ -1446,6 +1446,14 @@ AutoCompletion.enable(countryList);
                 extraChargesBilActionPerformed(evt);
             }
         });
+        extraChargesBil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                extraChargesBilKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                extraChargesBilKeyReleased(evt);
+            }
+        });
 
         totalRoomCharges.setEditable(false);
 
@@ -2128,17 +2136,32 @@ AutoCompletion.enable(countryList);
            extraChargesBil.setEditable(true); 
         }else{
              extraChargesBil.setEditable(false);
+             extraChargesBil.setText("");
         }
         
     }//GEN-LAST:event_extraChargeTickActionPerformed
 
     private void generateBillBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateBillBtnActionPerformed
-        if (dataValidator.numberValidator(extraChargesBil)) {       
-            totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) + Double.parseDouble(extraChargesBil.getText())));
+        if (bilCustName.getText().matches("")) {
+          JOptionPane.showMessageDialog(null, "Please Load the data first !", "Data Not Loaded!", JOptionPane.ERROR_MESSAGE);
+
         }else{
+            
+        if (dataValidator.numberValidator(extraChargesBil) && extraChargesBil.getText().matches("[0-9]+") && extraChargeTick.isSelected()) {       
+            totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) + Double.parseDouble(extraChargesBil.getText())));
+        }
+        else if (extraChargesBil.getText().matches("") && dataValidator.numberValidator(extraChargesBil)) {       
+            totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText())));
+        }
+        else{
             totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) ));
 
         }
+        
+        }
+        
+        
+        
         
     }//GEN-LAST:event_generateBillBtnActionPerformed
 
@@ -2653,6 +2676,14 @@ AutoCompletion.enable(countryList);
     private void extraChargesBilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraChargesBilActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_extraChargesBilActionPerformed
+
+    private void extraChargesBilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_extraChargesBilKeyPressed
+        dataValidator.numberValidator(extraChargesBil);
+    }//GEN-LAST:event_extraChargesBilKeyPressed
+
+    private void extraChargesBilKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_extraChargesBilKeyReleased
+         dataValidator.numberValidator(extraChargesBil);
+    }//GEN-LAST:event_extraChargesBilKeyReleased
 
     
     
