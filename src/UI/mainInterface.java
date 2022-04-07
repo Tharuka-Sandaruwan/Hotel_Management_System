@@ -1440,9 +1440,14 @@ AutoCompletion.enable(countryList);
 
         jLabel24.setText("Total Charge for the rooms");
 
-        extraChargesBil.setText("jTextField1");
+        extraChargesBil.setEditable(false);
+        extraChargesBil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                extraChargesBilActionPerformed(evt);
+            }
+        });
 
-        totalRoomCharges.setText("jTextField1");
+        totalRoomCharges.setEditable(false);
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel29.setText("Charges for Selected Package");
@@ -1483,6 +1488,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
+        totalPackageChargeBil.setEditable(false);
         totalPackageChargeBil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalPackageChargeBilActionPerformed(evt);
@@ -1534,34 +1540,28 @@ AutoCompletion.enable(countryList);
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(extraChargeTick, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(extraChargesBil, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(totalChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)
-                                .addComponent(checkoutBtnBil))))
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(totalChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(checkoutBtnBil))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(144, 144, 144)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(326, 326, 326)
+                                .addGap(129, 129, 129)
+                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(totalPackageChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(393, 393, 393)
-                        .addComponent(generateBillBtn))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(142, 142, 142)))
+                        .addGap(54, 54, 54)
+                        .addComponent(extraChargeTick, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(extraChargesBil, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(generateBillBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -1592,21 +1592,17 @@ AutoCompletion.enable(countryList);
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(totalPackageChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(extraChargeTick)
                     .addComponent(extraChargesBil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(extraChargeTick))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(generateBillBtn)
-                .addGap(2, 2, 2)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel30)
-                            .addComponent(totalChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22))
-                    .addComponent(checkoutBtnBil, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(generateBillBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(totalChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkoutBtnBil))
+                .addGap(25, 25, 25))
         );
 
         custInfoAddScroller2.setViewportView(jPanel4);
@@ -2128,11 +2124,22 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void extraChargeTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraChargeTickActionPerformed
-        // TODO add your handling code here:
+        if (extraChargeTick.isSelected()) {
+           extraChargesBil.setEditable(true); 
+        }else{
+             extraChargesBil.setEditable(false);
+        }
+        
     }//GEN-LAST:event_extraChargeTickActionPerformed
 
     private void generateBillBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateBillBtnActionPerformed
-        // TODO add your handling code here:
+        if (dataValidator.numberValidator(extraChargesBil)) {       
+            totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) + Double.parseDouble(extraChargesBil.getText())));
+        }else{
+            totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) ));
+
+        }
+        
     }//GEN-LAST:event_generateBillBtnActionPerformed
 
     private void checkoutBtnBilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutBtnBilActionPerformed
@@ -2632,6 +2639,9 @@ AutoCompletion.enable(countryList);
         Double totalRoomCharge = billRoomChargeTblrefresh(roomChargesBil.getModel(), bilCustId.getSelectedItem().toString());
         totalRoomCharges.setText(totalRoomCharge.toString());
         
+        totalChargeBil.setText("");
+        extraChargesBil.setBorder(Bordergood());
+        extraChargesBil.setText("");
     
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -2639,6 +2649,10 @@ AutoCompletion.enable(countryList);
     private void totalPackageChargeBilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalPackageChargeBilActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalPackageChargeBilActionPerformed
+
+    private void extraChargesBilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraChargesBilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_extraChargesBilActionPerformed
 
     
     

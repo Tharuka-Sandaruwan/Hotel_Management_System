@@ -174,7 +174,17 @@ public class dataValidator {
     }
     
     
+    public static Boolean numberValidator(JTextField numberField){
+    if(numberField.getText().matches("[0-9]+"))
+        {
+            numberField.setBorder(mainInterface.Bordergood());
+            return true;
+        }else {
+            numberField.setBorder(mainInterface.BorderError());
+            return false;
+        }
     
+    }
     
 
 }
