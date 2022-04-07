@@ -251,7 +251,7 @@ public class tableDataLoading {
             while (rs.next()) {
                 //System.out.println(rs.getString(1) + "  " + rs.getString(2) + "  " + rs.getInt(3));
                 // NEED TO ADD OTHER STRINGS TO THIS QUERY
-                totalPackage =+ rs.getDouble(3);
+                totalPackage += rs.getDouble(3);
                 String tblData[] = {rs.getString(1),rs.getString(2),rs.getString(3)};
                               
                 tblModel.addRow(tblData);
@@ -268,6 +268,53 @@ public class tableDataLoading {
             
         }
         return totalPackage;
+    }
+     
+     public static Double billRoomChargeTblrefresh(TableModel tableNameModel,String custID){
+            Connection con = null;
+            Double totalRoomCharge = 0.0;
+        try {
+            
+            
+            
+            //starts the database connection
+            con = DriverManager.getConnection(DBCredentials.connectString, DBCredentials.username, DBCredentials.password);
+            
+            System.out.println("connected!");
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+            
+                       
+
+            ResultSet rs = statement.executeQuery("SELECT * FROM hotelmanagementsystem.bill_rooms_charges WHERE Customer_ID = '"+custID+"';");
+          
+            DefaultTableModel tblModel= (DefaultTableModel)tableNameModel;
+            tblModel.setRowCount(0);
+            
+            
+            
+            while (rs.next()) {
+                //System.out.println(rs.getString(1) + "  " + rs.getString(2) + "  " + rs.getInt(3));
+                // NEED TO ADD OTHER STRINGS TO THIS QUERY
+                totalRoomCharge += rs.getDouble(7);
+                String tblData[] = {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)};
+                              
+                tblModel.addRow(tblData);
+                
+            }
+            
+            
+            
+            con.close();
+
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e); //Display dialogue box
+            
+        }
+       return totalRoomCharge;
     }
     // public static void tableCleaner()
 }

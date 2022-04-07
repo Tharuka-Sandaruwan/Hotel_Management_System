@@ -16,10 +16,12 @@ import javax.swing.JOptionPane;
 import Classes.globalVars;
 import Classes.AutoCompletion;
 
+
 import static Classes.tableDataLoading.customerTableRefresh;
 import static Classes.tableDataLoading.reservationTableRefresh;
 import static Classes.tableDataLoading.roomTypeTblRefresh;
 import static Classes.tableDataLoading.billPackagesTblRefresh;
+import static Classes.tableDataLoading.billRoomChargeTblrefresh;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -1404,16 +1406,37 @@ AutoCompletion.enable(countryList);
 
         roomChargesBil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Reservation ID", "Room Number", "Charge Per Night (Rs.)", "Check In Date", "Check Out Date", "Number of Nights", "Total Room Charge (Rs.)"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        roomChargesBil.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        roomChargesBil.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        roomChargesBil.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        roomChargesBil.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(roomChargesBil);
+        if (roomChargesBil.getColumnModel().getColumnCount() > 0) {
+            roomChargesBil.getColumnModel().getColumn(0).setPreferredWidth(100);
+            roomChargesBil.getColumnModel().getColumn(1).setPreferredWidth(100);
+            roomChargesBil.getColumnModel().getColumn(2).setPreferredWidth(100);
+            roomChargesBil.getColumnModel().getColumn(3).setPreferredWidth(100);
+            roomChargesBil.getColumnModel().getColumn(4).setPreferredWidth(100);
+            roomChargesBil.getColumnModel().getColumn(5).setPreferredWidth(100);
+            roomChargesBil.getColumnModel().getColumn(6).setPreferredWidth(100);
+        }
 
         jLabel24.setText("Total Charge for the rooms");
 
@@ -2605,6 +2628,11 @@ AutoCompletion.enable(countryList);
        
         Double totalPackCharge = billPackagesTblRefresh(packageChargesBil.getModel(), bilCustId.getSelectedItem().toString());
         totalPackageChargeBil.setText(totalPackCharge.toString());
+        
+        Double totalRoomCharge = billRoomChargeTblrefresh(roomChargesBil.getModel(), bilCustId.getSelectedItem().toString());
+        totalRoomCharges.setText(totalRoomCharge.toString());
+        
+    
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
