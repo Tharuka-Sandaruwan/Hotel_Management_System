@@ -1801,6 +1801,8 @@ AutoCompletion.enable(countryList);
                 packageId = "HB";
             }
             
+            //BUG:THE ROOMS AVAILABLE IS NOT LOADING CORRECTLY DURING UPDATE PROCESS AS THE CURRENTLY ASSIGNED ROOMS ARE STILL IN THE DATABASE.
+            //BUT IT IS NOT A BIG DEAL.TO FIX THAT WE NEED TO READ THAT DATA FROM THE DB AND ADD IT TO THE LOCAL TABLE
             
             databaseConnections resNew = new databaseConnections();
             
