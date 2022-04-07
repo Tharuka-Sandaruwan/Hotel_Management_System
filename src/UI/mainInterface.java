@@ -260,6 +260,7 @@ AutoCompletion.enable(countryList);
         executRemoveBtn = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
         totalGuests = new javax.swing.JTextField();
+        resDeleteBtn = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         resReservationTbl = new javax.swing.JTable();
         jLabel32 = new javax.swing.JLabel();
@@ -918,6 +919,13 @@ AutoCompletion.enable(countryList);
             }
         });
 
+        resDeleteBtn.setText("Delete");
+        resDeleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resDeleteBtnActionPerformed(evt);
+            }
+        });
+
         CustomerIdComboGenerator.loadCustomerID(resIDSearchJcombo);  AutoCompletion.enable(resIDSearchJcombo);
 
         javax.swing.GroupLayout ReservationLayout = new javax.swing.GroupLayout(Reservation);
@@ -937,10 +945,12 @@ AutoCompletion.enable(countryList);
                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ReservationLayout.createSequentialGroup()
                                 .addComponent(resSubmitBtn)
-                                .addGap(34, 34, 34)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(resClearBtn)
-                                .addGap(36, 36, 36)
-                                .addComponent(resUpdateBtn))
+                                .addGap(18, 18, 18)
+                                .addComponent(resUpdateBtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(resDeleteBtn))
                             .addGroup(ReservationLayout.createSequentialGroup()
                                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(resPremiumtick, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1085,7 +1095,8 @@ AutoCompletion.enable(countryList);
                 .addGroup(ReservationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resSubmitBtn)
                     .addComponent(resUpdateBtn)
-                    .addComponent(resClearBtn))
+                    .addComponent(resClearBtn)
+                    .addComponent(resDeleteBtn))
                 .addGap(18, 18, 18))
         );
 
@@ -2498,6 +2509,28 @@ AutoCompletion.enable(countryList);
         // TODO add your handling code here:
     }//GEN-LAST:event_countryListActionPerformed
 
+    private void resDeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resDeleteBtnActionPerformed
+         if (resReservationTbl.getSelectedRowCount() == 1) {
+
+            databaseConnections deletingConnection = new databaseConnections();
+           
+            deletingConnection.databaseConnectionMessage("DELETE FROM `hotelmanagementsystem`.`reservation` WHERE (`Reservation_ID` = '"+reservationIdTxt.getText().toString()+"');", "The Reservation Record deleted Successfully!", "Reservation Removed");
+            customerTableRefresh(cusTable.getModel());
+            clearReservationPane();
+
+       
+
+        } else {
+            if (resReservationTbl.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "Table is Empty..", "Empty Table", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please Select a single row to Delete", "No Row Selected", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+        }
+        
+    }//GEN-LAST:event_resDeleteBtnActionPerformed
+
     
     
     /**
@@ -2634,6 +2667,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTable resAvailableRoomTbl;
     private javax.swing.JButton resClearBtn;
     private javax.swing.JTextField resCustNameTxt;
+    private javax.swing.JButton resDeleteBtn;
     private javax.swing.JTextField resExecutiveRoomTxt;
     private javax.swing.JCheckBox resExecutiveTick;
     private javax.swing.JComboBox<String> resIDSearchJcombo;
