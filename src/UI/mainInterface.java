@@ -19,6 +19,7 @@ import Classes.AutoCompletion;
 import static Classes.tableDataLoading.customerTableRefresh;
 import static Classes.tableDataLoading.reservationTableRefresh;
 import static Classes.tableDataLoading.roomTypeTblRefresh;
+import static Classes.tableDataLoading.billPackagesTblRefresh;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -1425,16 +1426,30 @@ AutoCompletion.enable(countryList);
 
         packageChargesBil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Reservation ID", "Package Type", "Charge"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        packageChargesBil.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(packageChargesBil);
+        if (packageChargesBil.getColumnModel().getColumnCount() > 0) {
+            packageChargesBil.getColumnModel().getColumn(0).setPreferredWidth(100);
+            packageChargesBil.getColumnModel().getColumn(1).setPreferredWidth(100);
+            packageChargesBil.getColumnModel().getColumn(2).setPreferredWidth(100);
+        }
 
         jLabel30.setText("Total Amount is ");
 
@@ -2587,6 +2602,10 @@ AutoCompletion.enable(countryList);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        CustomerIdComboGenerator.loadCustomerName(bilCustName, bilCustId.getSelectedItem().toString());
+       
+        Double totalPackCharge = billPackagesTblRefresh(packageChargesBil.getModel(), bilCustId.getSelectedItem().toString());
+        totalPackageChargeBil.setText(totalPackCharge.toString());
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void totalPackageChargeBilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalPackageChargeBilActionPerformed

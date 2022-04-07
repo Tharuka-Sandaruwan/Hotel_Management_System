@@ -221,5 +221,53 @@ public class tableDataLoading {
     
     }
      
+     
+     
+     public static double billPackagesTblRefresh(TableModel tableNameModel,String custID){
+            Connection con = null;
+            Double totalPackage = 0.0;
+        try {
+            
+            
+            
+            //starts the database connection
+            con = DriverManager.getConnection(DBCredentials.connectString, DBCredentials.username, DBCredentials.password);
+            
+            System.out.println("connected!");
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+            
+                       
+
+            ResultSet rs = statement.executeQuery("SELECT * FROM hotelmanagementsystem.bil_selected_packages WHERE Customer_ID = '"+custID+"';");
+          
+            DefaultTableModel tblModel= (DefaultTableModel)tableNameModel;
+            tblModel.setRowCount(0);
+            
+            
+            
+            while (rs.next()) {
+                //System.out.println(rs.getString(1) + "  " + rs.getString(2) + "  " + rs.getInt(3));
+                // NEED TO ADD OTHER STRINGS TO THIS QUERY
+                totalPackage =+ rs.getDouble(3);
+                String tblData[] = {rs.getString(1),rs.getString(2),rs.getString(3)};
+                              
+                tblModel.addRow(tblData);
+                
+            }
+            
+            
+            
+            con.close();
+
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e); //Display dialogue box
+            
+        }
+        return totalPackage;
+    }
     // public static void tableCleaner()
 }
