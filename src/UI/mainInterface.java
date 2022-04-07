@@ -98,6 +98,12 @@ public class mainInterface extends javax.swing.JFrame {
         
         reservationTableRefresh(resReservationTbl.getModel());
         
+        
+         resRoyalTick.setForeground(Color.BLACK);
+         resPremiumtick.setForeground(Color.BLACK);
+         resExecutiveTick.setForeground(Color.BLACK);
+         
+        
         refreshReservation();
 
         //use arrivalDate.setDate(new Date()); to set to today
@@ -1827,10 +1833,16 @@ AutoCompletion.enable(countryList);
             
             
             //BELOW QUERIES NEED TO BE EDITED IN ORDER TO UPDATE!!!
+            
+            
+           
+            resNew.databaseConnectionNoMessage("DELETE FROM `hotelmanagementsystem`.`reservation` WHERE (`Reservation_ID` = '"+reservationId+"');");
+            
+            
            
             resNew.databaseConnectionMessage("INSERT INTO `hotelmanagementsystem`.`reservation` "
                     + "VALUES ('"+reservationId+"','"+arrivalDate+"','"+departDate+"', "+adults+", "+kids+", '"+resIDSearchJcombo.getSelectedItem().toString()+"', '"+packageId+"')", 
-                    "Reservation added Successfully !", "Reserved Successfully");
+                    "Reservation updated Successfully !", "Updated Successfully");
             
             // looping through the all room numbers to add them all to reservation room table
             for(String roomName : allRoomsSelected){
@@ -2515,7 +2527,7 @@ AutoCompletion.enable(countryList);
             databaseConnections deletingConnection = new databaseConnections();
            
             deletingConnection.databaseConnectionMessage("DELETE FROM `hotelmanagementsystem`.`reservation` WHERE (`Reservation_ID` = '"+reservationIdTxt.getText().toString()+"');", "The Reservation Record deleted Successfully!", "Reservation Removed");
-            customerTableRefresh(cusTable.getModel());
+            
             clearReservationPane();
 
        
