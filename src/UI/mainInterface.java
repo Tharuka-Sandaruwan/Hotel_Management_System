@@ -23,6 +23,8 @@ import static Classes.tableDataLoading.roomTypeTblRefresh;
 import static Classes.tableDataLoading.billPackagesTblRefresh;
 import static Classes.tableDataLoading.billRoomChargeTblrefresh;
 import com.toedter.calendar.JTextFieldDateEditor;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
@@ -2171,7 +2173,20 @@ AutoCompletion.enable(countryList);
         checkoutPg.setResizable(false);
         checkoutPg.setLocation(100, 200);
         checkoutPg.setVisible(true);
-
+      
+        
+        this.setEnabled(false);
+        
+        // below action will disble and enable the main interface when checkout is opened and closed
+        checkoutPg.addWindowListener(new WindowAdapter() {
+    @Override
+    public void windowClosed(WindowEvent e) {
+        mainInterface.this.setEnabled(true);
+        e.getWindow().dispose();
+         mainInterface.this.toFront();
+        
+       }
+});
     }//GEN-LAST:event_checkoutBtnBilActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
