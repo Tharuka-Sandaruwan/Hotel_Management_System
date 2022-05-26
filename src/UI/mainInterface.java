@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ButtonGroup;
 import javax.swing.JTable;
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 import javax.swing.table.DefaultTableModel;
 
 public class mainInterface extends javax.swing.JFrame {
@@ -85,7 +86,7 @@ public class mainInterface extends javax.swing.JFrame {
         addressTxt.setBorder(Bordergood());
 
     }
-    public void clearReservationPane(){
+    public  void clearReservationPane(){
         clearFlds(Arrays.asList(reservationIdTxt,resCustNameTxt,resAdultTxt,reskidsTxt,resPremiumRoomTxt,resRoyalRoomTxt,resExecutiveRoomTxt,totalGuests));
         arrivalDate.setDate(null);
         departDate.setDate(null);
@@ -1173,7 +1174,9 @@ AutoCompletion.enable(countryList);
         reservationPaneLayout.setHorizontalGroup(
             reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(reservationPaneLayout.createSequentialGroup()
-                .addContainerGap(433, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
                         .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1189,10 +1192,6 @@ AutoCompletion.enable(countryList);
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
                         .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(211, 211, 211))))
-            .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(reservationPaneLayout.createSequentialGroup()
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 453, Short.MAX_VALUE)))
         );
         reservationPaneLayout.setVerticalGroup(
             reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1208,8 +1207,10 @@ AutoCompletion.enable(countryList);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71))
-            .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
+            .addGroup(reservationPaneLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         tabbedPane.addTab("tab2", reservationPane);
@@ -1635,7 +1636,7 @@ AutoCompletion.enable(countryList);
 
         tabbedPane.addTab("tab1", BillingPane);
 
-        jPanel1.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 880, 710));
+        jPanel1.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 880, 710));
 
         menusPane.setBackground(new java.awt.Color(153, 255, 51));
 
@@ -2123,7 +2124,7 @@ AutoCompletion.enable(countryList);
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         roomTypes newpanel = new roomTypes();
         roomTypeContainer.add(newpanel);
-        newpanel.indexSetter(2);
+        newpanel.indexSetter(0);
         newpanel.setSize(500, 410);
         newpanel.setVisible(true);
         //newpanel.setLocation(WIDTH, WIDTH);
@@ -2732,7 +2733,7 @@ AutoCompletion.enable(countryList);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mainInterface().setVisible(true);
+           new mainInterface().setVisible(true);
             }
         });
     }

@@ -40,7 +40,7 @@ public static void loadCustomerID(JComboBox comboBox){
 }
 
 public static void loadCustomerName(JTextField customerNameTxtField,String custID){
-    Connection con = null;
+    Connection con = null; 
     try {
            con = DriverManager.getConnection(connectString, username, password);
             

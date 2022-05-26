@@ -25,7 +25,7 @@ public class globalVars {
     //variable to store the total amount
     
     
-   
+
 
     
 

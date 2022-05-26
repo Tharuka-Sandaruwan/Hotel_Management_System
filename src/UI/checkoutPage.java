@@ -17,7 +17,7 @@ public class checkoutPage extends javax.swing.JFrame {
      */
     public checkoutPage() {
         initComponents();
-        //this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        
     
     }
 

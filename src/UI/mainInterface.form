@@ -82,7 +82,7 @@
         <Container class="javax.swing.JTabbedPane" name="tabbedPane">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="140" y="60" width="880" height="710"/>
+              <AbsoluteConstraints x="130" y="60" width="880" height="710"/>
             </Constraint>
           </Constraints>
 
@@ -598,7 +598,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace pref="433" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="427" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -621,12 +623,6 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jScrollPane3" min="-2" pref="427" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="453" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -644,8 +640,10 @@
                           <Component id="jScrollPane2" min="-2" pref="169" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
