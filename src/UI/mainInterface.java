@@ -281,18 +281,18 @@ AutoCompletion.enable(countryList);
         StaffAssign = new javax.swing.JPanel();
         custInfoAddScroller1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
-        custIDTxt1 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        nicTxt1 = new javax.swing.JTextField();
         updateBtn1 = new javax.swing.JButton();
         addBtn1 = new javax.swing.JButton();
         clearBtn1 = new javax.swing.JButton();
         deleteBtn1 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        loadCustDetailStaff = new javax.swing.JButton();
         roomTypesFrm = new javax.swing.JScrollPane();
         roomTypeContainer = new javax.swing.JPanel();
+        custIdStaff = new javax.swing.JComboBox<>();
+        stafflCustName = new javax.swing.JTextField();
         BillingPane = new javax.swing.JPanel();
         custInfoAddScroller2 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
@@ -1225,24 +1225,11 @@ AutoCompletion.enable(countryList);
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 102));
 
-        custIDTxt1.setEditable(false);
-        custIDTxt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custIDTxt1ActionPerformed(evt);
-            }
-        });
-
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel20.setText("Customer ID");
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel21.setText("Customer Name");
-
-        nicTxt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nicTxt1ActionPerformed(evt);
-            }
-        });
 
         updateBtn1.setText("Update");
 
@@ -1255,15 +1242,15 @@ AutoCompletion.enable(countryList);
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel25.setText("rooms reserved");
 
-        jButton1.setText("test");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        loadCustDetailStaff.setText("load");
+        loadCustDetailStaff.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                loadCustDetailStaffMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loadCustDetailStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loadCustDetailStaffActionPerformed(evt);
             }
         });
 
@@ -1283,6 +1270,15 @@ AutoCompletion.enable(countryList);
 
         roomTypesFrm.setViewportView(roomTypeContainer);
 
+        stafflCustName.setEditable(false);
+        stafflCustName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stafflCustNameActionPerformed(evt);
+            }
+        });
+
+        CustomerIdComboGenerator.loadCustomerID(custIdStaff);  AutoCompletion.enable(custIdStaff);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -1293,29 +1289,28 @@ AutoCompletion.enable(countryList);
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(custIDTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(154, 154, 154)
-                                .addComponent(jLabel21)
-                                .addGap(37, 37, 37)
-                                .addComponent(nicTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(addBtn1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(updateBtn1)
                                 .addGap(18, 18, 18)
                                 .addComponent(deleteBtn1)
                                 .addGap(30, 30, 30)
-                                .addComponent(clearBtn1))))
+                                .addComponent(clearBtn1))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(custIdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(loadCustDetailStaff)
+                                .addGap(66, 66, 66)
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(stafflCustName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(121, 121, 121)
-                                .addComponent(jButton1)))))
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1324,14 +1319,13 @@ AutoCompletion.enable(countryList);
                 .addGap(19, 19, 19)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(custIDTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
-                    .addComponent(nicTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(custIdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loadCustDetailStaff)
+                    .addComponent(stafflCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(jButton1))
-                .addGap(43, 43, 43)
+                .addComponent(jLabel25)
+                .addGap(45, 45, 45)
                 .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2096,14 +2090,6 @@ AutoCompletion.enable(countryList);
       
     }//GEN-LAST:event_resAddRoomBtnActionPerformed
 
-    private void custIDTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIDTxt1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_custIDTxt1ActionPerformed
-
-    private void nicTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nicTxt1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nicTxt1ActionPerformed
-
     private void BillingBtnPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingBtnPaneMouseClicked
         tabbedPane.setSelectedIndex(3);
     }//GEN-LAST:event_BillingBtnPaneMouseClicked
@@ -2116,12 +2102,18 @@ AutoCompletion.enable(countryList);
         tabbedPane.setSelectedIndex(2);
     }//GEN-LAST:event_StaffAssignBtnPane1MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void loadCustDetailStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadCustDetailStaffMouseClicked
 
 
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_loadCustDetailStaffMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loadCustDetailStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadCustDetailStaffActionPerformed
+        //loads customer name to the text field
+        CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
+       
+        
+        
+       // generates rooms assigned 
         roomTypes newpanel = new roomTypes();
         roomTypeContainer.add(newpanel);
         newpanel.indexSetter(0);
@@ -2132,7 +2124,7 @@ AutoCompletion.enable(countryList);
         System.out.println("created");
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loadCustDetailStaffActionPerformed
 
     private void extraChargeTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraChargeTickActionPerformed
         if (extraChargeTick.isSelected()) {
@@ -2701,6 +2693,10 @@ AutoCompletion.enable(countryList);
          dataValidator.numberValidator(extraChargesBil);
     }//GEN-LAST:event_extraChargesBilKeyReleased
 
+    private void stafflCustNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stafflCustNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stafflCustNameActionPerformed
+
     
     
     /**
@@ -2758,8 +2754,8 @@ AutoCompletion.enable(countryList);
     private javax.swing.JComboBox<Country> countryList;
     private javax.swing.JTable cusTable;
     private javax.swing.JTextField custIDTxt;
-    private javax.swing.JTextField custIDTxt1;
     private javax.swing.JButton custIdOK;
+    private javax.swing.JComboBox<String> custIdStaff;
     private javax.swing.JScrollPane custInfoAddScroller;
     private javax.swing.JScrollPane custInfoAddScroller1;
     private javax.swing.JScrollPane custInfoAddScroller2;
@@ -2773,7 +2769,6 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextField extraChargesBil;
     private javax.swing.JTextField fNamTxt;
     private javax.swing.JButton generateBillBtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2824,9 +2819,9 @@ AutoCompletion.enable(countryList);
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField lNameTxt;
+    private javax.swing.JButton loadCustDetailStaff;
     private javax.swing.JPanel menusPane;
     private javax.swing.JTextField nicTxt;
-    private javax.swing.JTextField nicTxt1;
     private javax.swing.JTable packageChargesBil;
     private javax.swing.JTextField phoneNo1Txt;
     private javax.swing.JLabel phoneNo2;
@@ -2859,6 +2854,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JScrollPane roomTypesFrm;
     private javax.swing.JButton royalRemoveBtn;
     public static javax.swing.JTextField sampleTxtField;
+    private javax.swing.JTextField stafflCustName;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JScrollPane tableScroller;
     private javax.swing.JPanel titlePane;
