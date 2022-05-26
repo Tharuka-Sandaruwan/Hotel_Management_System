@@ -2110,7 +2110,7 @@ AutoCompletion.enable(countryList);
     private void loadCustDetailStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadCustDetailStaffActionPerformed
         //loads customer name to the text field
         CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
-       
+        
         
         
        // generates rooms assigned 

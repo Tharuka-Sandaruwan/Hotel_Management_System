@@ -174,6 +174,37 @@ public class databaseConnections {
     
     
     
+     public  ArrayList<String> getRoomsByCustId(String custId){
+      Connection con = null;
+    ArrayList<String>  roomList = new ArrayList<String>();
+        try {
+            
+            //starts the database connection
+            con = DriverManager.getConnection(connectString, username, password);
+            
+            System.out.println("connected!");
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+
+            
+            ResultSet rs = statement.executeQuery("SELECT Room_Number FROM hotelmanagementsystem.bill_rooms_charges WHERE Customer_ID = '"+custId+"';");
+            while (rs.next()) {
+                roomList.addAll(Arrays.asList(rs.getString(1)));
+            }
+             con.close();
+
+            
+             
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
+
+          
+        }
+    
+        return roomList;
+    }
     
     
     
