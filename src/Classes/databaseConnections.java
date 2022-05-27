@@ -205,12 +205,48 @@ public class databaseConnections {
     
         return roomList;
     }
+     
+     
+     
     
     
     
     
     
+    public  String getEmpName(String roomNo,String table){
+        String name = null;
+        
+         Connection con = null;
+    ArrayList<String>  roomList = new ArrayList<String>();
+        try {
+            
+            //starts the database connection
+            con = DriverManager.getConnection(connectString, username, password);
+            
+            System.out.println("connected!");
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+
+            
+            ResultSet rs = statement.executeQuery("SELECT Full_Name FROM hotelmanagementsystem."+table+" WHERE Room_Number = '"+roomNo+"';");
+            while (rs.next()) {
+                name = rs.getString(1);
+            }
+             con.close();
+
+            
+             
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
+
+          
+        }
     
+    
+        return name;
+    }
     
     
     

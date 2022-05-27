@@ -23,13 +23,21 @@ import static Classes.tableDataLoading.roomTypeTblRefresh;
 import static Classes.tableDataLoading.billPackagesTblRefresh;
 import static Classes.tableDataLoading.billRoomChargeTblrefresh;
 import com.toedter.calendar.JTextFieldDateEditor;
+import java.awt.Button;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import javax.swing.ButtonGroup;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.border.MatteBorder;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 import javax.swing.table.DefaultTableModel;
 
@@ -293,6 +301,7 @@ AutoCompletion.enable(countryList);
         roomTypeContainer = new javax.swing.JPanel();
         custIdStaff = new javax.swing.JComboBox<>();
         stafflCustName = new javax.swing.JTextField();
+        test = new javax.swing.JButton();
         BillingPane = new javax.swing.JPanel();
         custInfoAddScroller2 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
@@ -1261,11 +1270,11 @@ AutoCompletion.enable(countryList);
         roomTypeContainer.setLayout(roomTypeContainerLayout);
         roomTypeContainerLayout.setHorizontalGroup(
             roomTypeContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 828, Short.MAX_VALUE)
+            .addGap(0, 862, Short.MAX_VALUE)
         );
         roomTypeContainerLayout.setVerticalGroup(
             roomTypeContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 484, Short.MAX_VALUE)
+            .addGap(0, 545, Short.MAX_VALUE)
         );
 
         roomTypesFrm.setViewportView(roomTypeContainer);
@@ -1274,6 +1283,13 @@ AutoCompletion.enable(countryList);
         stafflCustName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stafflCustNameActionPerformed(evt);
+            }
+        });
+
+        test.setText("test");
+        test.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testActionPerformed(evt);
             }
         });
 
@@ -1309,9 +1325,12 @@ AutoCompletion.enable(countryList);
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                            .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(155, 155, 155)
+                                .addComponent(test)))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1324,9 +1343,11 @@ AutoCompletion.enable(countryList);
                     .addComponent(loadCustDetailStaff)
                     .addComponent(stafflCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel25)
-                .addGap(45, 45, 45)
-                .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(test))
+                .addGap(18, 18, 18)
+                .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateBtn1)
@@ -2111,7 +2132,50 @@ AutoCompletion.enable(countryList);
         //loads customer name to the text field
         CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
         
+        databaseConnections newConnectionstaff = new databaseConnections();
+        ArrayList allRooms     = newConnectionstaff.getRoomsByCustId(custIdStaff.getSelectedItem().toString());
+        Iterator<Integer> iter = allRooms.iterator();
         
+        System.out.println(allRooms.toString());
+       
+        int count = 0;
+        
+       GridBagLayout grid = new GridBagLayout();  
+            GridBagConstraints gbc = new GridBagConstraints();  
+            setLayout(grid);  
+           
+            GridBagLayout layout = new GridBagLayout();  
+    roomTypeContainer.setLayout(layout);
+         gbc.fill = GridBagConstraints.VERTICAL;  //HORIZONTAL
+        
+         
+        while (iter.hasNext()) {            
+            System.out.println("next");
+             System.out.print(iter.next() + " ");
+             
+                     
+    gbc.gridx = 0;  
+    gbc.gridy = count;  
+    count++;
+    jPanel1.add(new roomTypes(), gbc);  
+    /*gbc.gridx = 0;  
+    gbc.gridy = 1;  
+    jPanel1.add(new Button("Button two"), gbc);  
+    gbc.fill = GridBagConstraints.HORIZONTAL;  
+    gbc.ipadx = 20;  
+    gbc.gridx = 0;  
+    gbc.gridy = 2;  
+    jPanel1.add(new Button("Button Three"), gbc); */
+    
+    validate();
+    repaint();
+             
+             
+             
+        }
+        
+        /*
+       
         
        // generates rooms assigned 
         roomTypes newpanel = new roomTypes();
@@ -2121,6 +2185,27 @@ AutoCompletion.enable(countryList);
         newpanel.setVisible(true);
         //newpanel.setLocation(WIDTH, WIDTH);
 
+       
+                roomTypes panel = new roomTypes();
+
+                
+                    
+                    GridBagConstraints gbc = new GridBagConstraints();
+                   // roomTypeContainer.add(panel);
+                    gbc.gridwidth = GridBagConstraints.REMAINDER;
+                    gbc.weightx = 1;
+                    gbc.fill = GridBagConstraints.HORIZONTAL;
+                    roomTypeContainer.add(panel, gbc, 0);
+      //  panel.setSize(500, 410);
+        panel.setVisible(true);
+                   /* gbc.gridwidth = GridBagConstraints.REMAINDER;
+                    gbc.weightx = 1;
+                    gbc.fill = GridBagConstraints.HORIZONTAL;
+                    roomTypeContainer.add(panel, gbc, 0);*/
+
+                   // validate();
+                    //repaint();
+        
         System.out.println("created");
 
 
@@ -2697,6 +2782,42 @@ AutoCompletion.enable(countryList);
         // TODO add your handling code here:
     }//GEN-LAST:event_stafflCustNameActionPerformed
 
+    private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
+        
+        roomTypeContainer.removeAll();
+        CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
+        
+        databaseConnections newConnectionstaff = new databaseConnections();
+        ArrayList allRooms     = newConnectionstaff.getRoomsByCustId(custIdStaff.getSelectedItem().toString());
+        Iterator<Integer> iter = allRooms.iterator();
+        
+       databaseConnections test = new databaseConnections();
+        System.out.println(test.getEmpName("R014","assignedhotelconcierge"));
+
+        roomTypeContainer.setLayout(new GridLayout(allRooms.size(),1));
+        int count =0;
+        
+        while(count < allRooms.size()){
+        roomTypes pan1 = new roomTypes();
+        pan1.valueSetter(allRooms.get(count).toString());
+        roomTypeContainer.add(pan1);
+        count++;
+        }
+        /*
+        pan1 = new roomTypes();
+        pan1.indexSetter(2);
+        pan2 = new roomTypes();
+        pan2.indexSetter(0);
+        
+        roomTypeContainer.add(pan1);
+        roomTypeContainer.add(pan2);
+   */
+        validate();
+    repaint();
+        
+        
+    }//GEN-LAST:event_testActionPerformed
+
     
     
     /**
@@ -2849,7 +2970,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JPanel reservationPane;
     private javax.swing.JTextField reskidsTxt;
     private javax.swing.JTable roomChargesBil;
-    private javax.swing.JPanel roomTypeContainer;
+    public javax.swing.JPanel roomTypeContainer;
     private javax.swing.ButtonGroup roomTypes;
     private javax.swing.JScrollPane roomTypesFrm;
     private javax.swing.JButton royalRemoveBtn;
@@ -2857,6 +2978,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextField stafflCustName;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JScrollPane tableScroller;
+    private javax.swing.JButton test;
     private javax.swing.JPanel titlePane;
     private javax.swing.JTextField totalChargeBil;
     private javax.swing.JTextField totalGuests;
