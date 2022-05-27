@@ -2785,24 +2785,43 @@ AutoCompletion.enable(countryList);
     private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
         
         roomTypeContainer.removeAll();
+        
         CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
         
         databaseConnections newConnectionstaff = new databaseConnections();
         ArrayList allRooms     = newConnectionstaff.getRoomsByCustId(custIdStaff.getSelectedItem().toString());
         Iterator<Integer> iter = allRooms.iterator();
         
-       databaseConnections test = new databaseConnections();
+        if (allRooms.isEmpty()) {
+            
+            // if room list empty then we have to add data
+            
+            
+            
+            
+        }else{
+            
+            
+             // if not empty we have to continue loading them
+             databaseConnections test = new databaseConnections();
         System.out.println(test.getEmpName("R014","assignedhotelconcierge"));
 
         roomTypeContainer.setLayout(new GridLayout(allRooms.size(),1));
         int count =0;
         
         while(count < allRooms.size()){
+            
         roomTypes pan1 = new roomTypes();
         pan1.valueSetter(allRooms.get(count).toString());
         roomTypeContainer.add(pan1);
         count++;
+        
         }
+        
+        
+        }
+        
+       
         /*
         pan1 = new roomTypes();
         pan1.indexSetter(2);
@@ -2813,7 +2832,7 @@ AutoCompletion.enable(countryList);
         roomTypeContainer.add(pan2);
    */
         validate();
-    repaint();
+        repaint();
         
         
     }//GEN-LAST:event_testActionPerformed

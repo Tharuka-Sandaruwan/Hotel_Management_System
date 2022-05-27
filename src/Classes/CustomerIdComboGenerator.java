@@ -39,6 +39,32 @@ public static void loadCustomerID(JComboBox comboBox){
     
 }
 
+public static void loadCustomerIDStaffAssign(JComboBox comboBox){
+    Connection con = null;
+    try {
+           con = DriverManager.getConnection(connectString, username, password);
+            
+            Statement statement;
+            statement = con.createStatement();
+            
+            
+            ResultSet rs = statement.executeQuery("SELECT Distinct Customer_ID  FROM hotelmanagementsystem.bil_selected_packages ORDER BY Customer_ID Asc;");
+          
+            
+            while(rs.next()){
+        String cusID = rs.getString(1);
+        comboBox.addItem(cusID);
+}   
+            con.close();
+        
+    } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); 
+    }
+  
+
+    
+}
+
 public static void loadCustomerName(JTextField customerNameTxtField,String custID){
     Connection con = null; 
     try {
