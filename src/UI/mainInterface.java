@@ -2143,7 +2143,7 @@ AutoCompletion.enable(countryList);
         CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
         
         databaseConnections newConnectionstaff = new databaseConnections();
-        ArrayList allRooms     = newConnectionstaff.getRoomsByCustId(custIdStaff.getSelectedItem().toString());
+        ArrayList allRooms     = newConnectionstaff.getUnassignedRoomsByCustId(custIdStaff.getSelectedItem().toString());
         Iterator<Integer> iter = allRooms.iterator();
         
         System.out.println(allRooms.toString());
@@ -2792,6 +2792,34 @@ AutoCompletion.enable(countryList);
         // TODO add your handling code here:
     }//GEN-LAST:event_stafflCustNameActionPerformed
 
+    private void loadAssignedStaffDetails(){
+    
+      
+                       
+                       
+ databaseConnections newConnectionstaff2 = new databaseConnections();
+        ArrayList allAssignedRooms     = newConnectionstaff2.getAssignedRoomsByCustId(custIdStaff.getSelectedItem().toString());                       
+                       
+            
+             // if not empty we have to continue loading them
+             databaseConnections test = new databaseConnections();
+        
+
+        roomTypeContainer.setLayout(new GridLayout(allAssignedRooms.size(),1));
+        int count =0;
+        
+        while(count < allAssignedRooms.size()){
+            
+        roomTypes pan1 = new roomTypes();
+        pan1.valueSetter(allAssignedRooms.get(count).toString());
+        roomTypeContainer.add(pan1);
+        count++;
+        
+    
+    }}
+    
+    
+    
     private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
         
         roomTypeContainer.removeAll();
@@ -2799,35 +2827,47 @@ AutoCompletion.enable(countryList);
         CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
         
         databaseConnections newConnectionstaff = new databaseConnections();
-        ArrayList allRooms     = newConnectionstaff.getRoomsByCustId(custIdStaff.getSelectedItem().toString());
-        Iterator<Integer> iter = allRooms.iterator();
+        ArrayList allUnassignedRooms     = newConnectionstaff.getUnassignedRoomsByCustId(custIdStaff.getSelectedItem().toString());
+        Iterator<Integer> iter = allUnassignedRooms.iterator();
         
-        if (allRooms.isEmpty()) {
+        
+        if (allUnassignedRooms.isEmpty()) { // check whether 
             
-            // if room list empty then we have to add data
-            
-            
-            
-            
-        }else{
-            
+            loadAssignedStaffDetails();
+          /*             
+                       
+ databaseConnections newConnectionstaff2 = new databaseConnections();
+        ArrayList allAssignedRooms     = newConnectionstaff2.getAssignedRoomsByCustId(custIdStaff.getSelectedItem().toString());                       
+                       
             
              // if not empty we have to continue loading them
              databaseConnections test = new databaseConnections();
-        System.out.println(test.getEmpName("R014","assignedhotelconcierge"));
+        
 
-        roomTypeContainer.setLayout(new GridLayout(allRooms.size(),1));
+        roomTypeContainer.setLayout(new GridLayout(allAssignedRooms.size(),1));
         int count =0;
         
-        while(count < allRooms.size()){
+        while(count < allAssignedRooms.size()){
             
         roomTypes pan1 = new roomTypes();
-        pan1.valueSetter(allRooms.get(count).toString());
+        pan1.valueSetter(allAssignedRooms.get(count).toString());
         roomTypeContainer.add(pan1);
         count++;
         
-        }
-        
+        }*/
+    
+        }else{
+            
+            
+            
+             // if room list empty then we have to add data
+            // create a method to automatically insert data into the table
+            
+      databaseConnections assigner = new databaseConnections();
+            System.out.println("athuleeeeee");
+         assigner.assignStaffAutomatic(custIdStaff.getSelectedItem().toString());
+           
+          loadAssignedStaffDetails();
         
         }
         

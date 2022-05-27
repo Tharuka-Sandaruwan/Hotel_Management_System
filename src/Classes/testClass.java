@@ -13,12 +13,15 @@ public class testClass {
     
     public static void main(String[] args) {
         
-         ArrayList<String>  allRoomsSelected = new ArrayList<String>();
-            allRoomsSelected.addAll(globalVars.premiumSelected);
-            allRoomsSelected.addAll(globalVars.royalSelected);
-            allRoomsSelected.addAll(globalVars.exeSelected);
+//         ArrayList<String>  allRoomsSelected = new ArrayList<String>();
+//            allRoomsSelected.addAll(globalVars.premiumSelected);
+//            allRoomsSelected.addAll(globalVars.royalSelected);
+//            allRoomsSelected.addAll(globalVars.exeSelected);
+//
+//            System.out.println(globalVars.premiumSelected);
 
-            System.out.println(globalVars.premiumSelected);
+databaseConnections testing = new databaseConnections();
+testing.assignStaffAutomatic("C1");
         
             }
 }

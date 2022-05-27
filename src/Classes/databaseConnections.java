@@ -174,7 +174,7 @@ public class databaseConnections {
     
     
     
-     public  ArrayList<String> getRoomsByCustId(String custId){
+     public  ArrayList<String> getUnassignedRoomsByCustId(String custId){
       Connection con = null;
     ArrayList<String>  roomList = new ArrayList<String>();
         try {
@@ -189,7 +189,7 @@ public class databaseConnections {
             statement = con.createStatement();
 
             
-            ResultSet rs = statement.executeQuery("SELECT Room_Number FROM hotelmanagementsystem.bill_rooms_charges WHERE Customer_ID = '"+custId+"';");
+            ResultSet rs = statement.executeQuery("SELECT Room_Number FROM hotelmanagementsystem.staffunassignedrooms WHERE Customer_ID = '"+custId+"';");
             while (rs.next()) {
                 roomList.addAll(Arrays.asList(rs.getString(1)));
             }
@@ -208,7 +208,37 @@ public class databaseConnections {
      
      
      
+     public  ArrayList<String> getAssignedRoomsByCustId(String custId){
+      Connection con = null;
+    ArrayList<String>  roomList = new ArrayList<String>();
+        try {
+            
+            //starts the database connection
+            con = DriverManager.getConnection(connectString, username, password);
+            
+            System.out.println("connected!");
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+
+            
+            ResultSet rs = statement.executeQuery("SELECT Room_Number FROM hotelmanagementsystem.staffassignedrooms WHERE Customer_ID = '"+custId+"';");
+            while (rs.next()) {
+                roomList.addAll(Arrays.asList(rs.getString(1)));
+            }
+             con.close();
+
+            
+             
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
+
+          
+        }
     
+        return roomList;
+    }    
     
     
     
@@ -248,6 +278,145 @@ public class databaseConnections {
         return name;
     }
     
+    // used to assign staff to the rooms automatically
+    public void assignStaffAutomatic(String custId){
+             
+            
+        String roomType;
+         Connection con = null;
+   
+        try {
+            
+            //starts the database connection
+            con = DriverManager.getConnection(connectString, username, password);
+            
+          
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+            
+            ResultSet rs = statement.executeQuery("SELECT Room_Number FROM hotelmanagementsystem.staffunassignedrooms WHERE customer_id = '"+custId+"';");
+            while (rs.next()) {
+           
+              
+               roomType =  rs.getString(1).substring(0, 1); // gets only the room type part
+               String roomNumber = rs.getString(1);
+                
+                
+                if (roomType.equals("P")) { 
+                 
+                    
+                    
+                    inserToStaffRoom(roomNumber, "availableroomserv");
+                    inserToStaffRoom(roomNumber, "availablemaintainclean");
+                    inserToStaffRoom(roomNumber, "availablehousekeep");
+         
+         
+          
+                }else if(roomType.equals("E")){
+                
+                   
+                    
+                    inserToStaffRoom(roomNumber, "availableroomserv");
+                    inserToStaffRoom(roomNumber, "availablemaintainclean");
+                    inserToStaffRoom(roomNumber, "availablehousekeep"); 
+                    inserToStaffRoom(roomNumber, "availableporter"); 
+        
+                 }else{
+                  
+                    
+                    
+                    
+                    inserToStaffRoom(roomNumber, "availableroomserv");
+                    inserToStaffRoom(roomNumber, "availablemaintainclean");
+                    inserToStaffRoom(roomNumber, "availablehousekeep"); 
+                    inserToStaffRoom(roomNumber, "availableporter");   
+                    inserToStaffRoom(roomNumber, "availablehotelcon"); 
+                    
+                    
+                    
+                    
+        }
+                 
+                
+            }
+            
+            //SELECT * FROM hotelmanagementsystem.staffunassignedrooms where customer_id = 'C5';
+         //   statement.executeQuery("SELECT Full_Name FROM hotelmanagementsystem."+table+" WHERE Room_Number = '"+roomNo+"';");
+            
+             con.close();
+            /* 
+             int count = 0;
+             while (count < roomType.size()) {                
+                 System.out.println(roomType.toArray()[count]);
+                 System.out.println(roomType.toArray()[count].toString().substring(0, 1).equals("P"));
+                 count++;
+            }
+*/
+            
+             
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
+
+          
+        }
     
+    
+    }
+    
+    // used to inser the staff member to the room
+    public void inserToStaffRoom(String roomNo,String availableStaffTypeTable){
+        Connection con = null;
+        Connection con2 = null;
+  
+        try {
+            
+            //starts the database connection
+            con = DriverManager.getConnection(connectString, username, password);
+            con2 = DriverManager.getConnection(connectString, username, password);
+            
+            
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+
+            // SELECT staff_ID FROM hotelmanagementsystem.availablehousekeep order by staff_ID asc limit 1;
+            ResultSet rs = statement.executeQuery("SELECT staff_ID FROM hotelmanagementsystem."+availableStaffTypeTable+" order by staff_ID asc limit 1;");
+           
+            while (rs.next()) {
+                
+                try{
+                
+                
+                Statement statement2;
+            statement2 = con2.createStatement();
+            statement2.executeUpdate("INSERT INTO hotelmanagementsystem.roomstaff values ('"+roomNo+"','"+rs.getString(1)+"');");
+            con2.close();}
+                
+                
+                catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
+
+          
+        }
+                
+            }
+             con.close();
+
+            
+             
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
+
+          
+        }
+        
+    
+     
+    
+        
+    }
     
 }
