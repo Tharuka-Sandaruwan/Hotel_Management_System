@@ -75,6 +75,15 @@ public class mainInterface extends javax.swing.JFrame {
         reservationTableRefresh(resReservationTbl.getModel());
 
     }
+    
+    
+    public void refreshStaff() {
+        custIdStaff.removeAllItems();
+        CustomerIdComboGenerator.loadCustomerIDStaffAssign(custIdStaff);
+        
+
+    }
+    
 
     // use to set the border to red usue a hidden sample border to get and set attributes
     public static Border BorderError() {
@@ -1293,7 +1302,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        CustomerIdComboGenerator.loadCustomerID(custIdStaff);  AutoCompletion.enable(custIdStaff);
+        CustomerIdComboGenerator.loadCustomerIDStaffAssign(custIdStaff);  AutoCompletion.enable(custIdStaff);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1706,7 +1715,7 @@ AutoCompletion.enable(countryList);
             .addGroup(reservationBtnPaneLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         BillingBtnPane.setToolTipText("");
@@ -1783,7 +1792,7 @@ AutoCompletion.enable(countryList);
                 .addComponent(StaffAssignBtnPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(BillingBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
         jPanel1.add(menusPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
@@ -2121,6 +2130,7 @@ AutoCompletion.enable(countryList);
 
     private void StaffAssignBtnPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StaffAssignBtnPane1MouseClicked
         tabbedPane.setSelectedIndex(2);
+        refreshStaff();
     }//GEN-LAST:event_StaffAssignBtnPane1MouseClicked
 
     private void loadCustDetailStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadCustDetailStaffMouseClicked
