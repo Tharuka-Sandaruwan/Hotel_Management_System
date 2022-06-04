@@ -91,30 +91,7 @@ public static void loadCustomerName(JTextField customerNameTxtField,String custI
   
 }
 
-//delete below if unused
-public static void loadCustomerNameToLable(JLabel customerNameTxt,String custID){
-    Connection con = null; 
-    try {
-           con = DriverManager.getConnection(connectString, username, password);
-            
-            Statement statement;
-            statement = con.createStatement();
- 
-            ResultSet rs = statement.executeQuery("SELECT  First_Name,Last_Name FROM hotelmanagementsystem.customer WHERE Customer_ID = '"+custID+"';");
 
-            while(rs.next()){
-        String custName = rs.getString(1)+ " " + rs.getString(2);
-        customerNameTxt.setText(custName);
-        System.out.println(custName);
-           
-}       
-     
-    } catch (Exception e) {
-           JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); 
-        
-    }
-  
-}
 
 
 
