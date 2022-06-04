@@ -9,6 +9,7 @@ import java.sql.*;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 
@@ -90,6 +91,7 @@ public static void loadCustomerName(JTextField customerNameTxtField,String custI
   
 }
 
+//delete below if unused
 public static void loadCustomerNameToLable(JLabel customerNameTxt,String custID){
     Connection con = null; 
     try {
@@ -104,6 +106,33 @@ public static void loadCustomerNameToLable(JLabel customerNameTxt,String custID)
         String custName = rs.getString(1)+ " " + rs.getString(2);
         customerNameTxt.setText(custName);
         System.out.println(custName);
+           
+}       
+     
+    } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); 
+        
+    }
+  
+}
+
+
+
+//loads customer address to the bill page text area 
+public static void loadCustomerInfoToTxtArea(JTextArea customerLabelTxt,String custID){
+    Connection con = null; 
+    try {
+           con = DriverManager.getConnection(connectString, username, password);
+            
+            Statement statement;
+            statement = con.createStatement();
+ 
+            ResultSet rs = statement.executeQuery("SELECT  full_name, Address, Country, Email, Contact_number FROM hotelmanagementsystem.basic_customer_contact_info WHERE Customer_ID = '"+custID+"' limit 1 ;");
+
+            while(rs.next()){
+        String custDetails = rs.getString(1)+ "\n" + rs.getString(2) + "\n"+rs.getString(3) +"\nE-Mail : "+ rs.getString(4) +"\nPhone No : "+ rs.getString(5);
+        customerLabelTxt.setText(custDetails);
+        System.out.println(custDetails);
            
 }       
      
