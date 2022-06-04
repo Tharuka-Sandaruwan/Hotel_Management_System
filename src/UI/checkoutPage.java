@@ -17,6 +17,8 @@ public class checkoutPage extends javax.swing.JFrame {
      */
     public checkoutPage() {
         initComponents();
+        setResizable(false);
+        setSize(800, 500);
         
     
     }
