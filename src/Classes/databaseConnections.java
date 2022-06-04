@@ -100,6 +100,7 @@ public class databaseConnections {
     }
     
     // used to get the customer id from the database customer table
+    /*
     public  String getCustID(String fullName){
     Connection con = null;
     String custID = null;
@@ -135,6 +136,7 @@ public class databaseConnections {
     
     }
     
+    */
     // ArrayList<String>  allRoomsSelected = new ArrayList<String>();
     //        allRoomsSelected.addAll(globalVars.premiumSelected);
     

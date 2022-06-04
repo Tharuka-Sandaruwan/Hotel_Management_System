@@ -1182,7 +1182,9 @@ AutoCompletion.enable(countryList);
             resReservationTbl.getColumnModel().getColumn(7).setPreferredWidth(100);
             resReservationTbl.getColumnModel().getColumn(8).setPreferredWidth(100);
             resReservationTbl.getColumnModel().getColumn(9).setPreferredWidth(100);
-            resReservationTbl.getColumnModel().getColumn(10).setResizable(false);
+            resReservationTbl.getColumnModel().getColumn(10).setMinWidth(0);
+            resReservationTbl.getColumnModel().getColumn(10).setPreferredWidth(0);
+            resReservationTbl.getColumnModel().getColumn(10).setMaxWidth(0);
         }
 
         jLabel32.setText("Reservations");
@@ -2667,14 +2669,15 @@ AutoCompletion.enable(countryList);
         String adultCnt = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 7).toString();
         String kicCount = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 8).toString();
         String packageType = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 9).toString();
+        String custId = tblModel.getValueAt(resReservationTbl.getSelectedRow(), 10).toString();
      
         reservationIdTxt.setText(ResID);
         databaseConnections DBobj = new databaseConnections();
         
         // BELOW 3 LINES ARE USED TO SELECT THE CUSTOMER ID IN THE JCOMBOBOX WHEN UPDATING.BUT IT IS NOT COMPLETE !!!! ITS TEMPORARY WORKAROUND 
-        DBobj.getCustID(custNameRes);
+       // DBobj.getCustID(custNameRes);
         
-       resIDSearchJcombo.addItem(DBobj.getCustID(custNameRes));
+       resIDSearchJcombo.addItem(custId);
        resIDSearchJcombo.setSelectedIndex(resIDSearchJcombo.getItemCount()-1);
        
        
