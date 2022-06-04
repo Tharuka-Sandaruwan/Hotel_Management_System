@@ -6,6 +6,8 @@ package UI;
 
 import Classes.CustomerIdComboGenerator;
 import Classes.globalVars;
+import static Classes.tableDataLoading.billPackagesTblRefresh;
+import static Classes.tableDataLoading.billRoomChargeTblrefresh;
 import javax.swing.JLabel;
 
 /**
@@ -25,6 +27,16 @@ public class billPage extends javax.swing.JFrame {
         
 
          CustomerIdComboGenerator.loadCustomerInfoToTxtArea(custAddressTxtArea, globalVars.CustIdBill);
+         
+         Double totalPackCharge = billPackagesTblRefresh(packageChargesBil.getModel(), globalVars.CustIdBill);
+         totalPackageChargeBil.setText(totalPackCharge.toString());
+         
+         Double totalRoomCharge = billRoomChargeTblrefresh(roomChargesBil.getModel(), globalVars.CustIdBill);
+         totalRoomCharges.setText(totalRoomCharge.toString());
+         
+         liableChargeTxtBill.setText(globalVars.liableChargesBill);
+         
+         
     }
 
     
