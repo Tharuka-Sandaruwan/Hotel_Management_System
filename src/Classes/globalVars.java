@@ -27,7 +27,8 @@ public class globalVars {
     //variable to store the total amount
     
     
-
+    public static String CustIdBill ;
+    public static String liableChargesBill ;
 
     
 

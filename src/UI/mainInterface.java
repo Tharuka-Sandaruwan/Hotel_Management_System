@@ -2151,6 +2151,15 @@ AutoCompletion.enable(countryList);
         
         this.setEnabled(false);
         
+        globalVars.CustIdBill =  bilCustId.getSelectedItem().toString();
+        
+        if(extraChargeTick.isSelected()){
+             globalVars.liableChargesBill = extraChargesBil.getText();
+        }else{
+            globalVars.liableChargesBill = "0";
+            }
+       
+        
         // below action will disble and enable the main interface when checkout is opened and closed
         checkoutPg.addWindowListener(new WindowAdapter() {
     @Override

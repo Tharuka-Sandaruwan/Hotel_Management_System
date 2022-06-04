@@ -4,6 +4,8 @@
  */
 package UI;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 /**
@@ -21,6 +23,30 @@ public class checkoutPage extends javax.swing.JFrame {
         setSize(800, 500);
         
     
+    }
+    
+    private void reciptGenerator(){
+        
+ 
+        
+        billPage bill = new billPage();
+        
+        bill.setVisible(true);
+        bill.setResizable(false);
+        bill.setLocation(100, 200);
+        this.setEnabled(false);
+        
+        
+                bill.addWindowListener(new WindowAdapter() {
+    @Override
+    public void windowClosed(WindowEvent e) {
+        checkoutPage.this.setEnabled(true);
+        e.getWindow().dispose();
+         checkoutPage.this.toFront();
+        
+       }
+});
+       
     }
 
     /**
@@ -102,6 +128,11 @@ public class checkoutPage extends javax.swing.JFrame {
         jLabel1.setText("Please pay to the counter");
 
         jButton5.setText("Generate Recipt");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Back");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -216,7 +247,8 @@ public class checkoutPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+
+        reciptGenerator();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -226,6 +258,11 @@ public class checkoutPage extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         checkoutPanelTab.setSelectedIndex(0);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       
+ reciptGenerator();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
