@@ -305,7 +305,6 @@ AutoCompletion.enable(countryList);
         clearBtn1 = new javax.swing.JButton();
         deleteBtn1 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        loadCustDetailStaff = new javax.swing.JButton();
         roomTypesFrm = new javax.swing.JScrollPane();
         roomTypeContainer = new javax.swing.JPanel();
         custIdStaff = new javax.swing.JComboBox<>();
@@ -1258,23 +1257,16 @@ AutoCompletion.enable(countryList);
         addBtn1.setText("Add");
 
         clearBtn1.setText("Clear");
+        clearBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBtn1ActionPerformed(evt);
+            }
+        });
 
         deleteBtn1.setText("Delete");
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel25.setText("rooms reserved");
-
-        loadCustDetailStaff.setText("load");
-        loadCustDetailStaff.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loadCustDetailStaffMouseClicked(evt);
-            }
-        });
-        loadCustDetailStaff.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loadCustDetailStaffActionPerformed(evt);
-            }
-        });
+        jLabel25.setText("Rooms reserved :");
 
         roomTypesFrm.setBackground(new java.awt.Color(255, 0, 51));
         roomTypesFrm.setForeground(new java.awt.Color(51, 255, 51));
@@ -1299,7 +1291,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        test.setText("test");
+        test.setText("Load");
         test.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 testActionPerformed(evt);
@@ -1329,21 +1321,20 @@ AutoCompletion.enable(countryList);
                                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
                                 .addComponent(custIdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(loadCustDetailStaff)
-                                .addGap(66, 66, 66)
+                                .addGap(31, 31, 31)
+                                .addComponent(test)
+                                .addGap(82, 82, 82)
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(stafflCustName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(19, 19, 19)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(155, 155, 155)
-                                .addComponent(test)))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                                .addGap(6, 6, 6)
+                                .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1353,15 +1344,13 @@ AutoCompletion.enable(countryList);
                     .addComponent(jLabel20)
                     .addComponent(jLabel21)
                     .addComponent(custIdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loadCustDetailStaff)
-                    .addComponent(stafflCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
+                    .addComponent(stafflCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(test))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateBtn1)
                     .addComponent(addBtn1)
@@ -2137,94 +2126,6 @@ AutoCompletion.enable(countryList);
         refreshStaff();
     }//GEN-LAST:event_StaffAssignBtnPane1MouseClicked
 
-    private void loadCustDetailStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadCustDetailStaffMouseClicked
-
-
-    }//GEN-LAST:event_loadCustDetailStaffMouseClicked
-
-    private void loadCustDetailStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadCustDetailStaffActionPerformed
-        //loads customer name to the text field
-        CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
-        
-        databaseConnections newConnectionstaff = new databaseConnections();
-        ArrayList allRooms     = newConnectionstaff.getUnassignedRoomsByCustId(custIdStaff.getSelectedItem().toString());
-        Iterator<Integer> iter = allRooms.iterator();
-        
-        System.out.println(allRooms.toString());
-       
-        int count = 0;
-        
-       GridBagLayout grid = new GridBagLayout();  
-            GridBagConstraints gbc = new GridBagConstraints();  
-            setLayout(grid);  
-           
-            GridBagLayout layout = new GridBagLayout();  
-    roomTypeContainer.setLayout(layout);
-         gbc.fill = GridBagConstraints.VERTICAL;  //HORIZONTAL
-        
-         
-        while (iter.hasNext()) {            
-            System.out.println("next");
-             System.out.print(iter.next() + " ");
-             
-                     
-    gbc.gridx = 0;  
-    gbc.gridy = count;  
-    count++;
-    jPanel1.add(new roomTypes(), gbc);  
-    /*gbc.gridx = 0;  
-    gbc.gridy = 1;  
-    jPanel1.add(new Button("Button two"), gbc);  
-    gbc.fill = GridBagConstraints.HORIZONTAL;  
-    gbc.ipadx = 20;  
-    gbc.gridx = 0;  
-    gbc.gridy = 2;  
-    jPanel1.add(new Button("Button Three"), gbc); */
-    
-    validate();
-    repaint();
-             
-             
-             
-        }
-        
-        /*
-       
-        
-       // generates rooms assigned 
-        roomTypes newpanel = new roomTypes();
-        roomTypeContainer.add(newpanel);
-        newpanel.indexSetter(0);
-        newpanel.setSize(500, 410);
-        newpanel.setVisible(true);
-        //newpanel.setLocation(WIDTH, WIDTH);
-
-       
-                roomTypes panel = new roomTypes();
-
-                
-                    
-                    GridBagConstraints gbc = new GridBagConstraints();
-                   // roomTypeContainer.add(panel);
-                    gbc.gridwidth = GridBagConstraints.REMAINDER;
-                    gbc.weightx = 1;
-                    gbc.fill = GridBagConstraints.HORIZONTAL;
-                    roomTypeContainer.add(panel, gbc, 0);
-      //  panel.setSize(500, 410);
-        panel.setVisible(true);
-                   /* gbc.gridwidth = GridBagConstraints.REMAINDER;
-                    gbc.weightx = 1;
-                    gbc.fill = GridBagConstraints.HORIZONTAL;
-                    roomTypeContainer.add(panel, gbc, 0);*/
-
-                   // validate();
-                    //repaint();
-        
-        System.out.println("created");
-
-
-    }//GEN-LAST:event_loadCustDetailStaffActionPerformed
-
     private void extraChargeTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraChargeTickActionPerformed
         if (extraChargeTick.isSelected()) {
            extraChargesBil.setEditable(true); 
@@ -2900,6 +2801,10 @@ AutoCompletion.enable(countryList);
         
     }//GEN-LAST:event_testActionPerformed
 
+    private void clearBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearBtn1ActionPerformed
+
     
     
     /**
@@ -3022,7 +2927,6 @@ AutoCompletion.enable(countryList);
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField lNameTxt;
-    private javax.swing.JButton loadCustDetailStaff;
     private javax.swing.JPanel menusPane;
     private javax.swing.JTextField nicTxt;
     private javax.swing.JTable packageChargesBil;
