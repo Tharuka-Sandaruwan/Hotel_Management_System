@@ -306,7 +306,7 @@ AutoCompletion.enable(countryList);
         custIdStaff = new javax.swing.JComboBox<>();
         stafflCustName = new javax.swing.JTextField();
         test = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        notifyStaffBtn = new javax.swing.JButton();
         BillingPane = new javax.swing.JPanel();
         custInfoAddScroller2 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
@@ -1281,10 +1281,10 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jButton1.setText("Notify the staff");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        notifyStaffBtn.setText("Notify the staff");
+        notifyStaffBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                notifyStaffBtnActionPerformed(evt);
             }
         });
 
@@ -1315,7 +1315,7 @@ AutoCompletion.enable(countryList);
                                 .addGap(6, 6, 6)
                                 .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(notifyStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1336,7 +1336,7 @@ AutoCompletion.enable(countryList);
                         .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(205, 205, 205)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(notifyStaffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -2779,12 +2779,21 @@ AutoCompletion.enable(countryList);
         validate();
         repaint();
         
-        
+        globalVars.isStaffLoaded = true;
+        notifyStaffBtn.setEnabled(true);
     }//GEN-LAST:event_testActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "The staff was notified successfully!", "Staff Notified", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void notifyStaffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notifyStaffBtnActionPerformed
+        if (globalVars.isStaffLoaded) {
+                    JOptionPane.showMessageDialog(null, "The staff was notified successfully!", "Staff Notified", JOptionPane.INFORMATION_MESSAGE);
+                    globalVars.isStaffLoaded =false;
+                    notifyStaffBtn.setEnabled(false);
+        }else{
+                    JOptionPane.showMessageDialog(null, "Staff is not assigned yet!", "Staff Not Assigned", JOptionPane.ERROR_MESSAGE);
+
+        }
+        
+    }//GEN-LAST:event_notifyStaffBtnActionPerformed
 
     
     
@@ -2855,7 +2864,6 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextField extraChargesBil;
     private javax.swing.JTextField fNamTxt;
     private javax.swing.JButton generateBillBtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2908,6 +2916,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextField lNameTxt;
     private javax.swing.JPanel menusPane;
     private javax.swing.JTextField nicTxt;
+    private javax.swing.JButton notifyStaffBtn;
     private javax.swing.JTable packageChargesBil;
     private javax.swing.JTextField phoneNo1Txt;
     private javax.swing.JLabel phoneNo2;

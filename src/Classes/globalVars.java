@@ -22,6 +22,8 @@ public class globalVars {
     public static ArrayList<String>  royalSelected = new ArrayList<String>();
     public static ArrayList<String>  exeSelected = new ArrayList<String>();
     
+    
+    public static boolean isStaffLoaded = false;
     //variable to store the total amount
     
     
