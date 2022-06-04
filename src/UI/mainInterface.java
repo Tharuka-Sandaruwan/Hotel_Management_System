@@ -342,6 +342,7 @@ AutoCompletion.enable(countryList);
         jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Hotel Management System");
         setMinimumSize(new java.awt.Dimension(1024, 768));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
