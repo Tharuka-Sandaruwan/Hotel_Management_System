@@ -19,29 +19,29 @@ public class roomTypes extends javax.swing.JPanel {
 
     public void valueSetter(String roomNo){
     
-        // BUG:ROOM TYPE IS NOT SELECTED CORRECTLY.ALWAYS SELECT THE ROYAL ROOM TYPE IN THE ELSE BLOCK
+        
         
         
        // roomNo.matches("^R");
         roomNoLbl.setText(roomNo);
         databaseConnections conn = new databaseConnections();
-        if (roomNo.matches("^P")) {
+        if (roomNo.startsWith("P")) {
          
          P_RoomService.setText(conn.getEmpName(roomNo,"assignedroomservice" ));
          P_housekeep.setText(conn.getEmpName(roomNo,"assignedhousekeepingmanager"));
          P_maintenance.setText(conn.getEmpName(roomNo,"assignedmaintenanceandcleaning"));
          
           this.jTabbedPane1.setSelectedIndex(0);
-            System.out.println("premium room selected");
+           
           
-        }else if(roomNo.matches("^E")){
+        }else if(roomNo.startsWith("E")){
          E_RoomService.setText(conn.getEmpName(roomNo,"assignedroomservice"));
          E_HouseKeep.setText(conn.getEmpName(roomNo,"assignedhousekeepingmanager"));
          E_Maintenance.setText(conn.getEmpName(roomNo,"assignedmaintenanceandcleaning"));
          E_Porter.setText(conn.getEmpName(roomNo,"assignedporter"));
          
            this.jTabbedPane1.setSelectedIndex(1);
-           System.out.println("executive room selected");
+           
             
         
         }else{
@@ -52,7 +52,7 @@ public class roomTypes extends javax.swing.JPanel {
         R_hotelCon.setText(conn.getEmpName(roomNo,"assignedhotelconcierge"));
          
          this.jTabbedPane1.setSelectedIndex(2);
-         System.out.println("royal room selected");
+        
         }
     
     }
