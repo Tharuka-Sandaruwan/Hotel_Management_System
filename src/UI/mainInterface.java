@@ -300,10 +300,6 @@ AutoCompletion.enable(countryList);
         jPanel3 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        updateBtn1 = new javax.swing.JButton();
-        addBtn1 = new javax.swing.JButton();
-        clearBtn1 = new javax.swing.JButton();
-        deleteBtn1 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         roomTypesFrm = new javax.swing.JScrollPane();
         roomTypeContainer = new javax.swing.JPanel();
@@ -1241,8 +1237,6 @@ AutoCompletion.enable(countryList);
         custInfoAddScroller1.setBackground(new java.awt.Color(204, 204, 204));
         custInfoAddScroller1.setBorder(null);
         custInfoAddScroller1.setForeground(new java.awt.Color(204, 204, 204));
-        custInfoAddScroller1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        custInfoAddScroller1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 102));
 
@@ -1252,24 +1246,12 @@ AutoCompletion.enable(countryList);
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel21.setText("Customer Name");
 
-        updateBtn1.setText("Update");
-
-        addBtn1.setText("Add");
-
-        clearBtn1.setText("Clear");
-        clearBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearBtn1ActionPerformed(evt);
-            }
-        });
-
-        deleteBtn1.setText("Delete");
-
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel25.setText("Rooms reserved :");
 
         roomTypesFrm.setBackground(new java.awt.Color(255, 0, 51));
         roomTypesFrm.setForeground(new java.awt.Color(51, 255, 51));
+        roomTypesFrm.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         javax.swing.GroupLayout roomTypeContainerLayout = new javax.swing.GroupLayout(roomTypeContainer);
         roomTypeContainer.setLayout(roomTypeContainerLayout);
@@ -1308,25 +1290,15 @@ AutoCompletion.enable(countryList);
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(addBtn1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(updateBtn1)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteBtn1)
-                                .addGap(30, 30, 30)
-                                .addComponent(clearBtn1))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(custIdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(test)
-                                .addGap(82, 82, 82)
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(stafflCustName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(custIdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(test)
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(stafflCustName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1349,14 +1321,8 @@ AutoCompletion.enable(countryList);
                 .addGap(24, 24, 24)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateBtn1)
-                    .addComponent(addBtn1)
-                    .addComponent(clearBtn1)
-                    .addComponent(deleteBtn1))
-                .addGap(16, 16, 16))
+                .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         custInfoAddScroller1.setViewportView(jPanel3);
@@ -2801,10 +2767,6 @@ AutoCompletion.enable(countryList);
         
     }//GEN-LAST:event_testActionPerformed
 
-    private void clearBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clearBtn1ActionPerformed
-
     
     
     /**
@@ -2851,14 +2813,12 @@ AutoCompletion.enable(countryList);
     private javax.swing.JPanel StaffAssign;
     private javax.swing.JPanel StaffAssignBtnPane1;
     private javax.swing.JButton addBtn;
-    private javax.swing.JButton addBtn1;
     private javax.swing.JTextArea addressTxt;
     private com.toedter.calendar.JDateChooser arrivalDate;
     private javax.swing.JComboBox<String> bilCustId;
     private javax.swing.JTextField bilCustName;
     private javax.swing.JButton checkoutBtnBil;
     private javax.swing.JButton clearBtn;
-    private javax.swing.JButton clearBtn1;
     private javax.swing.JComboBox<Country> countryList;
     private javax.swing.JTable cusTable;
     private javax.swing.JTextField custIDTxt;
@@ -2868,7 +2828,6 @@ AutoCompletion.enable(countryList);
     private javax.swing.JScrollPane custInfoAddScroller1;
     private javax.swing.JScrollPane custInfoAddScroller2;
     private javax.swing.JButton deleteBtn;
-    private javax.swing.JButton deleteBtn1;
     private com.toedter.calendar.JDateChooser departDate;
     private javax.swing.JLabel email;
     private javax.swing.JTextField emailTxt;
@@ -2971,7 +2930,6 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextField totalPackageChargeBil;
     private javax.swing.JTextField totalRoomCharges;
     private javax.swing.JButton updateBtn;
-    private javax.swing.JButton updateBtn1;
     // End of variables declaration//GEN-END:variables
 }
 
