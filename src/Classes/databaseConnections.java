@@ -225,7 +225,7 @@ public class databaseConnections {
             statement = con.createStatement();
 
             
-            ResultSet rs = statement.executeQuery("SELECT Room_Number FROM hotelmanagementsystem.staffassignedrooms WHERE Customer_ID = '"+custId+"';");
+            ResultSet rs = statement.executeQuery("SELECT DISTINCT Room_Number FROM hotelmanagementsystem.staffassignedrooms WHERE Customer_ID = '"+custId+"';");
             while (rs.next()) {
                 roomList.addAll(Arrays.asList(rs.getString(1)));
             }

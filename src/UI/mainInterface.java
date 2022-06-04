@@ -2814,6 +2814,9 @@ AutoCompletion.enable(countryList);
         roomTypeContainer.setLayout(new GridLayout(allAssignedRooms.size(),1));
         int count =0;
         
+//        System.out.println(allAssignedRooms.size());
+//        System.out.println(allAssignedRooms.toString());
+        
         while(count < allAssignedRooms.size()){
             
         roomTypes pan1 = new roomTypes();
