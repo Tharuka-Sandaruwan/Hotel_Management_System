@@ -306,6 +306,7 @@ AutoCompletion.enable(countryList);
         custIdStaff = new javax.swing.JComboBox<>();
         stafflCustName = new javax.swing.JTextField();
         test = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         BillingPane = new javax.swing.JPanel();
         custInfoAddScroller2 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
@@ -1280,6 +1281,13 @@ AutoCompletion.enable(countryList);
             }
         });
 
+        jButton1.setText("Notify the staff");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         CustomerIdComboGenerator.loadCustomerIDStaffAssign(custIdStaff);  AutoCompletion.enable(custIdStaff);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1302,11 +1310,13 @@ AutoCompletion.enable(countryList);
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(92, Short.MAX_VALUE))
+                                .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1320,8 +1330,13 @@ AutoCompletion.enable(countryList);
                     .addComponent(test))
                 .addGap(24, 24, 24)
                 .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(roomTypesFrm, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -2767,6 +2782,10 @@ AutoCompletion.enable(countryList);
         
     }//GEN-LAST:event_testActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(null, "The staff was notified successfully!", "Staff Notified", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
     
     /**
@@ -2836,6 +2855,7 @@ AutoCompletion.enable(countryList);
     private javax.swing.JTextField extraChargesBil;
     private javax.swing.JTextField fNamTxt;
     private javax.swing.JButton generateBillBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
