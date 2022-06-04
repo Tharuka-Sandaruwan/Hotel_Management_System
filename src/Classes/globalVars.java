@@ -29,6 +29,7 @@ public class globalVars {
     
     public static String CustIdBill ;
     public static String liableChargesBill ;
+    public static String totalChargesBill ;
 
     
 

@@ -1382,6 +1382,7 @@ AutoCompletion.enable(countryList);
         });
 
         checkoutBtnBil.setText("Checkout");
+        checkoutBtnBil.setEnabled(false);
         checkoutBtnBil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkoutBtnBilActionPerformed(evt);
@@ -1389,6 +1390,7 @@ AutoCompletion.enable(countryList);
         });
 
         generateBillBtn.setText("Generate");
+        generateBillBtn.setEnabled(false);
         generateBillBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 generateBillBtnActionPerformed(evt);
@@ -2118,19 +2120,32 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_extraChargeTickActionPerformed
 
     private void generateBillBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateBillBtnActionPerformed
-        if (bilCustName.getText().matches("")) {
+        if (roomChargesBil.getRowCount() ==0) {
+          JOptionPane.showMessageDialog(null, "No charges associated with the customer !", "No associated Data!", JOptionPane.ERROR_MESSAGE);
+          checkoutBtnBil.setEnabled(false); 
+        }
+        
+        else if (bilCustName.getText().matches("")) {
           JOptionPane.showMessageDialog(null, "Please Load the data first !", "Data Not Loaded!", JOptionPane.ERROR_MESSAGE);
+          checkoutBtnBil.setEnabled(false);
+          
 
         }else{
             
         if (dataValidator.numberValidator(extraChargesBil) && extraChargesBil.getText().matches("[0-9]+") && extraChargeTick.isSelected()) {       
             totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) + Double.parseDouble(extraChargesBil.getText())));
+            checkoutBtnBil.setEnabled(true);
+            
         }
         else if (extraChargesBil.getText().matches("") && dataValidator.numberValidator(extraChargesBil)) {       
             totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText())));
+            checkoutBtnBil.setEnabled(true);
+           
         }
         else{
             totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) ));
+            checkoutBtnBil.setEnabled(true);
+           
 
         }
         
@@ -2152,6 +2167,7 @@ AutoCompletion.enable(countryList);
         this.setEnabled(false);
         
         globalVars.CustIdBill =  bilCustId.getSelectedItem().toString();
+        globalVars.totalChargesBill = totalChargeBil.getText();
         
         if(extraChargeTick.isSelected()){
              globalVars.liableChargesBill = extraChargesBil.getText();
@@ -2665,7 +2681,9 @@ AutoCompletion.enable(countryList);
         totalChargeBil.setText("");
         extraChargesBil.setBorder(Bordergood());
         extraChargesBil.setText("");
-    
+        
+        checkoutBtnBil.setEnabled(false);
+        generateBillBtn.setEnabled(true);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
