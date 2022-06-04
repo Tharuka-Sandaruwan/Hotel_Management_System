@@ -139,9 +139,15 @@ public class roomTypes extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Room Service");
 
+        P_RoomService.setEditable(false);
+
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Maintenance and Cleaning");
+
+        P_maintenance.setEditable(false);
+
+        P_housekeep.setEditable(false);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -156,11 +162,11 @@ public class roomTypes extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-                        .addGap(52, 52, 52)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(49, 49, 49)
                         .addComponent(P_RoomService, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -201,13 +207,13 @@ public class roomTypes extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(255, 102, 255));
 
-        E_RoomService.setText("jTextField1");
+        E_RoomService.setEditable(false);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Room Service");
 
-        E_Maintenance.setText("jTextField1");
+        E_Maintenance.setEditable(false);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -217,13 +223,13 @@ public class roomTypes extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("House Keeping Manager");
 
-        E_HouseKeep.setText("jTextField1");
+        E_HouseKeep.setEditable(false);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Porter");
 
-        E_Porter.setText("jTextField1");
+        E_Porter.setEditable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -287,7 +293,7 @@ public class roomTypes extends javax.swing.JPanel {
 
         jPanel5.setBackground(new java.awt.Color(255, 102, 102));
 
-        R_RoomService.setText("jTextField1");
+        R_RoomService.setEditable(false);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -297,9 +303,9 @@ public class roomTypes extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Maintenance and Cleaning");
 
-        R_Maintenance.setText("jTextField1");
+        R_Maintenance.setEditable(false);
 
-        R_HouseKeep.setText("jTextField1");
+        R_HouseKeep.setEditable(false);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -309,13 +315,18 @@ public class roomTypes extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Porter");
 
-        R_porter.setText("jTextField1");
+        R_porter.setEditable(false);
+        R_porter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                R_porterActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Hotel Concierge");
 
-        R_hotelCon.setText("jTextField1");
+        R_hotelCon.setEditable(false);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
@@ -397,6 +408,10 @@ public class roomTypes extends javax.swing.JPanel {
             .addComponent(roomsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void R_porterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R_porterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_R_porterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
