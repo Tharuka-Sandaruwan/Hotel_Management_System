@@ -2832,7 +2832,7 @@ AutoCompletion.enable(countryList);
         
         roomTypeContainer.removeAll();
 //        roomTypeContainer.revalidate();
-//        roomTypeContainer.repaint();
+        roomTypeContainer.repaint();
         
         CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
         
