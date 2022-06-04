@@ -1143,17 +1143,18 @@ AutoCompletion.enable(countryList);
 
         resReservationTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Reservation ID", "Customer Name", "Premium Rooms Count", "Executive Rooms Count", "Royal Rooms Count", "Check In Date", "Check Out Date", "Adult Guest Count", "Child Guest Count", "Package Type"
+                "Reservation ID", "Customer Name", "Premium Rooms Count", "Executive Rooms Count", "Royal Rooms Count", "Check In Date", "Check Out Date", "Adult Guest Count", "Child Guest Count", "Package Type", "Customer ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true, true, true, true, true
+                false, false, false, false, true, true, true, true, true, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1181,6 +1182,7 @@ AutoCompletion.enable(countryList);
             resReservationTbl.getColumnModel().getColumn(7).setPreferredWidth(100);
             resReservationTbl.getColumnModel().getColumn(8).setPreferredWidth(100);
             resReservationTbl.getColumnModel().getColumn(9).setPreferredWidth(100);
+            resReservationTbl.getColumnModel().getColumn(10).setResizable(false);
         }
 
         jLabel32.setText("Reservations");
@@ -2671,6 +2673,7 @@ AutoCompletion.enable(countryList);
         
         // BELOW 3 LINES ARE USED TO SELECT THE CUSTOMER ID IN THE JCOMBOBOX WHEN UPDATING.BUT IT IS NOT COMPLETE !!!! ITS TEMPORARY WORKAROUND 
         DBobj.getCustID(custNameRes);
+        
        resIDSearchJcombo.addItem(DBobj.getCustID(custNameRes));
        resIDSearchJcombo.setSelectedIndex(resIDSearchJcombo.getItemCount()-1);
        
@@ -2822,7 +2825,11 @@ AutoCompletion.enable(countryList);
     
     private void testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testActionPerformed
         
+        // clear all room details when loading new one and multiple same room loading error
+        
         roomTypeContainer.removeAll();
+//        roomTypeContainer.revalidate();
+//        roomTypeContainer.repaint();
         
         CustomerIdComboGenerator.loadCustomerName(stafflCustName, custIdStaff.getSelectedItem().toString());
         
