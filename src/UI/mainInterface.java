@@ -1247,6 +1247,8 @@ AutoCompletion.enable(countryList);
         custInfoAddScroller1.setBackground(new java.awt.Color(204, 204, 204));
         custInfoAddScroller1.setBorder(null);
         custInfoAddScroller1.setForeground(new java.awt.Color(204, 204, 204));
+        custInfoAddScroller1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        custInfoAddScroller1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 102));
 
