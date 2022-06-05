@@ -1558,7 +1558,7 @@ AutoCompletion.enable(countryList);
                                 .addGap(269, 269, 269))
                             .addComponent(totalRoomCharges, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)))
-                .addGap(0, 1044, Short.MAX_VALUE))
+                .addGap(0, 1065, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -1633,16 +1633,13 @@ AutoCompletion.enable(countryList);
         BillingPane.setLayout(BillingPaneLayout);
         BillingPaneLayout.setHorizontalGroup(
             BillingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingPaneLayout.createSequentialGroup()
-                .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
         );
         BillingPaneLayout.setVerticalGroup(
             BillingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BillingPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(BillingPaneLayout.createSequentialGroup()
+                .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 18, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("tab1", BillingPane);
