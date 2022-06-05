@@ -274,7 +274,7 @@ public class billPage extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(liableChargeTxtBill))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(totalChargeTxtBill))
                 .addGap(18, 18, 18)
