@@ -33,7 +33,7 @@ public class checkoutPage extends javax.swing.JFrame {
         
         bill.setVisible(true);
         bill.setResizable(false);
-        bill.setLocation(100, 200);
+        bill.setLocation(0, 0);
         this.setEnabled(false);
         
         
