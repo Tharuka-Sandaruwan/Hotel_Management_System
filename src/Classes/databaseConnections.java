@@ -421,4 +421,37 @@ public class databaseConnections {
         
     }
     
+    public  String getResIdByRoom(String roomNo){
+      Connection con = null;
+    String  resID = "reservation" ;
+        try {
+            
+            //starts the database connection
+            con = DriverManager.getConnection(connectString, username, password);
+            
+            System.out.println("connected!");
+
+            // creates a statement object  
+            Statement statement;
+            statement = con.createStatement();
+
+            
+            ResultSet rs = statement.executeQuery("SELECT Reservation_ID FROM hotelmanagementsystem.reservationroom WHERE Room_Number = '"+roomNo+"';");
+            while (rs.next()) {
+                resID = rs.getString(1);
+            }
+             con.close();
+
+            
+             
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Exception occured : "+ e,"SQL exception",JOptionPane.ERROR_MESSAGE); //Display dialogue box
+
+          
+        }
+    
+        return resID;
+    }
+    
+    
 }

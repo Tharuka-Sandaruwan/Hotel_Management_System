@@ -25,6 +25,7 @@ public class roomTypes extends javax.swing.JPanel {
        // roomNo.matches("^R");
         roomNoLbl.setText(roomNo);
         databaseConnections conn = new databaseConnections();
+        resIdLbl.setText(conn.getResIdByRoom(roomNo));
         if (roomNo.startsWith("P")) {
          
          P_RoomService.setText(conn.getEmpName(roomNo,"assignedroomservice" ));
@@ -73,6 +74,9 @@ public class roomTypes extends javax.swing.JPanel {
         roomsPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         roomNoLbl = new javax.swing.JLabel();
+        resIdLbl = new javax.swing.JLabel();
+        roomNoLbl2 = new javax.swing.JLabel();
+        roomNoLbl3 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -114,22 +118,47 @@ public class roomTypes extends javax.swing.JPanel {
         roomNoLbl.setBackground(new java.awt.Color(255, 51, 51));
         roomNoLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         roomNoLbl.setForeground(new java.awt.Color(0, 51, 255));
-        roomNoLbl.setText("ROOM NO");
+        roomNoLbl.setText("Roon");
+
+        resIdLbl.setBackground(new java.awt.Color(255, 51, 51));
+        resIdLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        resIdLbl.setForeground(new java.awt.Color(255, 0, 0));
+        resIdLbl.setText("Res");
+
+        roomNoLbl2.setBackground(new java.awt.Color(255, 51, 51));
+        roomNoLbl2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        roomNoLbl2.setForeground(new java.awt.Color(0, 51, 255));
+        roomNoLbl2.setText("ROOM NO :");
+
+        roomNoLbl3.setBackground(new java.awt.Color(255, 51, 51));
+        roomNoLbl3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        roomNoLbl3.setForeground(new java.awt.Color(255, 0, 0));
+        roomNoLbl3.setText("RESERVATION ID :");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(275, Short.MAX_VALUE)
-                .addComponent(roomNoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(208, 208, 208))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(roomNoLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(roomNoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(roomNoLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resIdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roomNoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(roomNoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resIdLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roomNoLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roomNoLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -449,7 +478,10 @@ public class roomTypes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel resIdLbl;
     private javax.swing.JLabel roomNoLbl;
+    private javax.swing.JLabel roomNoLbl2;
+    private javax.swing.JLabel roomNoLbl3;
     private javax.swing.JPanel roomsPanel;
     // End of variables declaration//GEN-END:variables
 }
