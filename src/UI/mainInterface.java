@@ -393,7 +393,7 @@ AutoCompletion.enable(countryList);
         jLabel38.setText("jLabel36");
         titlePane.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, -30, 190, 180));
 
-        jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1030, 130));
+        jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1030, 110));
 
         CustomerPane.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -615,6 +615,15 @@ AutoCompletion.enable(countryList);
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(addBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(clearBtn))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -625,24 +634,16 @@ AutoCompletion.enable(countryList);
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(62, 62, 62)
+                                        .addComponent(phoneNo1Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(phoneNo1Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(addBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(updateBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(clearBtn)
-                                .addGap(12, 12, 12))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -706,14 +707,11 @@ AutoCompletion.enable(countryList);
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(email))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(countryList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55)
+                    .addComponent(jLabel10)
+                    .addComponent(countryList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateBtn)
                     .addComponent(addBtn)
@@ -770,7 +768,7 @@ AutoCompletion.enable(countryList);
 
         tabbedPane.addTab("tab1", CustomerPane);
 
-        reservationPane.setBackground(new java.awt.Color(255, 255, 102));
+        reservationPane.setBackground(new java.awt.Color(255, 255, 255));
 
         resAvailableRoomTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1241,6 +1239,7 @@ AutoCompletion.enable(countryList);
             resReservationTbl.getColumnModel().getColumn(10).setMaxWidth(0);
         }
 
+        jLabel32.setFont(new java.awt.Font("Montserrat", 1, 13)); // NOI18N
         jLabel32.setText("Reservations");
 
         jLabel33.setText("Rooms");
@@ -1270,8 +1269,8 @@ AutoCompletion.enable(countryList);
                                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
-                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(184, 184, 184))))))
+                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(137, 137, 137))))))
         );
         reservationPaneLayout.setVerticalGroup(
             reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1295,7 +1294,7 @@ AutoCompletion.enable(countryList);
 
         tabbedPane.addTab("tab2", reservationPane);
 
-        StaffAssign.setBackground(new java.awt.Color(102, 255, 102));
+        StaffAssign.setBackground(new java.awt.Color(217, 217, 217));
 
         custInfoAddScroller1.setBackground(new java.awt.Color(204, 204, 204));
         custInfoAddScroller1.setBorder(null);
@@ -1303,7 +1302,7 @@ AutoCompletion.enable(countryList);
         custInfoAddScroller1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         custInfoAddScroller1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel3.setBackground(new java.awt.Color(217, 217, 217));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel20.setText("Customer ID");
@@ -1317,6 +1316,8 @@ AutoCompletion.enable(countryList);
         roomTypesFrm.setBackground(new java.awt.Color(255, 0, 51));
         roomTypesFrm.setForeground(new java.awt.Color(51, 255, 51));
         roomTypesFrm.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        roomTypeContainer.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout roomTypeContainerLayout = new javax.swing.GroupLayout(roomTypeContainer);
         roomTypeContainer.setLayout(roomTypeContainerLayout);
