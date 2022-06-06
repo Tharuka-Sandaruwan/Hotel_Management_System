@@ -6,10 +6,14 @@
       <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
         <CompoundBorder>
           <Border PropertyName="outside" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true"/>
+            <LineBorder roundedCorners="true">
+              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+            </LineBorder>
           </Border>
           <Border PropertyName="inside" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true"/>
+            <LineBorder roundedCorners="true">
+              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+            </LineBorder>
           </Border>
         </CompoundBorder>
       </Border>

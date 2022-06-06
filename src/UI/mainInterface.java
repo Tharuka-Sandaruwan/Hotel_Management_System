@@ -1302,7 +1302,7 @@ AutoCompletion.enable(countryList);
         custInfoAddScroller1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         custInfoAddScroller1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jPanel3.setBackground(new java.awt.Color(217, 217, 217));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel20.setText("Customer ID");
@@ -1317,7 +1317,7 @@ AutoCompletion.enable(countryList);
         roomTypesFrm.setForeground(new java.awt.Color(51, 255, 51));
         roomTypesFrm.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        roomTypeContainer.setBackground(new java.awt.Color(255, 255, 255));
+        roomTypeContainer.setBackground(new java.awt.Color(210, 210, 210));
 
         javax.swing.GroupLayout roomTypeContainerLayout = new javax.swing.GroupLayout(roomTypeContainer);
         roomTypeContainer.setLayout(roomTypeContainerLayout);
@@ -1423,7 +1423,7 @@ AutoCompletion.enable(countryList);
 
         tabbedPane.addTab("tab1", StaffAssign);
 
-        BillingPane.setBackground(new java.awt.Color(102, 255, 102));
+        BillingPane.setBackground(new java.awt.Color(210, 210, 210));
 
         custInfoAddScroller2.setBackground(new java.awt.Color(204, 204, 204));
         custInfoAddScroller2.setBorder(null);
@@ -1431,7 +1431,7 @@ AutoCompletion.enable(countryList);
         custInfoAddScroller2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         custInfoAddScroller2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jPanel4.setBackground(new java.awt.Color(153, 0, 153));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel22.setText("Customer ID");
@@ -1728,6 +1728,8 @@ AutoCompletion.enable(countryList);
         custPaneLbl.setText("Customer");
         CustomerBtnPane.add(custPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 10, 240, 80));
 
+        reservationBtnPane.setBackground(new java.awt.Color(210, 210, 210));
+        reservationBtnPane.setForeground(new java.awt.Color(210, 210, 210));
         reservationBtnPane.setToolTipText("");
         reservationBtnPane.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1747,6 +1749,8 @@ AutoCompletion.enable(countryList);
         resPaneLbl.setText("Reservations");
         reservationBtnPane.add(resPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 160, -1));
 
+        BillingBtnPane.setBackground(new java.awt.Color(210, 210, 210));
+        BillingBtnPane.setForeground(new java.awt.Color(210, 210, 210));
         BillingBtnPane.setToolTipText("");
         BillingBtnPane.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1766,6 +1770,8 @@ AutoCompletion.enable(countryList);
         BillPaneLbl.setText("Billing");
         BillingBtnPane.add(BillPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 70));
 
+        StaffAssignBtnPane1.setBackground(new java.awt.Color(210, 210, 210));
+        StaffAssignBtnPane1.setForeground(new java.awt.Color(210, 210, 210));
         StaffAssignBtnPane1.setToolTipText("");
         StaffAssignBtnPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -109,7 +109,7 @@ public class roomTypes extends javax.swing.JPanel {
         R_hotelCon = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true)));
+        setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true)));
 
         roomsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
