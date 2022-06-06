@@ -381,12 +381,12 @@ AutoCompletion.enable(countryList);
         titlePaneLayout.setVerticalGroup(
             titlePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlePaneLayout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addContainerGap(83, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1030, 120));
+        jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1030, 100));
 
         CustomerPane.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -728,7 +728,7 @@ AutoCompletion.enable(countryList);
             CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(custInfoAddScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                .addComponent(custInfoAddScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -742,7 +742,7 @@ AutoCompletion.enable(countryList);
                     .addGroup(CustomerPaneLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 418, Short.MAX_VALUE)))
+                        .addGap(0, 412, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1388,7 +1388,7 @@ AutoCompletion.enable(countryList);
         StaffAssign.setLayout(StaffAssignLayout);
         StaffAssignLayout.setHorizontalGroup(
             StaffAssignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(custInfoAddScroller1, javax.swing.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
+            .addComponent(custInfoAddScroller1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
         StaffAssignLayout.setVerticalGroup(
             StaffAssignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1664,7 +1664,7 @@ AutoCompletion.enable(countryList);
         BillingPane.setLayout(BillingPaneLayout);
         BillingPaneLayout.setHorizontalGroup(
             BillingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
+            .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
         BillingPaneLayout.setVerticalGroup(
             BillingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1675,7 +1675,7 @@ AutoCompletion.enable(countryList);
 
         tabbedPane.addTab("tab1", BillingPane);
 
-        jPanel1.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 870, 710));
+        jPanel1.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 850, 710));
 
         menusPane.setBackground(new java.awt.Color(210, 210, 210));
 
@@ -1696,7 +1696,7 @@ AutoCompletion.enable(countryList);
         custPaneLbl.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanesSelected.png"))); // NOI18N
         custPaneLbl.setText("Customer");
-        CustomerBtnPane.add(custPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 170, 77));
+        CustomerBtnPane.add(custPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 77));
 
         reservationBtnPane.setToolTipText("");
         reservationBtnPane.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1759,26 +1759,30 @@ AutoCompletion.enable(countryList);
         menusPane.setLayout(menusPaneLayout);
         menusPaneLayout.setHorizontalGroup(
             menusPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CustomerBtnPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(reservationBtnPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BillingBtnPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(StaffAssignBtnPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menusPaneLayout.createSequentialGroup()
+                .addComponent(CustomerBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(menusPaneLayout.createSequentialGroup()
+                .addComponent(BillingBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         menusPaneLayout.setVerticalGroup(
             menusPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menusPaneLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(57, 57, 57)
                 .addComponent(CustomerBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(57, 57, 57)
                 .addComponent(reservationBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(67, 67, 67)
                 .addComponent(StaffAssignBtnPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(BillingBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(BillingBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
-        jPanel1.add(menusPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 140, 670));
+        jPanel1.add(menusPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 160, 670));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
