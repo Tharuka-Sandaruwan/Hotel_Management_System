@@ -58,12 +58,14 @@ public class checkoutPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         checkoutPanelTab = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
@@ -79,6 +81,22 @@ public class checkoutPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel5.setBackground(new java.awt.Color(89, 89, 89));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 790, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 80));
+
+        jButton1.setFont(new java.awt.Font("Montserrat SemiBold", 1, 36)); // NOI18N
         jButton1.setText("Cash");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +104,7 @@ public class checkoutPage extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Montserrat SemiBold", 1, 36)); // NOI18N
         jButton2.setText("Card");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,39 +112,39 @@ public class checkoutPage extends javax.swing.JFrame {
             }
         });
 
-        jPanel5.setBackground(new java.awt.Color(51, 51, 255));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel2.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jLabel2.setText("Select the preffered payment method");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(253, 253, 253))
+                .addContainerGap(177, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(155, 155, 155))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(115, 115, 115)
+                .addComponent(jLabel2)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(226, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         checkoutPanelTab.addTab("tab2", jPanel3);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
         jLabel1.setText("Please pay to the counter");
 
         jButton5.setText("Generate Recipt");
@@ -146,30 +165,30 @@ public class checkoutPage extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(342, 342, 342)
-                        .addComponent(jButton5)))
-                .addContainerGap(252, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton7)
-                .addGap(70, 70, 70))
+                .addGap(48, 48, 48))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(307, 307, 307)
+                        .addComponent(jButton5))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(293, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
+                .addGap(125, 125, 125)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(49, 49, 49)
                 .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(jButton7)
-                .addGap(46, 46, 46))
+                .addGap(31, 31, 31))
         );
 
         checkoutPanelTab.addTab("tab3", jPanel4);
@@ -188,7 +207,7 @@ public class checkoutPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
         jLabel7.setText("Please swipe your card");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -202,21 +221,21 @@ public class checkoutPage extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
+                        .addGap(309, 309, 309)
                         .addComponent(jButton6))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
+                        .addGap(58, 58, 58)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(124, 124, 124)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addGap(44, 44, 44)
                 .addComponent(jButton6)
-                .addGap(58, 58, 58)
+                .addGap(86, 86, 86)
                 .addComponent(jButton8)
                 .addContainerGap(52, Short.MAX_VALUE))
         );
@@ -309,11 +328,13 @@ public class checkoutPage extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
