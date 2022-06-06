@@ -371,7 +371,7 @@ AutoCompletion.enable(countryList);
 
         jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 60));
 
-        CustomerPane.setBackground(new java.awt.Color(102, 255, 102));
+        CustomerPane.setBackground(new java.awt.Color(255, 255, 255));
 
         tableScroller.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -439,7 +439,7 @@ AutoCompletion.enable(countryList);
         custInfoAddScroller.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         custInfoAddScroller.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 153));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 25));
 
         custIDTxt.setEditable(false);
         custIDTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -718,7 +718,7 @@ AutoCompletion.enable(countryList);
                     .addGroup(CustomerPaneLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 421, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1653,7 +1653,7 @@ AutoCompletion.enable(countryList);
 
         jPanel1.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 870, 710));
 
-        menusPane.setBackground(new java.awt.Color(153, 255, 51));
+        menusPane.setBackground(new java.awt.Color(210, 210, 210));
 
         CustomerBtnPane.setToolTipText("");
         CustomerBtnPane.addMouseListener(new java.awt.event.MouseAdapter() {

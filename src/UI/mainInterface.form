@@ -93,7 +93,7 @@
             <Container class="javax.swing.JPanel" name="CustomerPane">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="ff" red="66" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -124,7 +124,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                   <Component id="tableScroller" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="421" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -239,7 +239,7 @@
                     <Container class="javax.swing.JPanel" name="jPanel2">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="99" green="ff" red="99" type="rgb"/>
+                          <Color blue="19" green="ff" red="ff" type="rgb"/>
                         </Property>
                       </Properties>
 
@@ -2019,7 +2019,7 @@
         <Container class="javax.swing.JPanel" name="menusPane">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="ff" red="99" type="rgb"/>
+              <Color blue="d2" green="d2" red="d2" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
