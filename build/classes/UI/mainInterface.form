@@ -64,7 +64,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="-20" width="1030" height="110"/>
+              <AbsoluteConstraints x="0" y="-20" width="1030" height="130"/>
             </Constraint>
           </Constraints>
 
@@ -141,7 +141,7 @@
         <Container class="javax.swing.JTabbedPane" name="tabbedPane">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="200" y="68" width="830" height="-1"/>
+              <AbsoluteConstraints x="200" y="68" width="830" height="710"/>
             </Constraint>
           </Constraints>
 
@@ -1722,8 +1722,9 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="custInfoAddScroller2" min="-2" pref="659" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="custInfoAddScroller2" min="-2" pref="653" max="-2" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1777,8 +1778,8 @@
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel22" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
-                                                  <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel22" min="-2" pref="141" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1794,8 +1795,8 @@
                                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Group type="102" attributes="0">
-                                                      <Component id="jLabel24" min="-2" pref="159" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                                       <Component id="totalRoomCharges" min="-2" pref="156" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" attributes="0">
@@ -1804,13 +1805,13 @@
                                                           <Component id="jLabel29" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                                  <Group type="102" alignment="1" attributes="0">
-                                                                      <Component id="jLabel41" min="-2" pref="125" max="-2" attributes="0"/>
-                                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                                  <Group type="102" attributes="0">
+                                                                      <Component id="jLabel41" min="-2" pref="139" max="-2" attributes="0"/>
+                                                                      <EmptySpace max="32767" attributes="0"/>
                                                                       <Component id="totalChargeBil" min="-2" pref="160" max="-2" attributes="0"/>
                                                                   </Group>
-                                                                  <Group type="102" alignment="1" attributes="0">
+                                                                  <Group type="102" attributes="0">
                                                                       <Component id="extraChargeTick" min="-2" pref="151" max="-2" attributes="0"/>
                                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                                       <Component id="extraChargesBil" min="-2" pref="156" max="-2" attributes="0"/>
@@ -1828,15 +1829,14 @@
                                                   <Component id="jScrollPane4" alignment="0" min="-2" pref="703" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel31" min="-2" pref="191" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                                  <Component id="totalPackageChargeBil" min="-2" pref="76" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="jLabel31" min="-2" pref="205" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="totalPackageChargeBil" min="-2" pref="76" max="-2" attributes="0"/>
+                                                  </Group>
                                                   <Component id="jScrollPane5" min="-2" pref="433" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -1889,7 +1889,7 @@
                                           <Component id="totalChargeBil" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel41" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                                      <EmptySpace pref="53" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1898,7 +1898,7 @@
                             <Component class="javax.swing.JLabel" name="jLabel22">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Segoe UI" size="18" style="1"/>
+                                  <Font name="Montserrat" size="18" style="1"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Customer ID"/>
                               </Properties>
@@ -1925,7 +1925,7 @@
                             <Component class="javax.swing.JLabel" name="jLabel23">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Segoe UI" size="18" style="1"/>
+                                  <Font name="Montserrat" size="18" style="1"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Customer Name"/>
                               </Properties>
@@ -1941,7 +1941,7 @@
                             <Component class="javax.swing.JLabel" name="jLabel27">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Segoe UI" size="18" style="1"/>
+                                  <Font name="Montserrat" size="18" style="1"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Charges for the reserved rooms"/>
                               </Properties>
@@ -2021,13 +2021,13 @@
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel24">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="Total Charge for the rooms"/>
+                                <Property name="text" type="java.lang.String" value="Total Charge For The Rooms            Rs."/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel29">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Segoe UI" size="18" style="1"/>
+                                  <Font name="Montserrat" size="18" style="1"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Charges for Selected Package"/>
                               </Properties>
@@ -2081,7 +2081,7 @@
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel31">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="Total Charge for the Packages"/>
+                                <Property name="text" type="java.lang.String" value="Total Charge for the Packages  Rs."/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="extraChargeTick">
@@ -2124,7 +2124,10 @@
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel41">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="TOTAL CHARGE"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="13" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="TOTAL CHARGE Rs."/>
                               </Properties>
                             </Component>
                           </SubComponents>
@@ -2172,9 +2175,9 @@
                       <Component id="reservationBtnPane" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Component id="StaffAssignBtnPane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="BillingBtnPane" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="58" max="32767" attributes="0"/>
+                      <EmptySpace pref="70" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

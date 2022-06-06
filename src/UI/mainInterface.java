@@ -397,7 +397,7 @@ AutoCompletion.enable(countryList);
         jLabel38.setText("jLabel36");
         titlePane.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, -30, 190, 180));
 
-        jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1030, 110));
+        jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1030, 130));
 
         CustomerPane.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1444,7 +1444,7 @@ AutoCompletion.enable(countryList);
 
         jPanel6.setBackground(new java.awt.Color(210, 210, 210));
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel22.setText("Customer ID");
 
         jButton2.setText("Load");
@@ -1454,7 +1454,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel23.setText("Customer Name");
 
         bilCustName.setEditable(false);
@@ -1464,7 +1464,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel27.setText("Charges for the reserved rooms");
 
         roomChargesBil.setModel(new javax.swing.table.DefaultTableModel(
@@ -1503,9 +1503,9 @@ AutoCompletion.enable(countryList);
 
         totalRoomCharges.setEditable(false);
 
-        jLabel24.setText("Total Charge for the rooms");
+        jLabel24.setText("Total Charge For The Rooms            Rs.");
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel29.setText("Charges for Selected Package");
 
         packageChargesBil.setModel(new javax.swing.table.DefaultTableModel(
@@ -1542,7 +1542,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel31.setText("Total Charge for the Packages");
+        jLabel31.setText("Total Charge for the Packages  Rs.");
 
         extraChargeTick.setText("Liable Charges if any");
         extraChargeTick.addActionListener(new java.awt.event.ActionListener() {
@@ -1582,7 +1582,8 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel41.setText("TOTAL CHARGE");
+        jLabel41.setFont(new java.awt.Font("Montserrat", 1, 13)); // NOI18N
+        jLabel41.setText("TOTAL CHARGE Rs.");
 
         CustomerIdComboGenerator.loadCustomerID(bilCustId);  AutoCompletion.enable(bilCustId);
 
@@ -1595,8 +1596,8 @@ AutoCompletion.enable(countryList);
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel23))
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(58, 58, 58)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1608,8 +1609,8 @@ AutoCompletion.enable(countryList);
                         .addGap(25, 25, 25)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(jLabel24)
+                                .addGap(24, 24, 24)
                                 .addComponent(totalRoomCharges, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1617,10 +1618,10 @@ AutoCompletion.enable(countryList);
                                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addGap(22, 22, 22)
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(totalChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel6Layout.createSequentialGroup()
                                                 .addComponent(extraChargeTick, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1632,14 +1633,13 @@ AutoCompletion.enable(countryList);
                                             .addComponent(checkoutBtnBil))))
                                 .addGap(214, 214, 214))
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(totalPackageChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                            .addGap(138, 138, 138)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(totalPackageChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
@@ -1681,7 +1681,7 @@ AutoCompletion.enable(countryList);
                     .addComponent(checkoutBtnBil, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(totalChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 16, 780, 670));
@@ -1699,13 +1699,14 @@ AutoCompletion.enable(countryList);
         BillingPaneLayout.setVerticalGroup(
             BillingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BillingPaneLayout.createSequentialGroup()
-                .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("tab1", BillingPane);
 
-        jPanel1.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 68, 830, -1));
+        jPanel1.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 68, 830, 710));
 
         menusPane.setBackground(new java.awt.Color(210, 210, 210));
 
@@ -1831,9 +1832,9 @@ AutoCompletion.enable(countryList);
                 .addComponent(reservationBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(StaffAssignBtnPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(24, 24, 24)
                 .addComponent(BillingBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jPanel1.add(menusPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 200, 660));
