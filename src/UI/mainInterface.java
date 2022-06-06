@@ -1945,6 +1945,10 @@ AutoCompletion.enable(countryList);
 
     private void resUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resUpdateBtnActionPerformed
       
+        //below line is added to fix the not updating bug
+        resPremiumtick.setSelected(true);
+        
+        
         if (dataValidator.DateValidator(arrivalDate) && dataValidator.DateValidator(departDate) &&
          dataValidator.adultKidsValidate(resAdultTxt, reskidsTxt) 
         && dataValidator.isRoomAssigned(resPremiumtick, resPremiumRoomTxt,resRoyalTick,resRoyalRoomTxt,resExecutiveTick,resExecutiveRoomTxt)                 
