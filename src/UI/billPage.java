@@ -24,6 +24,7 @@ public class billPage extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setSize(830, 850);
+        this.toFront();
         
         
 
@@ -308,6 +309,8 @@ public class billPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null, "Recipt Printed Successfully", "Print Success", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
