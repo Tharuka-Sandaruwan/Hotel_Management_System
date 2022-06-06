@@ -2048,7 +2048,7 @@
                       <Component id="StaffAssignBtnPane1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="BillingBtnPane" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="282" max="32767" attributes="0"/>
+                      <EmptySpace pref="191" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2060,19 +2060,21 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CustomerBtnPaneMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CustomerBtnPaneMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CustomerBtnPaneMouseExited"/>
               </Events>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
                 <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="custPaneLbl">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Black" size="18" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Resources/Menuanes.png"/>
+                      <Image iconType="3" name="/Resources/MenuPanesSelected.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Customer"/>
                   </Properties>
@@ -2090,19 +2092,21 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="reservationBtnPaneMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="reservationBtnPaneMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="reservationBtnPaneMouseExited"/>
               </Events>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
                 <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel2">
+                <Component class="javax.swing.JLabel" name="resPaneLbl">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Black" size="18" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Resources/Menuanes.png"/>
+                      <Image iconType="3" name="/Resources/MenuPanes.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Reservations"/>
                   </Properties>
@@ -2120,19 +2124,21 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BillingBtnPaneMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BillingBtnPaneMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BillingBtnPaneMouseExited"/>
               </Events>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
                 <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel26">
+                <Component class="javax.swing.JLabel" name="BillPaneLbl">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Black" size="18" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Resources/Menuanes.png"/>
+                      <Image iconType="3" name="/Resources/MenuPanes.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Billing"/>
                   </Properties>
@@ -2150,19 +2156,21 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="StaffAssignBtnPane1MouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="StaffAssignBtnPane1MouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="StaffAssignBtnPane1MouseExited"/>
               </Events>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
                 <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel28">
+                <Component class="javax.swing.JLabel" name="staffPaneLbl">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Black" size="18" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Resources/Menuanes.png"/>
+                      <Image iconType="3" name="/Resources/MenuPanes.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Staff Assign"/>
                   </Properties>
