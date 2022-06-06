@@ -1654,26 +1654,12 @@ AutoCompletion.enable(countryList);
                 CustomerBtnPaneMouseClicked(evt);
             }
         });
+        CustomerBtnPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Menuanes.png"))); // NOI18N
         jLabel1.setText("Customer");
-
-        javax.swing.GroupLayout CustomerBtnPaneLayout = new javax.swing.GroupLayout(CustomerBtnPane);
-        CustomerBtnPane.setLayout(CustomerBtnPaneLayout);
-        CustomerBtnPaneLayout.setHorizontalGroup(
-            CustomerBtnPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerBtnPaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        CustomerBtnPaneLayout.setVerticalGroup(
-            CustomerBtnPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerBtnPaneLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(22, 22, 22))
-        );
+        CustomerBtnPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 170, 77));
 
         reservationBtnPane.setToolTipText("");
         reservationBtnPane.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1681,26 +1667,12 @@ AutoCompletion.enable(countryList);
                 reservationBtnPaneMouseClicked(evt);
             }
         });
+        reservationBtnPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Menuanes.png"))); // NOI18N
         jLabel2.setText("Reservations");
-
-        javax.swing.GroupLayout reservationBtnPaneLayout = new javax.swing.GroupLayout(reservationBtnPane);
-        reservationBtnPane.setLayout(reservationBtnPaneLayout);
-        reservationBtnPaneLayout.setHorizontalGroup(
-            reservationBtnPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reservationBtnPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        reservationBtnPaneLayout.setVerticalGroup(
-            reservationBtnPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reservationBtnPaneLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel2)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        reservationBtnPane.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 160, -1));
 
         BillingBtnPane.setToolTipText("");
         BillingBtnPane.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1708,26 +1680,12 @@ AutoCompletion.enable(countryList);
                 BillingBtnPaneMouseClicked(evt);
             }
         });
+        BillingBtnPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel26.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Menuanes.png"))); // NOI18N
         jLabel26.setText("Billing");
-
-        javax.swing.GroupLayout BillingBtnPaneLayout = new javax.swing.GroupLayout(BillingBtnPane);
-        BillingBtnPane.setLayout(BillingBtnPaneLayout);
-        BillingBtnPaneLayout.setHorizontalGroup(
-            BillingBtnPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingBtnPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        BillingBtnPaneLayout.setVerticalGroup(
-            BillingBtnPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BillingBtnPaneLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel26)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
+        BillingBtnPane.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 70));
 
         StaffAssignBtnPane1.setToolTipText("");
         StaffAssignBtnPane1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1735,26 +1693,12 @@ AutoCompletion.enable(countryList);
                 StaffAssignBtnPane1MouseClicked(evt);
             }
         });
+        StaffAssignBtnPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel28.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Menuanes.png"))); // NOI18N
         jLabel28.setText("Staff Assign");
-
-        javax.swing.GroupLayout StaffAssignBtnPane1Layout = new javax.swing.GroupLayout(StaffAssignBtnPane1);
-        StaffAssignBtnPane1.setLayout(StaffAssignBtnPane1Layout);
-        StaffAssignBtnPane1Layout.setHorizontalGroup(
-            StaffAssignBtnPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(StaffAssignBtnPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        StaffAssignBtnPane1Layout.setVerticalGroup(
-            StaffAssignBtnPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(StaffAssignBtnPane1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel28)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
+        StaffAssignBtnPane1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 80));
 
         javax.swing.GroupLayout menusPaneLayout = new javax.swing.GroupLayout(menusPane);
         menusPane.setLayout(menusPaneLayout);
@@ -1776,7 +1720,7 @@ AutoCompletion.enable(countryList);
                 .addComponent(StaffAssignBtnPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(BillingBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         jPanel1.add(menusPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
