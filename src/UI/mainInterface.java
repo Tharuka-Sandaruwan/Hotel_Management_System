@@ -194,7 +194,7 @@ public class mainInterface extends javax.swing.JFrame {
     public mainInterface() {
         initComponents();
         setResizable(false);
-        setSize(1024, 768);
+        setSize(1030, 768);
         Classes.tableDataLoading.customerTableRefresh(cusTable.getModel());
         
         
@@ -738,7 +738,7 @@ AutoCompletion.enable(countryList);
             CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(custInfoAddScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                .addComponent(custInfoAddScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -758,7 +758,7 @@ AutoCompletion.enable(countryList);
                 .addContainerGap()
                 .addGroup(CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CustomerPaneLayout.createSequentialGroup()
-                        .addComponent(custInfoAddScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
+                        .addComponent(custInfoAddScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(CustomerPaneLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
@@ -815,7 +815,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel6.setText("Reservation ID");
 
         reservationIdTxt.setEditable(false);
@@ -825,10 +825,10 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel9.setText("Customer ID");
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel11.setText("Customer Name");
 
         resCustNameTxt.setEditable(false);
@@ -845,10 +845,10 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel12.setText("Package");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel13.setText("Guests");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -895,7 +895,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel16.setText("Rooms");
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -957,10 +957,10 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel18.setText("Check Out Date");
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel19.setText("Check IN Date");
 
         arrivalDate.setDateFormatString("yyyy-MM-dd");
@@ -1005,7 +1005,7 @@ AutoCompletion.enable(countryList);
             }
         });
 
-        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel35.setText("Total Guests");
 
         totalGuests.addActionListener(new java.awt.event.ActionListener() {
@@ -1243,9 +1243,10 @@ AutoCompletion.enable(countryList);
             resReservationTbl.getColumnModel().getColumn(10).setMaxWidth(0);
         }
 
-        jLabel32.setFont(new java.awt.Font("Montserrat", 1, 13)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel32.setText("Reservations");
 
+        jLabel33.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel33.setText("Rooms");
 
         javax.swing.GroupLayout reservationPaneLayout = new javax.swing.GroupLayout(reservationPane);
@@ -1255,26 +1256,27 @@ AutoCompletion.enable(countryList);
             .addGroup(reservationPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(reservationPaneLayout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
-                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(137, 137, 137))))))
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(137, 137, 137))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, reservationPaneLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, reservationPaneLayout.createSequentialGroup()
+                        .addGroup(reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, reservationPaneLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, reservationPaneLayout.createSequentialGroup()
+                                .addGap(157, 157, 157)
+                                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, reservationPaneLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(14, Short.MAX_VALUE))))
         );
         reservationPaneLayout.setVerticalGroup(
             reservationPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1283,15 +1285,15 @@ AutoCompletion.enable(countryList);
                 .addComponent(jLabel32)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reservationPaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
@@ -1415,7 +1417,7 @@ AutoCompletion.enable(countryList);
         StaffAssign.setLayout(StaffAssignLayout);
         StaffAssignLayout.setHorizontalGroup(
             StaffAssignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(custInfoAddScroller1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+            .addComponent(custInfoAddScroller1, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
         );
         StaffAssignLayout.setVerticalGroup(
             StaffAssignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1691,18 +1693,18 @@ AutoCompletion.enable(countryList);
         BillingPane.setLayout(BillingPaneLayout);
         BillingPaneLayout.setHorizontalGroup(
             BillingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+            .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
         );
         BillingPaneLayout.setVerticalGroup(
             BillingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BillingPaneLayout.createSequentialGroup()
                 .addComponent(custInfoAddScroller2, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("tab1", BillingPane);
 
-        jPanel1.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 68, 810, -1));
+        jPanel1.add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 68, 830, -1));
 
         menusPane.setBackground(new java.awt.Color(210, 210, 210));
 
