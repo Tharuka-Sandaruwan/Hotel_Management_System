@@ -1539,8 +1539,8 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel20" min="-2" pref="111" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                          <Component id="jLabel20" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="custIdStaff" min="-2" pref="122" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                           <Component id="test" min="-2" max="-2" attributes="0"/>
@@ -1551,18 +1551,16 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel25" min="-2" pref="177" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                                  <Component id="roomTypesFrm" min="-2" pref="674" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="notifyStaffBtn" min="-2" pref="122" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="jLabel25" min="-2" pref="177" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                          <Component id="roomTypesFrm" min="-2" pref="662" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="notifyStaffBtn" min="-2" pref="122" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="47" max="32767" attributes="0"/>
+                                  <EmptySpace pref="83" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1585,7 +1583,7 @@
                                           <Component id="roomTypesFrm" min="-2" pref="518" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
                                           <Component id="notifyStaffBtn" min="-2" pref="72" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1598,7 +1596,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel20">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="18" style="1"/>
+                              <Font name="Montserrat" size="18" style="1"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Customer ID"/>
                           </Properties>
@@ -1606,7 +1604,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel21">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="18" style="1"/>
+                              <Font name="Montserrat" size="18" style="1"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Customer Name"/>
                           </Properties>
@@ -1614,7 +1612,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel25">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="18" style="1"/>
+                              <Font name="Montserrat" size="18" style="1"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Rooms reserved :"/>
                           </Properties>
@@ -1622,10 +1620,10 @@
                         <Container class="javax.swing.JScrollPane" name="roomTypesFrm">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="33" green="0" red="ff" type="rgb"/>
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="33" green="ff" red="33" type="rgb"/>
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
                           </Properties>
