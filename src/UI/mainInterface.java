@@ -85,10 +85,10 @@ public class mainInterface extends javax.swing.JFrame {
     }
     
     public void setAllPaneNotSelected(){
-        custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png"))); 
-        resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png")));
-        staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png")));
-        BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png")));
+        custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png"))); 
+        resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png")));
+        staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png")));
+        BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png")));
     
     }
 
@@ -349,10 +349,13 @@ AutoCompletion.enable(countryList);
         jLabel26 = new javax.swing.JLabel();
         custPaneLbl = new javax.swing.JLabel();
         reservationBtnPane = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
         resPaneLbl = new javax.swing.JLabel();
         BillingBtnPane = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
         BillPaneLbl = new javax.swing.JLabel();
         StaffAssignBtnPane1 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
         staffPaneLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1719,9 +1722,9 @@ AutoCompletion.enable(countryList);
         CustomerBtnPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel26.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel26.setFont(new java.awt.Font("Montserrat SemiBold", 1, 24)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Montserrat SemiBold", 1, 18)); // NOI18N
         jLabel26.setText("CUSTOMER");
-        CustomerBtnPane.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 160, 60));
+        CustomerBtnPane.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 160, 60));
 
         custPaneLbl.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/selected.png"))); // NOI18N
@@ -1744,10 +1747,14 @@ AutoCompletion.enable(countryList);
         });
         reservationBtnPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel36.setFont(new java.awt.Font("Montserrat SemiBold", 1, 18)); // NOI18N
+        jLabel36.setText("RESERVATIONS");
+        reservationBtnPane.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 220, 40));
+
         resPaneLbl.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png"))); // NOI18N
+        resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png"))); // NOI18N
         resPaneLbl.setText("Reservations");
-        reservationBtnPane.add(resPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 160, -1));
+        reservationBtnPane.add(resPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 230, 110));
 
         BillingBtnPane.setBackground(new java.awt.Color(210, 210, 210));
         BillingBtnPane.setForeground(new java.awt.Color(210, 210, 210));
@@ -1765,10 +1772,14 @@ AutoCompletion.enable(countryList);
         });
         BillingBtnPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel39.setFont(new java.awt.Font("Montserrat SemiBold", 1, 18)); // NOI18N
+        jLabel39.setText("PAYMENTS");
+        BillingBtnPane.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+
         BillPaneLbl.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png"))); // NOI18N
+        BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png"))); // NOI18N
         BillPaneLbl.setText("Billing");
-        BillingBtnPane.add(BillPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 70));
+        BillingBtnPane.add(BillPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 240, 110));
 
         StaffAssignBtnPane1.setBackground(new java.awt.Color(210, 210, 210));
         StaffAssignBtnPane1.setForeground(new java.awt.Color(210, 210, 210));
@@ -1786,10 +1797,14 @@ AutoCompletion.enable(countryList);
         });
         StaffAssignBtnPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel40.setFont(new java.awt.Font("Montserrat SemiBold", 1, 18)); // NOI18N
+        jLabel40.setText(" ASSIGN STAFF");
+        StaffAssignBtnPane1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
         staffPaneLbl.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png"))); // NOI18N
+        staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png"))); // NOI18N
         staffPaneLbl.setText("Staff Assign");
-        StaffAssignBtnPane1.add(staffPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 80));
+        StaffAssignBtnPane1.add(staffPaneLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -10, 240, 120));
 
         javax.swing.GroupLayout menusPaneLayout = new javax.swing.GroupLayout(menusPane);
         menusPane.setLayout(menusPaneLayout);
@@ -1799,8 +1814,8 @@ AutoCompletion.enable(countryList);
             .addComponent(StaffAssignBtnPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(menusPaneLayout.createSequentialGroup()
                 .addGroup(menusPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BillingBtnPane, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                    .addComponent(CustomerBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(CustomerBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(BillingBtnPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         menusPaneLayout.setVerticalGroup(
@@ -1808,13 +1823,13 @@ AutoCompletion.enable(countryList);
             .addGroup(menusPaneLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addComponent(CustomerBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(30, 30, 30)
                 .addComponent(reservationBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(32, 32, 32)
                 .addComponent(StaffAssignBtnPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(BillingBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(BillingBtnPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jPanel1.add(menusPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 200, 660));
@@ -1842,7 +1857,7 @@ AutoCompletion.enable(countryList);
         tabbedPane.setSelectedIndex(0);
         //custPaneLbl.setIcon(new ImageIcon(ImageIO.read( new File() ) ) );
         setAllPaneNotSelected();
-        custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanesSelected.png"))); 
+        custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/selected.png"))); 
 
     }//GEN-LAST:event_CustomerBtnPaneMouseClicked
 
@@ -1851,7 +1866,7 @@ AutoCompletion.enable(countryList);
         tabbedPane.setSelectedIndex(1);
         
         setAllPaneNotSelected();
-        resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanesSelected.png")));
+        resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/selected.png")));
 
     }//GEN-LAST:event_reservationBtnPaneMouseClicked
 
@@ -2152,7 +2167,7 @@ AutoCompletion.enable(countryList);
         tabbedPane.setSelectedIndex(3);
         
          setAllPaneNotSelected();
-        BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanesSelected.png"))); 
+        BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/selected.png"))); 
     }//GEN-LAST:event_BillingBtnPaneMouseClicked
 
     private void bilCustNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bilCustNameActionPerformed
@@ -2164,7 +2179,7 @@ AutoCompletion.enable(countryList);
         refreshStaff();
         
          setAllPaneNotSelected();
-        staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanesSelected.png"))); 
+        staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/selected.png"))); 
     }//GEN-LAST:event_StaffAssignBtnPane1MouseClicked
 
     private void extraChargeTickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraChargeTickActionPerformed
@@ -2882,14 +2897,14 @@ AutoCompletion.enable(countryList);
 
     private void CustomerBtnPaneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerBtnPaneMouseEntered
         if (tabbedPane.getSelectedIndex() != 0) {
-            custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanesHower.png"))); // NOI18N
+            custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/hoover.png"))); // NOI18N
         }
         
     }//GEN-LAST:event_CustomerBtnPaneMouseEntered
 
     private void CustomerBtnPaneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerBtnPaneMouseExited
       if (tabbedPane.getSelectedIndex() != 0) {
-            custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png"))); // NOI18N
+            custPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png"))); // NOI18N
         }
         
         
@@ -2897,38 +2912,38 @@ AutoCompletion.enable(countryList);
 
     private void reservationBtnPaneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservationBtnPaneMouseEntered
         if (tabbedPane.getSelectedIndex() != 1) {
-            resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanesHower.png"))); // NOI18N
+            resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/hoover.png"))); // NOI18N
         }
     }//GEN-LAST:event_reservationBtnPaneMouseEntered
 
     private void reservationBtnPaneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservationBtnPaneMouseExited
       if (tabbedPane.getSelectedIndex() != 1) {
-            resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png"))); // NOI18N
+            resPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png"))); // NOI18N
         }
     }//GEN-LAST:event_reservationBtnPaneMouseExited
 
     private void BillingBtnPaneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingBtnPaneMouseEntered
         if (tabbedPane.getSelectedIndex() != 3) {
-            BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanesHower.png"))); // NOI18N
+            BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/hoover.png"))); // NOI18N
         }
         
     }//GEN-LAST:event_BillingBtnPaneMouseEntered
 
     private void BillingBtnPaneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingBtnPaneMouseExited
         if (tabbedPane.getSelectedIndex() != 3) {
-            BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png"))); // NOI18N
+            BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png"))); // NOI18N
         }
     }//GEN-LAST:event_BillingBtnPaneMouseExited
 
     private void StaffAssignBtnPane1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StaffAssignBtnPane1MouseEntered
        if (tabbedPane.getSelectedIndex() != 2) {
-            staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanesHower.png"))); // NOI18N
+            staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/hoover.png"))); // NOI18N
         }
     }//GEN-LAST:event_StaffAssignBtnPane1MouseEntered
 
     private void StaffAssignBtnPane1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StaffAssignBtnPane1MouseExited
       if (tabbedPane.getSelectedIndex() != 2) {
-            staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MenuPanes.png"))); // NOI18N
+            staffPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/normal.png"))); // NOI18N
         }
     }//GEN-LAST:event_StaffAssignBtnPane1MouseExited
 
@@ -3033,9 +3048,12 @@ AutoCompletion.enable(countryList);
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
