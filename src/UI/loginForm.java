@@ -98,6 +98,9 @@ public class loginForm extends javax.swing.JFrame {
            
         }else{
             JOptionPane.showMessageDialog(null, "Username or Password is Incorrect!", "Invalid Login", JOptionPane.ERROR_MESSAGE);
+            
+            jPasswordTxt.setText("");
+            userNameTxt.setText("");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
