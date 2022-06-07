@@ -400,6 +400,7 @@ AutoCompletion.enable(countryList);
         jPanel1.add(titlePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1030, 130));
 
         CustomerPane.setBackground(new java.awt.Color(255, 255, 255));
+        CustomerPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tableScroller.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -460,6 +461,8 @@ AutoCompletion.enable(countryList);
             cusTable.getColumnModel().getColumn(8).setMinWidth(100);
             cusTable.getColumnModel().getColumn(8).setPreferredWidth(100);
         }
+
+        CustomerPane.add(tableScroller, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 15, 416, 241));
 
         custInfoAddScroller.setBackground(new java.awt.Color(204, 204, 204));
         custInfoAddScroller.setBorder(null);
@@ -730,49 +733,14 @@ AutoCompletion.enable(countryList);
 
         custInfoAddScroller.setViewportView(jPanel2);
 
+        CustomerPane.add(custInfoAddScroller, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 396, 702));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/saiLogoSmall.png"))); // NOI18N
         jLabel1.setText("jLabel1");
+        CustomerPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 540, 142, 85));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/customerLogo_1.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-
-        javax.swing.GroupLayout CustomerPaneLayout = new javax.swing.GroupLayout(CustomerPane);
-        CustomerPane.setLayout(CustomerPaneLayout);
-        CustomerPaneLayout.setHorizontalGroup(
-            CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(custInfoAddScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(CustomerPaneLayout.createSequentialGroup()
-                            .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerPaneLayout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(74, 74, 74)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerPaneLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        CustomerPaneLayout.setVerticalGroup(
-            CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CustomerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CustomerPaneLayout.createSequentialGroup()
-                        .addComponent(custInfoAddScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(CustomerPaneLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(tableScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/customerPane.png"))); // NOI18N
+        CustomerPane.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 266, 350, 290));
 
         tabbedPane.addTab("tab1", CustomerPane);
 
