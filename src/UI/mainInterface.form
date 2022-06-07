@@ -1891,7 +1891,7 @@
                                 </Property>
                               </Properties>
                               <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="CustomerIdComboGenerator.loadCustomerID(bilCustId);  AutoCompletion.enable(bilCustId); "/>
+                                <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="CustomerIdComboGenerator.loadCustomerIDStaffAssign(bilCustId);  AutoCompletion.enable(bilCustId);"/>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>

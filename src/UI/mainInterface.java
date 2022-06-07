@@ -1556,7 +1556,7 @@ AutoCompletion.enable(countryList);
         jLabel41.setFont(new java.awt.Font("Montserrat", 1, 13)); // NOI18N
         jLabel41.setText("TOTAL CHARGE Rs.");
 
-        CustomerIdComboGenerator.loadCustomerID(bilCustId);  AutoCompletion.enable(bilCustId);
+        CustomerIdComboGenerator.loadCustomerIDStaffAssign(bilCustId);  AutoCompletion.enable(bilCustId);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -2145,7 +2145,8 @@ AutoCompletion.enable(countryList);
 
     private void BillingBtnPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingBtnPaneMouseClicked
         tabbedPane.setSelectedIndex(3);
-        
+        bilCustId.removeAllItems();
+CustomerIdComboGenerator.loadCustomerIDStaffAssign(bilCustId);
          setAllPaneNotSelected();
         BillPaneLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/selected.png"))); 
     }//GEN-LAST:event_BillingBtnPaneMouseClicked
