@@ -91,24 +91,15 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="jLabel6" min="-2" pref="377" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="jLabel3" min="-2" pref="275" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="438" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <Component id="jLabel6" min="-2" pref="377" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                                              <Component id="balAmnt" min="-2" pref="232" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel3" min="-2" pref="275" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="438" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -126,17 +117,15 @@
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="totalChargeTxtBill" min="-2" pref="288" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="paidLbl" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                                      <Component id="painAmnt" min="-2" pref="238" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="paidLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="balLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="balAmnt" min="-2" pref="232" max="-2" attributes="0"/>
+                                                  <Component id="totalChargeTxtBill" min="-2" pref="288" max="-2" attributes="0"/>
+                                                  <Component id="painAmnt" min="-2" pref="238" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>

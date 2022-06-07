@@ -343,17 +343,23 @@ public class checkoutPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        if(dataValidator.numberValidator(paidAmount)){
+        if (paidAmount.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Paid amount is empty!", "Empty Value", JOptionPane.ERROR_MESSAGE);
+        }else{
+             if(dataValidator.numberValidator(paidAmount)){
             
             if(Double.parseDouble(paidAmount.getText())>= globalVars.totalChargesBill){
                  reciptGeneratorCash(Double.parseDouble(paidAmount.getText()));
             }else{
-            JOptionPane.showMessageDialog(null, "Customer paid amount is insufficient!", "Insufficient Payment", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Customer paid amount is insufficient! Need to pay extra Rs. "+(-Double.parseDouble(paidAmount.getText())+ globalVars.totalChargesBill)+"", "Insufficient Payment", JOptionPane.ERROR_MESSAGE);
             }
             
         }else{
               JOptionPane.showMessageDialog(null, "Paid amount is invalid!", "Invalid Value", JOptionPane.ERROR_MESSAGE);
         }
+        
+        }
+       
        
     }//GEN-LAST:event_jButton5ActionPerformed
 
