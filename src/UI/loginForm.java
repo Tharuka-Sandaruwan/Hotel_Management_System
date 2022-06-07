@@ -18,6 +18,8 @@ public class loginForm extends javax.swing.JFrame {
      */
     public loginForm() {
         initComponents();
+        this.setSize(1280, 720);
+        this.setResizable(false);
     }
 
     /**
@@ -38,22 +40,23 @@ public class loginForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Login");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPasswordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 584, 210, 30));
+        jPanel1.add(jPasswordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 510, 210, 30));
 
         jLabel2.setFont(new java.awt.Font("Montserrat SemiBold", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(89, 89, 89));
         jLabel2.setText("Password :");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 580, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, -1, -1));
 
         userNameTxt.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jPanel1.add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 210, 30));
+        jPanel1.add(userNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 210, 30));
 
         jLabel3.setFont(new java.awt.Font("Montserrat SemiBold", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(89, 89, 89));
         jLabel3.setText("Username :");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(89, 89, 89));
         jButton1.setFont(new java.awt.Font("Montserrat Medium", 1, 14)); // NOI18N
@@ -64,7 +67,7 @@ public class loginForm extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, 120, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, 120, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/loginsas.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 700));
