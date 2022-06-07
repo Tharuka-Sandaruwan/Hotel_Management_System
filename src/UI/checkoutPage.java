@@ -4,9 +4,12 @@
  */
 package UI;
 
+import Classes.dataValidator;
+import Classes.globalVars;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -203,6 +206,14 @@ public class checkoutPage extends javax.swing.JFrame {
                 paidAmountActionPerformed(evt);
             }
         });
+        paidAmount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                paidAmountKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                paidAmountKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -332,13 +343,31 @@ public class checkoutPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if(dataValidator.numberValidator(paidAmount)){
+            
+            if(Double.parseDouble(paidAmount.getText())>= globalVars.totalChargesBill){
+                 reciptGeneratorCash(Double.parseDouble(paidAmount.getText()));
+            }else{
+            JOptionPane.showMessageDialog(null, "Customer paid amount is insufficient!", "Insufficient Payment", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        }else{
+              JOptionPane.showMessageDialog(null, "Paid amount is invalid!", "Invalid Value", JOptionPane.ERROR_MESSAGE);
+        }
        
-        reciptGeneratorCash(Double.parseDouble(paidAmount.getText()));
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void paidAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paidAmountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_paidAmountActionPerformed
+
+    private void paidAmountKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paidAmountKeyPressed
+      dataValidator.numberValidator(paidAmount);
+    }//GEN-LAST:event_paidAmountKeyPressed
+
+    private void paidAmountKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paidAmountKeyReleased
+        dataValidator.numberValidator(paidAmount);
+    }//GEN-LAST:event_paidAmountKeyReleased
 
     /**
      * @param args the command line arguments
