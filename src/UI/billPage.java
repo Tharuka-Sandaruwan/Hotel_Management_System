@@ -37,6 +37,12 @@ LocalDateTime now = LocalDateTime.now();
         setSize(830, 850);
         this.toFront();
         
+        paidLbl.setText("");
+           
+        painAmnt.setText("");
+        balLbl.setText("");
+        balAmnt.setText("");
+        
         
 
          CustomerIdComboGenerator.loadCustomerInfoToTxtArea(custAddressTxtArea, globalVars.CustIdBill);
@@ -54,7 +60,29 @@ LocalDateTime now = LocalDateTime.now();
          
     }
 
-    
+        public billPage(double cash) {
+        initComponents();
+        setResizable(false);
+        setSize(830, 850);
+        this.toFront();
+        
+        balAmnt.setText(dataValidator.monetaryValue(cash-globalVars.totalChargesBill));
+        painAmnt.setText(dataValidator.monetaryValue(cash));
+
+         CustomerIdComboGenerator.loadCustomerInfoToTxtArea(custAddressTxtArea, globalVars.CustIdBill);
+         
+         Double totalPackCharge = billPackagesTblRefresh(packageChargesBil.getModel(), globalVars.CustIdBill);
+         totalPackageChargeBil.setText(dataValidator.monetaryValue(totalPackCharge));
+         
+         Double totalRoomCharge = billRoomChargeTblrefresh(roomChargesBil.getModel(), globalVars.CustIdBill);
+         totalRoomCharges.setText(dataValidator.monetaryValue(totalRoomCharge));
+         
+         liableChargeTxtBill.setText(globalVars.liableChargesBill);
+         
+         totalChargeTxtBill.setText(dataValidator.monetaryValue(globalVars.totalChargesBill));
+         
+         
+    }
     
 
     
@@ -93,6 +121,10 @@ LocalDateTime now = LocalDateTime.now();
         jScrollPane3 = new javax.swing.JScrollPane();
         packageChargesBil = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        paidLbl = new javax.swing.JLabel();
+        painAmnt = new javax.swing.JLabel();
+        balLbl = new javax.swing.JLabel();
+        balAmnt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Recipt");
@@ -218,6 +250,18 @@ LocalDateTime now = LocalDateTime.now();
 
         jLabel3.setText("Recipt generated on "+getDateTime());
 
+        paidLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        paidLbl.setText("Customer paid amount (Rs.) :");
+
+        painAmnt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        painAmnt.setText("paid");
+
+        balLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        balLbl.setText("Balance (Rs.) :");
+
+        balAmnt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        balAmnt.setText("balance");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -254,14 +298,20 @@ LocalDateTime now = LocalDateTime.now();
                                     .addGap(101, 101, 101)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(135, 135, 135))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(438, 438, 438)))
+                                        .addContainerGap()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(135, 135, 135))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(438, 438, 438))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGap(175, 175, 175)
+                                        .addComponent(balAmnt, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addComponent(jButton1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
@@ -273,9 +323,17 @@ LocalDateTime now = LocalDateTime.now();
                                         .addGap(18, 18, 18)
                                         .addComponent(liableChargeTxtBill, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(totalChargeTxtBill)))))))
+                                        .addGap(6, 6, 6)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(totalChargeTxtBill, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(paidLbl)
+                                                .addGap(42, 42, 42)
+                                                .addComponent(painAmnt, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(balLbl))))))))
                 .addContainerGap(286, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -314,21 +372,28 @@ LocalDateTime now = LocalDateTime.now();
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(liableChargeTxtBill))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(totalChargeTxtBill))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(paidLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(painAmnt))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(totalChargeTxtBill))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(balLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(balAmnt))
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)))
+                .addContainerGap())
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -384,6 +449,8 @@ LocalDateTime now = LocalDateTime.now();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel balAmnt;
+    private javax.swing.JLabel balLbl;
     private javax.swing.JTextArea custAddressTxtArea;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -405,6 +472,8 @@ LocalDateTime now = LocalDateTime.now();
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel liableChargeTxtBill;
     private javax.swing.JTable packageChargesBil;
+    private javax.swing.JLabel paidLbl;
+    private javax.swing.JLabel painAmnt;
     private javax.swing.JTable roomChargesBil;
     private javax.swing.JLabel totalChargeTxtBill;
     private javax.swing.JTextField totalPackageChargeBil;
