@@ -2,6 +2,8 @@
 package Classes;
 
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
@@ -31,7 +33,10 @@ public class testClass {
 //System.out.println(formatter.format(amount));
 
 
-        System.out.println(dataValidator.monetaryValue(2000514.12));
+//        System.out.println(dataValidator.monetaryValue(2000514.12));
         
+DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
+LocalDateTime now = LocalDateTime.now();
+        System.out.println(dtf.format(now));
             }
 }
