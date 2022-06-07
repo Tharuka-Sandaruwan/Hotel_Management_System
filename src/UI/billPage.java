@@ -39,12 +39,14 @@ LocalDateTime now = LocalDateTime.now();
         this.toFront();
         
         paidLbl.setText("");
-           
         painAmnt.setText("");
         balLbl.setText("");
         balAmnt.setText("");
         
-        
+        balUnder1.setVisible(false);
+        balUnder2.setVisible(false);
+        totalUnder1.setVisible(true);
+        totalUnder2.setVisible(true);
 
          CustomerIdComboGenerator.loadCustomerInfoToTxtArea(custAddressTxtArea, globalVars.CustIdBill);
          
@@ -66,6 +68,12 @@ LocalDateTime now = LocalDateTime.now();
         setResizable(false);
         setSize(830, 850);
         this.toFront();
+        
+        balUnder1.setVisible(true);
+        balUnder2.setVisible(true);
+        totalUnder1.setVisible(true);
+        totalUnder2.setVisible(false);
+        
         
         balAmnt.setText(dataValidator.monetaryValue(cash-globalVars.totalChargesBill));
         painAmnt.setText(dataValidator.monetaryValue(cash));
@@ -126,6 +134,11 @@ LocalDateTime now = LocalDateTime.now();
         painAmnt = new javax.swing.JLabel();
         balLbl = new javax.swing.JLabel();
         balAmnt = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        totalUnder1 = new javax.swing.JSeparator();
+        totalUnder2 = new javax.swing.JSeparator();
+        balUnder1 = new javax.swing.JSeparator();
+        balUnder2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Recipt");
@@ -135,9 +148,11 @@ LocalDateTime now = LocalDateTime.now();
 
         jPanel1.setBackground(new java.awt.Color(210, 210, 210));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/saii holiday inn.png"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 33, 357, -1));
 
         roomChargesBil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,17 +194,24 @@ LocalDateTime now = LocalDateTime.now();
             roomChargesBil.getColumnModel().getColumn(6).setPreferredWidth(150);
         }
 
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 480, 776, 183));
+
         jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel27.setText("Charges for the reserved rooms");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 437, 315, -1));
 
         totalRoomCharges.setEditable(false);
+        jPanel1.add(totalRoomCharges, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 690, 156, -1));
 
-        jLabel24.setText("Total Charge for the rooms");
+        jLabel24.setText("Total Charge for the rooms  Rs.");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 680, 200, 31));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel29.setText("Charges for Selected Package");
+        jLabel29.setText("Charges for selected package");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 744, 315, -1));
 
-        jLabel31.setText("Total Charge for the Packages");
+        jLabel31.setText("Total Charge for the Packages Rs.");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 890, 200, 31));
 
         totalPackageChargeBil.setEditable(false);
         totalPackageChargeBil.addActionListener(new java.awt.event.ActionListener() {
@@ -197,19 +219,27 @@ LocalDateTime now = LocalDateTime.now();
                 totalPackageChargeBilActionPerformed(evt);
             }
         });
+        jPanel1.add(totalPackageChargeBil, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 900, 106, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 170, 655, 10));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 409, 655, 10));
 
-        jLabel4.setText("Liable charges if any (Rs.):");
+        jLabel4.setText("Liable charges if any (Rs.) :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 920, 170, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setText("Total Charge (Rs.) :");
+        jLabel5.setText("Total charge (Rs.) :");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 982, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel6.setText("Thank you and Come again!");
+        jLabel6.setText("Thank you and come again!");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 1060, 377, -1));
 
         liableChargeTxtBill.setText("Liable charge");
+        jPanel1.add(liableChargeTxtBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 920, 144, -1));
 
         totalChargeTxtBill.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         totalChargeTxtBill.setText("Total Charge :");
+        jPanel1.add(totalChargeTxtBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 982, 288, -1));
 
         custAddressTxtArea.setEditable(false);
         custAddressTxtArea.setColumns(20);
@@ -218,15 +248,19 @@ LocalDateTime now = LocalDateTime.now();
         custAddressTxtArea.setRows(5);
         jScrollPane2.setViewportView(custAddressTxtArea);
 
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 186, -1, 205));
+
         jButton1.setText("Print");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(719, 1004, -1, 39));
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jLabel2.setText("<html>SAI Holiday Inn,<br/>Kuliyapitiya,<br/>Sri Lanka.<br/>E-Mail : inbox@saiholidayinn.com<br/>Tele : +94 78 8775 214<br/>Web : www.saiholidayinn.com</html>");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 18, 358, 140));
 
         packageChargesBil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -249,146 +283,31 @@ LocalDateTime now = LocalDateTime.now();
         packageChargesBil.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(packageChargesBil);
 
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 780, 544, 100));
+
         jLabel3.setText("Recipt generated on "+getDateTime());
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 275, -1));
 
         paidLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         paidLbl.setText("Customer paid amount (Rs.) :");
+        jPanel1.add(paidLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 949, -1, -1));
 
         painAmnt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         painAmnt.setText("paid");
+        jPanel1.add(painAmnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 949, 238, -1));
 
         balLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         balLbl.setText("Balance (Rs.) :");
+        jPanel1.add(balLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 1013, -1, -1));
 
         balAmnt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         balAmnt.setText("balance");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(54, 54, 54)
-                            .addComponent(totalRoomCharges, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(291, 291, 291)
-                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(totalPackageChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(101, 101, 101)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(135, 135, 135))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(438, 438, 438)))
-                                .addComponent(jButton1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(liableChargeTxtBill, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(paidLbl)
-                                            .addComponent(jLabel5)
-                                            .addComponent(balLbl))
-                                        .addGap(42, 42, 42)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(balAmnt, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(totalChargeTxtBill, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(painAmnt, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                .addContainerGap(286, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(33, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel27)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalRoomCharges, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jLabel29)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(totalPackageChargeBil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(liableChargeTxtBill))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(paidLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(painAmnt))
-                        .addGap(8, 8, 8)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(totalChargeTxtBill))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(balLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(balAmnt))
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
-                .addContainerGap())
-        );
+        jPanel1.add(balAmnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 1020, 232, -1));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 940, 610, 30));
+        jPanel1.add(totalUnder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 1010, 170, 50));
+        jPanel1.add(totalUnder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 1020, 170, 50));
+        jPanel1.add(balUnder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 1050, 170, 50));
+        jPanel1.add(balUnder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 1060, 170, 50));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -449,6 +368,8 @@ LocalDateTime now = LocalDateTime.now();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel balAmnt;
     private javax.swing.JLabel balLbl;
+    private javax.swing.JSeparator balUnder1;
+    private javax.swing.JSeparator balUnder2;
     private javax.swing.JTextArea custAddressTxtArea;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -468,6 +389,7 @@ LocalDateTime now = LocalDateTime.now();
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel liableChargeTxtBill;
     private javax.swing.JTable packageChargesBil;
     private javax.swing.JLabel paidLbl;
@@ -476,5 +398,7 @@ LocalDateTime now = LocalDateTime.now();
     private javax.swing.JLabel totalChargeTxtBill;
     private javax.swing.JTextField totalPackageChargeBil;
     private javax.swing.JTextField totalRoomCharges;
+    private javax.swing.JSeparator totalUnder1;
+    private javax.swing.JSeparator totalUnder2;
     // End of variables declaration//GEN-END:variables
 }
