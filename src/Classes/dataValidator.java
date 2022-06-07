@@ -10,17 +10,46 @@ import javax.swing.JTextField;
 
 //used to validate data when entering
 public class dataValidator {
+    
+    //passport validator
+        public static boolean isValidPassportNo(String str)
+    {
+        // Regex to check valid.
+       
+        String regex = "^[A-PR-WYa-pr-wy][1-9]\\d"
+                       + "\\s?\\d{4}[1-9]$";
+ 
+        // Compile the ReGex
+        Pattern p = Pattern.compile(regex);
+ 
+        // If the string is empty
+        // return false
+        if (str == null) {
+            return false;
+        }
+ 
+        // Find match between given string
+        // and regular expression
+        // using Pattern.matcher()
+        Matcher m = p.matcher(str);
+ 
+        // Return if the string
+        // matched the ReGex
+        return m.matches();
+    }
+    
+    
 
     public static boolean NICvalidator(JTextField textFilds) {
         String nicNumber = textFilds.getText();
         
-        if (nicNumber.length() == 12 && nicNumber.matches("[0-9]+")
-                && Integer.parseInt(nicNumber.substring(4, 7)) < 867) {
+        if (nicNumber.length() == 12 && nicNumber.matches("[0-9]+")   //below is passport validator part
+                && Integer.parseInt(nicNumber.substring(4, 7)) < 867 || isValidPassportNo(nicNumber)) {
             textFilds.setBorder(mainInterface.Bordergood());
             return true;
         } else if (nicNumber.length() == 10 && nicNumber.indexOf("V") == 9
                 && nicNumber.matches("[0-9]+(.*)V")
-                && Integer.parseInt(nicNumber.substring(2, 5)) < 867) {
+                && Integer.parseInt(nicNumber.substring(2, 5)) < 867   || isValidPassportNo(nicNumber)) {
                         textFilds.setBorder(mainInterface.Bordergood());
             return true;
         } else {
