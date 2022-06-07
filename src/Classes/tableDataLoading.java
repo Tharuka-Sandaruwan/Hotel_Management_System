@@ -251,8 +251,8 @@ public class tableDataLoading {
             while (rs.next()) {
                 //System.out.println(rs.getString(1) + "  " + rs.getString(2) + "  " + rs.getInt(3));
                 // NEED TO ADD OTHER STRINGS TO THIS QUERY
-                totalPackage += rs.getDouble(3);
-                String tblData[] = {rs.getString(1),rs.getString(2),rs.getString(3)};
+                totalPackage += rs.getDouble(6);
+                String tblData[] = {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(5),rs.getString(6)};
                               
                 tblModel.addRow(tblData);
                 
