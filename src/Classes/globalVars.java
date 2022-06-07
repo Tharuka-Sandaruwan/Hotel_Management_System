@@ -28,8 +28,13 @@ public class globalVars {
     
     
     public static String CustIdBill ;
-    public static String liableChargesBill ;
-    public static String totalChargesBill ;
+    public static String liableChargesBill;
+    public static double totalChargesBill = 0.0;
+
+    
+    
+    public static double totalRoomCharges = 0.0;
+    public static double totalPackagecharge = 0.0;
 
     
 

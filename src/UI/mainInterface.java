@@ -2205,6 +2205,8 @@ AutoCompletion.enable(countryList);
     }//GEN-LAST:event_extraChargeTickActionPerformed
 
     private void generateBillBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateBillBtnActionPerformed
+        System.out.println(globalVars.totalPackagecharge +" " + globalVars.totalRoomCharges);
+        
         if (roomChargesBil.getRowCount() ==0) {
           JOptionPane.showMessageDialog(null, "No charges associated with the customer !", "No associated Data!", JOptionPane.ERROR_MESSAGE);
           checkoutBtnBil.setEnabled(false); 
@@ -2218,17 +2220,30 @@ AutoCompletion.enable(countryList);
         }else{
             
         if (dataValidator.numberValidator(extraChargesBil) && extraChargesBil.getText().matches("[0-9]+") && extraChargeTick.isSelected()) {       
-            totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) + Double.parseDouble(extraChargesBil.getText())));
-            checkoutBtnBil.setEnabled(true);
-            
+           
+            //  totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) + Double.parseDouble(extraChargesBil.getText())));
+          totalChargeBil.setText(dataValidator.monetaryValue(globalVars.totalRoomCharges+globalVars.totalPackagecharge + Double.parseDouble(extraChargesBil.getText()))); 
+          globalVars.totalChargesBill=(globalVars.totalRoomCharges+globalVars.totalPackagecharge + Double.parseDouble(extraChargesBil.getText()));
+
+          checkoutBtnBil.setEnabled(true);
+           
+
         }
-        else if (extraChargesBil.getText().matches("") && dataValidator.numberValidator(extraChargesBil)) {       
-            totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText())));
+        else if (extraChargesBil.getText().matches("") && dataValidator.numberValidator(extraChargesBil)) {   
+            
+// totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText())));
+           totalChargeBil.setText(dataValidator.monetaryValue(globalVars.totalRoomCharges+globalVars.totalPackagecharge ));
+           
+            //dataValidator.monetaryValue(globalVars.totalRoomCharges+globalVars.totalPackagecharge + Double.parseDouble(extraChargesBil.getText()))
+            globalVars.totalChargesBill=(globalVars.totalRoomCharges+globalVars.totalPackagecharge );
+
             checkoutBtnBil.setEnabled(true);
            
         }
         else{
-            totalChargeBil.setText(String.valueOf(Double.parseDouble(totalRoomCharges.getText()) +Double.parseDouble(totalPackageChargeBil.getText()) ));
+            totalChargeBil.setText(dataValidator.monetaryValue(globalVars.totalRoomCharges+globalVars.totalPackagecharge + Double.parseDouble(extraChargesBil.getText())));
+            globalVars.totalChargesBill=(globalVars.totalRoomCharges+globalVars.totalPackagecharge + Double.parseDouble(extraChargesBil.getText()));
+            
             checkoutBtnBil.setEnabled(true);
            
 
@@ -2252,7 +2267,7 @@ AutoCompletion.enable(countryList);
         this.setEnabled(false);
         
         globalVars.CustIdBill =  bilCustId.getSelectedItem().toString();
-        globalVars.totalChargesBill = totalChargeBil.getText();
+        //globalVars.totalChargesBill = totalChargeBil.getText();
         
         if(extraChargeTick.isSelected()){
              globalVars.liableChargesBill = extraChargesBil.getText();
@@ -2757,11 +2772,13 @@ AutoCompletion.enable(countryList);
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        CustomerIdComboGenerator.loadCustomerName(bilCustName, bilCustId.getSelectedItem().toString());
        
-        Double totalPackCharge = billPackagesTblRefresh(packageChargesBil.getModel(), bilCustId.getSelectedItem().toString());
-        totalPackageChargeBil.setText(totalPackCharge.toString());
+        double totalPackCharge = billPackagesTblRefresh(packageChargesBil.getModel(), bilCustId.getSelectedItem().toString());
+        globalVars.totalPackagecharge = totalPackCharge;
+        totalPackageChargeBil.setText(dataValidator.monetaryValue(totalPackCharge));
         
-        Double totalRoomCharge = billRoomChargeTblrefresh(roomChargesBil.getModel(), bilCustId.getSelectedItem().toString());
-        totalRoomCharges.setText(totalRoomCharge.toString());
+        double totalRoomCharge = billRoomChargeTblrefresh(roomChargesBil.getModel(), bilCustId.getSelectedItem().toString());
+        globalVars.totalRoomCharges = totalRoomCharge;
+        totalRoomCharges.setText(dataValidator.monetaryValue(totalRoomCharge));
         
         totalChargeBil.setText("");
         extraChargesBil.setBorder(Bordergood());

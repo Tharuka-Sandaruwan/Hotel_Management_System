@@ -4,12 +4,21 @@ import UI.mainInterface;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
+import java.text.DecimalFormat;
 import java.util.regex.*;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
 //used to validate data when entering
 public class dataValidator {
+    
+    public static String monetaryValue(double value){
+
+DecimalFormat formatter = new DecimalFormat("#,###.00");
+
+return formatter.format(value);
+    }
+    
     
     //passport validator
         public static boolean isValidPassportNo(String str)

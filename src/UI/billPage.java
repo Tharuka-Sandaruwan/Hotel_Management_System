@@ -5,6 +5,7 @@
 package UI;
 
 import Classes.CustomerIdComboGenerator;
+import Classes.dataValidator;
 import Classes.globalVars;
 import static Classes.tableDataLoading.billPackagesTblRefresh;
 import static Classes.tableDataLoading.billRoomChargeTblrefresh;
@@ -31,14 +32,16 @@ public class billPage extends javax.swing.JFrame {
          CustomerIdComboGenerator.loadCustomerInfoToTxtArea(custAddressTxtArea, globalVars.CustIdBill);
          
          Double totalPackCharge = billPackagesTblRefresh(packageChargesBil.getModel(), globalVars.CustIdBill);
-         totalPackageChargeBil.setText(totalPackCharge.toString());
+         totalPackageChargeBil.setText(dataValidator.monetaryValue(totalPackCharge));
          
          Double totalRoomCharge = billRoomChargeTblrefresh(roomChargesBil.getModel(), globalVars.CustIdBill);
-         totalRoomCharges.setText(totalRoomCharge.toString());
+         totalRoomCharges.setText(dataValidator.monetaryValue(totalRoomCharge));
          
          liableChargeTxtBill.setText(globalVars.liableChargesBill);
          
-         totalChargeTxtBill.setText(globalVars.totalChargesBill);
+         totalChargeTxtBill.setText(dataValidator.monetaryValue(globalVars.totalChargesBill));
+         
+         
     }
 
     
@@ -151,10 +154,10 @@ public class billPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Liable charges if any:");
+        jLabel4.setText("Liable charges if any (Rs.):");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setText("Total Charge :");
+        jLabel5.setText("Total Charge (Rs.) :");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setText("Thank you and Come again!");
@@ -234,7 +237,7 @@ public class billPage extends javax.swing.JFrame {
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGap(18, 18, 18)
                                     .addComponent(liableChargeTxtBill, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel5)
