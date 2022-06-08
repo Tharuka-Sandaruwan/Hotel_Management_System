@@ -10,4 +10,6 @@ public class DBCredentials {
     public static final String username = "root";
     public static final String password = "t00rbada!";
     public static final String connectString = "jdbc:mysql://localhost:3306/hotelmanagementsystem"; 
+    
+
 }
